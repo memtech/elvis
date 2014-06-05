@@ -6,6 +6,10 @@
 
 Coming soon: auto-deploy via [Wercker](http://wercker.com/)
 
+## Where to find more scripts:
+* http://hubot-script-catalog.herokuapp.com/
+* Any of the ones listed at [github/hubot-scripts](https://github.com/github/hubot-scripts) can be included just by adding the filename to `hubot-scripts.json`.
+
 # Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
