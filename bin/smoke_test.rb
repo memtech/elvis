@@ -20,6 +20,7 @@ def main
 end
 
 def start_headless_bot!
+  puts "Starting headless bot..."
   IO::popen("./bin/hubot > #{LOGFILENAME}")
 end
 
