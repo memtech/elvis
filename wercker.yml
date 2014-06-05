@@ -1,4 +1,6 @@
 box: wercker/nodejs
+services:
+- wercker/redis@0.0.8
 # Build definition
 build:
   # The steps that will be executed on build
