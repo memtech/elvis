@@ -1,3 +1,11 @@
+## Get started contributing
+* Install [NodeJS](http://nodejs.org/)
+* Clone this repo: `git clone git@github.com:memtech/memtech-hubot.git`
+* Add a script to `/scripts/`
+* Push to github
+
+Coming soon: auto-deploy via [Wercker](http://wercker.com/)
+
 # Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
