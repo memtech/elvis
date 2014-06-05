@@ -1,1 +1,1 @@
-web: ./connect.rb
+web: ./bin/connect.rb
