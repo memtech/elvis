@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/c7d82813f21d79049b027779bd4781e4/m "wercker status")](https://app.wercker.com/project/bykey/c7d82813f21d79049b027779bd4781e4)
+
 ## Get started contributing
 * Install [NodeJS](http://nodejs.org/)
 * Clone this repo: `git clone git@github.com:memtech/memtech-hubot.git`
