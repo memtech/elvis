@@ -1,7 +1,18 @@
-["redis-brain.coffee", 
-"alot.coffee",
-"shipit.coffee",
-"calm-down.coffee",
-"ruby.coffee",
-"xkcd.coffee",
-"catfacts.coffee"]
+[
+  "alot.coffee",
+  "ackbar.coffee",
+  "adult.coffee",
+  "applause.coffee",
+  "bees.coffee",
+  "carlton.coffee",
+  "calm-down.coffee",
+  "catfacts.coffee",
+  "disassemble.coffee",
+  "facepalm.coffee",
+  "likeaboss.coffee",
+  "redis-brain.coffee",
+  "ruby.coffee",
+  "shipit.coffee",
+  "xkcd.coffee",
+  "zombies.coffee"
+]
