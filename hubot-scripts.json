@@ -1,4 +1,5 @@
 ["redis-brain.coffee", 
+"alot.coffee",
 "shipit.coffee",
 "calm-down.coffee",
 "ruby.coffee",
