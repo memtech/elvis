@@ -71,7 +71,8 @@ module.exports = (robot) ->
 
     emit = cmds.join "\n"
 
-    msg.send emit
+    msg.send process.env.LONG_TEXT_HINT
+    msg.sendPrivate emit
 
   robot.router.get "/#{robot.name}/help", (req, res) ->
     cmds = robot.helpCommands().map (cmd) ->
