@@ -21,7 +21,6 @@ module.exports = (robot) ->
     msg.send base_url + msg.match[1]
 
   robot.respond /meetup (.*)/i, (msg) ->
-    msg.send msg.match[1]
     msg.http("#{base_url}/calendar.json")
       .query(keyword: msg.match[1])
       .get() (err, res, body) ->
