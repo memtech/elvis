@@ -21,15 +21,19 @@ module.exports = (robot) ->
     msg.send base_url + msg.match[1]
 
   robot.respond /meetup (.*)/i, (msg) ->
+    msg.send msg.match[1]
     msg.http("#{base_url}/calendar.json")
-       .query(keyword: term)
-       .get() (err, res, body) ->
-         if err
-           msg.send "Calendar API error: #{err}"
-         else
+      .query(keyword: msg.match[1])
+      .get() (err, res, body) ->
+        if err
+          msg.send "Calendar API error: #{err}"
+        else
           if meetup = JSON.parse(body).meetups[0]
-            resp = meetup.name + "\n"
-            resp += meetup.event_url + "\n"
-            resp += meetup.venue?.name + "\n"
-            resp += new Date(meetup.time).toLocaletimeString()
+            time = new Date(meetup.time)
+            resp = "#{meetup.name}\n"
+            resp += "#{time.toLocaleDateString()} #{time.toLocaleTimeString()}\n"
+            resp += "#{meetup.venue.name} \n" if meetup.venue?
+            resp += meetup.event_url
             msg.send resp
+          else
+            msg.send "Sorry, couldn't find that meetup!"
