@@ -29,10 +29,10 @@ module.exports = (robot) ->
         else
           if meetup = JSON.parse(body).meetups[0]
             time = new Date(meetup.time)
-            resp = "#{meetup.name}\n"
-            resp += "#{time.toLocaleDateString()} #{time.toLocaleTimeString()}\n"
-            resp += "#{meetup.venue.name} \n" if meetup.venue?
-            resp += meetup.event_url
+            resp = "#{meetup.name}: "
+            resp += "#{time.toLocaleDateString()} #{time.toLocaleTimeString()} "
+            resp += "@#{meetup.venue.name} " if meetup.venue?
+            resp += "(#{meetup.event_url})"
             msg.send resp
           else
             msg.send "Sorry, couldn't find that meetup!"
