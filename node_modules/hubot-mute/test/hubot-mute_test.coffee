@@ -22,4 +22,4 @@ describe 'mute', ->
     expect(@robot.respond).to.have.been.calledWith(/(mute|unmute)$/i)
 
   it 'registers a catch all listener for ".*"', ->
-    expect(@robot.respond).to.have.been.calledWith(/(.*)$/i)
+    expect(@robot.hear).to.have.been.calledWith(/(.*)$/i)

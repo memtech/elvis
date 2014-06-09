@@ -2,7 +2,7 @@
 
 Allows channels to mute Hubot if quiet is required for whatever reasons. Hubot will not respond to any commands in a muted channel (other than `mute` commands).
 
-[![Build Status](https://travis-ci.org/alexhouse/hubot-mute.png)](https://travis-ci.org/alexhouse/hubot-mute) [![NPM version](https://badge.fury.io/js/hubot-codinglove.png)](http://badge.fury.io/js/hubot-codinglove)
+[![Build Status](https://travis-ci.org/alexhouse/hubot-mute.png)](https://travis-ci.org/alexhouse/hubot-mute) [![NPM version](https://badge.fury.io/js/hubot-mute.png)](http://badge.fury.io/js/hubot-mute)
 
 ## Usage
 

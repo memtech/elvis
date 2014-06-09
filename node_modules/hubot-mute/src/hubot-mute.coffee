@@ -52,23 +52,27 @@ module.exports = (robot) ->
   robot.respond /(mute|unmute)$/i, (msg) ->
     msg.finish()
     channel = process.env.HUBOT_MUTE_ROOM_PREFIX + msg.message.room
-    
+
     muteChannel msg.match[1], channel, (what) ->
       msg.send what
 
   # Catch-all listener to mute responses
-  robot.respond /(.*)$/i, (msg) ->
+  robot.hear /(.*)$/i, (msg) ->
     if mute_all is false and mute_channels.indexOf(process.env.HUBOT_MUTE_ROOM_PREFIX + msg.message.room) == -1
       return
     if msg.match[1].indexOf('mute') != -1
       return
 
     msg.finish()
+
+    if msg.match[0].toLowerCase().indexOf(robot.name.toLowerCase()) != 0
+      return
+
     reason = if mute_all is true then 'All channels are muted' else "Channel #{process.env.HUBOT_MUTE_ROOM_PREFIX}#{msg.message.room} is muted"
     if !mute_explain[msg.message.room]?
-    	msg.send 'This channel is currently muted because: ' + reason
-    	mute_explain[msg.message.room] = true
-    	delay 300000, ->
+      msg.send 'This channel is currently muted because: ' + reason
+      mute_explain[msg.message.room] = true
+      delay 300000, ->
         delete mute_explain[msg.message.room]
 
   mute_listener = robot.listeners.pop()
@@ -86,9 +90,9 @@ muteAll = (action, cb) ->
 muteChannel = (action, channel, cb, cbs) ->
   action = action.toLowerCase()
   if process.env.HUBOT_MUTE_ROOM_PREFIX?
-  	if channel.indexOf(process.env.HUBOT_MUTE_ROOM_PREFIX) != 0
-  		cb "Cannot #{action} '#{channel}'. Did you mean '#{process.env.HUBOT_MUTE_ROOM_PREFIX}#{channel}'?"
-  		return false
+    if channel.indexOf(process.env.HUBOT_MUTE_ROOM_PREFIX) != 0
+      cb "Cannot #{action} '#{channel}'. Did you mean '#{process.env.HUBOT_MUTE_ROOM_PREFIX}#{channel}'?"
+      return false
 
   if action == 'mute'
     if mute_channels.indexOf(channel) > -1
@@ -108,3 +112,4 @@ muteChannel = (action, channel, cb, cbs) ->
   return true
 
 delay = (ms, func) -> setTimeout func, ms
+
