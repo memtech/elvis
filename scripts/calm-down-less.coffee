@@ -27,4 +27,8 @@ module.exports = (robot) ->
     robot.hear ///
       (\b([A-Z]{2,}\s+)([A-Z]{2,})\b)|
       (\b[A-Z]{5,}\b)
-    ///, (msg) -> msg.send manatee() if isAllCaps(msg)
+    ///, (msg) ->
+        # ~67% chance to do nothing
+        return unless Math.random() * 3 > 2
+
+        msg.send manatee() if isAllCaps(msg)
