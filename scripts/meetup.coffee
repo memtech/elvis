@@ -1,28 +1,29 @@
 # Description:
-#   Next Memtech Meetup Search
+#   Memphis Technology User Groups Meetup Search
 #
 # Dependencies:
 #   None
 #
 # Commands:
-#   nextmeetup $search_terms - load meetups.memphistechnology.org/$search_terms
+#   meetup|event $search_terms - Display information for the next meetup matching the $search_terms
+#   link meetup|event $search_terms - Get a permanent url for the next meetup matching $search_tems
 #
 # Author:
 #   dpritchett
+#   joshwlewis
 
 
 base_url = "http://meetups.memphistechnology.org/"
 
 module.exports = (robot) ->
 
-  # Enable a looser regex if environment variable is set
-  regex = /nextmeetup (.*)/i
-  robot.hear regex, (msg) ->
-    msg.send base_url + msg.match[1]
+  robot.respond /link (event|meetup) (.*)/i, (msg) ->
+    msg.send base_url + msg.match[2]
 
-  robot.respond /meetup (.*)/i, (msg) ->
+  robot.respond /(event|meetup) (.*)/i, (msg) ->
+    keyword = msg.match[2]
     msg.http("#{base_url}/calendar.json")
-      .query(keyword: msg.match[1])
+      .query(keyword: keyword)
       .get() (err, res, body) ->
         if err
           msg.send "Calendar API error: #{err}"
@@ -32,7 +33,7 @@ module.exports = (robot) ->
             resp = "#{meetup.name}: "
             resp += "#{time.toLocaleDateString()} #{time.toLocaleTimeString()} "
             resp += "@#{meetup.venue.name} " if meetup.venue?
-            resp += "(#{meetup.event_url})"
+            resp += "(#{base_url}#{keyword})"
             msg.send resp
           else
-            msg.send "Sorry, couldn't find that meetup!"
+            msg.send "Sorry, I couldn't find a meetup matching #{keyword}."
