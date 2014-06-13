@@ -33,7 +33,7 @@ module.exports = (robot) ->
             resp = "#{meetup.name}: "
             resp += "#{time.toLocaleDateString()} #{time.toLocaleTimeString()} "
             resp += "@#{meetup.venue.name} " if meetup.venue?
-            resp += "(#{base_url}#{keyword})"
+            resp += "(#{base_url}#{escape keyword})"
             msg.send resp
           else
             msg.send "Sorry, I couldn't find a meetup matching #{keyword}."
