@@ -6,7 +6,16 @@
 * Add a script to `/scripts/`
 * Push to github
 
-Coming soon: auto-deploy via [Wercker](http://wercker.com/)
+## Testing your additions locally
+Run `bin/hubot` to start up a local console that you can talk to without having to mess around with IRC.
+
+```sh
+$ bin/hubot
+... stuff happens...
+Hubot> hubot rb 1*10
+Hubot> Shell: => 10
+```
+
 
 ## Where to find more scripts:
 * http://hubot-script-catalog.herokuapp.com/
