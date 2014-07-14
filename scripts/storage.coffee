@@ -13,6 +13,7 @@ module.exports = (robot) ->
     output = Util.inspect(robot.brain.data, false, 4)
 
     msg.send process.env.LONG_TEXT_HINT
+    msg.sendPrivate ||= msg.send # only IRC has sendPrivate
     msg.sendPrivate output
 
   robot.respond /show users$/i, (msg) ->
@@ -24,4 +25,5 @@ module.exports = (robot) ->
       response += "\n"
 
     msg.send process.env.LONG_TEXT_HINT
+    msg.sendPrivate ||= msg.send # only IRC has sendPrivate
     msg.sendPrivate response

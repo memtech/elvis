@@ -72,6 +72,7 @@ module.exports = (robot) ->
     emit = cmds.join "\n"
 
     msg.send process.env.LONG_TEXT_HINT
+    msg.sendPrivate ||= msg.send # only IRC has sendPrivate
     msg.sendPrivate emit
 
   robot.router.get "/#{robot.name}/help", (req, res) ->
