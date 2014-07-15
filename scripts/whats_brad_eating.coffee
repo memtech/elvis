@@ -33,14 +33,14 @@ module.exports = (robot) ->
   # hit the feed URL and print out the first post's title and image
   lookupFood = (msg) ->
      msg.http(bradFeedUrl).get() (err, res, body) ->
-       return "Failed to look up the feed" if res.statusCode is not 200
+       msg.send "Failed to look up the feed" if res.statusCode is not 200
 
        feed = new NodePie(body)
        try
          feed.init()
        catch e
          console.log(e)
-         return "Failed to parse the feed"
+         msg.send "Failed to parse the feed"
        try
          item = feed.getItems()[0]
          element = item.element
@@ -50,7 +50,7 @@ module.exports = (robot) ->
          msg.send "#{element.title} #{imageURL}"
        catch e
          console.log(e)
-         return "Failed to extract the feed"
+         msg.send "Failed to extract the feed"
 
   robot.hear /.*brad.*(eat|ate)/i, (msg) ->
     lookupFood(msg)
