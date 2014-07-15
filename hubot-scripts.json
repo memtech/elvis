@@ -12,6 +12,7 @@
   "redis-brain.coffee",
   "ruby.coffee",
   "shipit.coffee",
+  "weather.coffee",
   "xkcd.coffee",
   "zombies.coffee"
 ]
