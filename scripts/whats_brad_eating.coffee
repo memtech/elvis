@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot what's brad eating?
+#   hubot what's brad eating? - Pull the latest post from http://whatsbradeating.tumblr.com
 #
 # Author:
 #   dpritchett
