@@ -52,7 +52,7 @@ module.exports = (robot) ->
          dump element
          itemHTML = element.description
          imageURL = extractImage(itemHTML)
-         msg.send "#{unfuzz(element.title)} #{imageURL}"
+         msg.send "[What's Brad Eating?] \"#{unfuzz(element.title)}\" #{imageURL}"
        catch e
          console.log(e)
          msg.send "Failed to extract the feed"
