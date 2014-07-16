@@ -22,6 +22,11 @@ module.exports = (robot) ->
   dump = (obj) ->
     console.log JSON.stringify(obj)
 
+  unfuzz = (text) ->
+    text.replace(/&amp;#(\d+);/g, (m, n) ->
+      String.fromCharCode n
+    )
+
   # Given a tumblr escaped-HTML text payload, return the first image URL
   extractImage = (text) ->
     lines = text.split(";")
@@ -47,7 +52,7 @@ module.exports = (robot) ->
          dump element
          itemHTML = element.description
          imageURL = extractImage(itemHTML)
-         msg.send "#{element.title} #{imageURL}"
+         msg.send "#{unfuzz(element.title)} #{imageURL}"
        catch e
          console.log(e)
          msg.send "Failed to extract the feed"
