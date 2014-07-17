@@ -22,7 +22,7 @@ url = "http://www.pangloss.com/seidel/Shaker/"
 module.exports = (robot) ->
 
   robot.respond /insult/i, (msg) ->
-    request "#{url}?page=#{Math.floor(Math.random() * 8)}", (error, response, body)->
+    request url, (error, response, body)->
       throw error if error
       $ = cheerio.load(body)
       quote = $("body font").first()
