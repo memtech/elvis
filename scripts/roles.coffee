@@ -23,10 +23,12 @@ module.exports = (robot) ->
     joiner = ', '
     name = msg.match[1].trim()
 
+    helptext = "An IRC bot!  Contribute at https://github.com/memtech/memtech-hubot"
+
     if name is "you"
-      msg.send "Who ain't I?"
-    else if name is robot.name
-      msg.send "The best."
+      msg.send helptext
+    else if name.toLowerCase() is robot.name.toLowerCase()
+      msg.send helptext
     else
       users = robot.brain.usersForFuzzyName(name)
       if users.length is 1
