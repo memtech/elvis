@@ -52,6 +52,8 @@ Then you can interact with hubot by typing `hubot help`.
     help - Displays all of the help commands that Hubot knows about.
     ...
 
+### Testing via docker
+  `bin/dockerize` (assumes you have docker installed...)
 
 ### Scripting
 
