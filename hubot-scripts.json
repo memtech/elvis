@@ -9,6 +9,7 @@
   "cleverbot.coffee",
   "dice.coffee",
   "disassemble.coffee",
+  "eight-ball.coffee",
   "facepalm.coffee",
   "octospy.coffee",
   "redis-brain.coffee",
