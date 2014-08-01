@@ -26,5 +26,8 @@ images = [
   ]
 
 module.exports = (robot) ->
-  robot.hear /(rocket fuel|rocketfuel|rf)/i, (msg) ->
-    msg.send msg.random images
+  sayRocket = (msg) ->
+    msg.send "RocketFuel! " + msg.random(images)
+
+  robot.hear /(rocket fuel|rocketfuel)/i, sayRocket
+  robot.hear /(RF | RF|^RF)/, sayRocket
