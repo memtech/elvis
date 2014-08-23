@@ -1,5 +1,5 @@
 # Description:
-#   Get images for :emoji: and :emoticons.
+#   Get images for :emoji: and (emoticons)
 #   Responds to messages like ':sunglasses:' and '(allthethings)' with
 #   an appropriate image link, useful for IRC clients with no emoji support.
 #
@@ -11,8 +11,8 @@
 #
 # Commands:
 #   hubot (list|show) (emoji|emoticons) - Responds with the list of emoji known to hubot.
-#   ":emoji:" - Responds with an image link of said emoji, when found
-#   "(emoji)" - Responds with an image link of said emoji, when found
+#   :emoji: - Responds with an image link of said emoji, when found
+#   (emoji) - Responds with an image link of said emoji, when found
 #
 # Notes:
 #   Emoji/Emoticons sourced from emoji-cheat-sheet.com and hipchat-emoticons.nyh.name 
@@ -33,23 +33,21 @@ module.exports = (robot) ->
       sendEmojiUrl(msg, name.replace(/\:/g,''))
 
   robot.respond /(list|show) (emoji|emoticon)s?/i, (msg) ->
-    map = robot.brain.data.emoji_map
-    names = for name, value of map
-      console.log(name, value)
-      ":#{ name }: | (#{ name })"
+    emojis = for name, value of robot.brain.data.emoji_map
+      ":#{ name }: | (#{ name }) -- #{ value }"
 
-    msg.send process.env.LONG_TEXT_HINT
-    msg.sendPrivate ||= msg.send # only IRC has sendPrivate
-    msg.sendPrivate names.join("\n")
+    output = emojis.join("\n")
+    if msg.sendPrivate
+      msg.send process.env.LONG_TEXT_HINT
+      msg.sendPrivate output
+    else
+      msg.send output
 
   sendEmojiUrl = (msg, name) ->
     if url = robot.brain.data.emoji_map[name]
       sendUrl(msg, name, url)
     else
-      fetchEmoji msg, name, cheatUrl(name), {
-        onFound: sendUrl,
-        onNotfound: fetchEmoji(msg, name, hipchatUrl(name), onFound: sendUrl)
-      }
+      sendCampfireUrl msg, name, onNotFound: sendHipchatUrl
 
   sendUrl = (msg, name, url) ->
     if url?
@@ -57,15 +55,16 @@ module.exports = (robot) ->
       msg.send(url)
 
   fetchEmoji = (msg, name, url, opts) ->
+    opts ||= {}
     robot.http(url).get() (err, res, body) ->
       if !err and res.statusCode in [200, 304]
-        opts.onFound(msg, name, url) if opts.onFound
+        sendUrl(msg, name, url)
       else
-        opts.onNotFound(msg, name, url) if opts.onNotFound
+        opts.onNotFound(msg, name) if opts.onNotFound
 
-  cheatUrl = (name) ->
-    "http://www.emoji-cheat-sheet.com/graphics/emojis/#{ name }.png"
+  sendCampfireUrl = (msg, name, opts) ->
+    fetchEmoji msg, name, "http://www.emoji-cheat-sheet.com/graphics/emojis/#{ name }.png", opts
 
-  hipchatUrl = (name) ->
-    "https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/#{ name }.png"
+  sendHipchatUrl = (msg, name, opts) ->
+    fetchEmoji msg, name, "https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/#{ name }.png", opts
 
