@@ -11,6 +11,7 @@
   "disassemble.coffee",
   "eight-ball.coffee",
   "facepalm.coffee",
+  "lmgtfy",
   "octospy.coffee",
   "redis-brain.coffee",
   "ruby.coffee",
