@@ -22,15 +22,13 @@ module.exports = (robot) ->
   dump = (obj) ->
     console.log JSON.stringify(obj)
 
+  # Just replace all ampersands.
   unfuzz = (text) ->
-    text.replace(/&amp;#(\d+);/g, (m, n) ->
-      String.fromCharCode n
-    )
+    text.replace(/&amp;/g, ' & ', 'g')
 
   # Given a tumblr escaped-HTML text payload, return the first image URL
   extractImage = (text) ->
     lines = text.split(";")
-    console.log lines
     images = (line for line in lines when line.match(/jpg|png|gif/i))
     image  = images[0].match(/http.*(jpg|png|gif)/i)[0]
     image or "Could not find image in latest post :("
@@ -48,11 +46,10 @@ module.exports = (robot) ->
          msg.send "Failed to parse the feed"
        try
          item = feed.getItems()[0]
-         element = item.element
-         dump element
-         itemHTML = element.description
+         itemTitle = unfuzz(item.element.title)
+         itemHTML = item.element.description
          imageURL = extractImage(itemHTML)
-         msg.send "[What's Brad Eating?] \"#{unfuzz(element.title)}\" #{imageURL}"
+         msg.send "[What's Brad Eating?] \"#{itemTitle}\" #{imageURL}"
        catch e
          console.log(e)
          msg.send "Failed to extract the feed"
