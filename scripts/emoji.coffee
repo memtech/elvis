@@ -85,8 +85,7 @@ module.exports = (robot) ->
       emojis = JSON.parse(body)
       for emoji in emojis
         key = emoji.shortcut.replace(/[\(\)]/g,'')
-        [name, ext] = emoji.file.split('.')
-        map[key] ||= hipchatUrl(name, ext)
+        map[key] ||= emoji.url
 
 
 
