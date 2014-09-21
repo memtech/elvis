@@ -20,15 +20,23 @@ module.exports = (robot) ->
   robot.respond /link (event|meetup) (.*)/i, (msg) ->
     msg.send base_url + msg.match[2]
 
-  robot.respond /(event|meetup) (.*)/i, (msg) ->
-    keyword = msg.match[2]
+  robot.respond /(event|meetup)(.*)/i, (msg) ->
+    keyword = msg.match[2].trim()
+
     msg.http("#{base_url}/calendar.json")
       .query(keyword: keyword)
       .get() (err, res, body) ->
         if err
           msg.send "Calendar API error: #{err}"
         else
-          if meetup = JSON.parse(body).meetups[0]
+          # Filter out any meetups that happened prior to today.
+          today = new Date()
+          meetups = [
+            m for m in JSON.parse(body).meetups when today < new Date(m.time)
+          ][0]
+
+          if meetups.length > 0
+            meetup = meetups[0]
             time = new Date(meetup.time)
             resp = "#{meetup.name}: "
             resp += "#{time.toLocaleDateString()} #{time.toLocaleTimeString()} "
