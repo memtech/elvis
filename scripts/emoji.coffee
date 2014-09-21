@@ -72,10 +72,6 @@ module.exports = (robot) ->
   campfireUrl = (name, ext = 'png') ->
     "http://www.emoji-cheat-sheet.com/graphics/emojis/#{ name }.#{ ext }"
 
-  # Expected url for a hipchat style emoticon
-  hipchatUrl = (name, ext = 'png') ->
-    "https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/#{ name }.#{ ext }"
-
   # Load the default (hipchat) emojis into the brain, since many can't be
   # guessed.
   robot.brain.on "loaded", ->
@@ -86,6 +82,3 @@ module.exports = (robot) ->
       for emoji in emojis
         key = emoji.shortcut.replace(/[\(\)]/g,'')
         map[key] ||= emoji.url
-
-
-
