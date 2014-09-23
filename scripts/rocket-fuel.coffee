@@ -26,7 +26,9 @@ images = [
   "https://pbs.twimg.com/media/BL2A1NECAAAGXvU.jpg",
   "http://www.gorocketfuel.com/sites/282/uploaded/images/10565013_10152643242707363_7272254102583821991_n_1.jpg",
   "https://pbs.twimg.com/media/BxCdNhgCYAAQIa6.png",
-  "https://pbs.twimg.com/media/Bt9sYOKIYAAveEd.jpg"
+  "https://pbs.twimg.com/media/Bt9sYOKIYAAveEd.jpg",
+  "http://i.imgur.com/S2qngvc.jpg",
+  "http://i.imgur.com/DB0qC4d.jpg"
   ]
 
 module.exports = (robot) ->
