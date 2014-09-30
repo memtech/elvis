@@ -17,6 +17,11 @@
 #   bkmontgomery
 
 module.exports = (robot) ->
+  
+  ###############################
+  # Auto-response machinery
+  ###############################
+  
   registerResponder = (args) ->
     respond = (msg) ->
       if args.note?
@@ -26,13 +31,20 @@ module.exports = (robot) ->
 
     for trigger in args.triggers
       robot.hear trigger, respond
+      
+  ################################
+  # Configuration of responses
+  ################################
 
+  # this is the simplest example of a responder.  It hears the phrase 'sick burn' (case insensitive)
+  # and it responds with one of the images from its list.  Its list is only one image long.
   registerResponder
     triggers:  [/burn centers/i]
     responses: [
       "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/6302_671806909512262_1147522313_n.png",
     ]
 
+  # this responder adds the concept of a descriptive note - flavor text for the response.
   registerResponder
     note:     'Sick burn!'
     triggers:  [/sick burn/i]
