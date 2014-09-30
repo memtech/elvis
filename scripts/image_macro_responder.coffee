@@ -61,6 +61,9 @@ module.exports = (robot) ->
           "http://lolwut.com/layout/lolwut.jpg"
     ]
 
+
+  # 3:01 PM <•dpritchett> RF
+  # 3:01 PM <Elvis> RocketFuel! http://i.imgur.com/S2qngvc.jpg
   registerResponder
     note:     'RocketFuel!'
     triggers:  [
