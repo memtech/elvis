@@ -85,3 +85,8 @@ module.exports = (robot) ->
       "https://pbs.twimg.com/media/Bt9sYOKIYAAveEd.jpg",
       "http://i.imgur.com/S2qngvc.jpg",
       "http://i.imgur.com/DB0qC4d.jpg" ]
+      
+  # Objection!
+  registerResponder
+    triggers: [/objection!/i]
+    responses: ["http://emotibot.net/pix/6186.gif"]
