@@ -21,6 +21,9 @@ Hubot> Shell: => 10
 * http://hubot-script-catalog.herokuapp.com/
 * Any of the ones listed at [github/hubot-scripts](https://github.com/github/hubot-scripts) can be included just by adding the filename to `hubot-scripts.json`.
 
+## Add an annoying image macro
+  Just edit [scripts/image_macro_responder.coffee](scripts/image_macro_responder.coffee) and if it doesn't break the build it will auto-deploy.
+
 # Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
