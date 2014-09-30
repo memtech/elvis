@@ -88,5 +88,5 @@ module.exports = (robot) ->
       
   # Objection!
   registerResponder
-    triggers: [/objection!/i]
+    triggers: [/objection!/i, /i object/i]
     responses: ["http://emotibot.net/pix/6186.gif"]
