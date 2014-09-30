@@ -38,16 +38,19 @@ module.exports = (robot) ->
 
   # this is the simplest example of a responder.  It hears the phrase 'sick burn' (case insensitive)
   # and it responds with one of the images from its list.  Its list is only one image long.
+  #
+  # 3:04 PM <dpritchett> burn centers
+  # 3:05 PM <Elvis> http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States
   registerResponder
     triggers:  [/burn centers/i]
     responses: [
-      "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/6302_671806909512262_1147522313_n.png",
+      "http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States",
     ]
 
   # this responder adds the concept of a descriptive note - flavor text for the response.
   registerResponder
     note:     'Sick burn!'
-    triggers:  [/sick burn/i]
+    triggers:  [/sick burn/i, /oh burn/i]
     responses: [
       "http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg",
     ]
