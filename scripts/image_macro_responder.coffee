@@ -51,13 +51,17 @@ module.exports = (robot) ->
   registerResponder
     note:     'Sick burn!'
     triggers:  [/sick burn/i, /oh burn/i]
-    responses: [
-      "http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg",
-    ]
+    responses: ["http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg"]
+    
+  # how to Elvis
+  registerResponder
+    note:     'How to write an elvis macro auto response:'
+    triggers:  [/^elvis macros/i, /^elvis image macros/i]
+    responses: ['https://github.com/memtech/memtech-hubot/blob/master/scripts/image_macro_responder.coffee']
 
   registerResponder
     triggers:  [/lolwut/i, /lol wut/i]
-    responses: [
+    responses: [  # lazily tripled the likelihood of the first image coming back O_o
           "https://www.evernote.com/shard/s9/sh/f27bc4e3-f3e0-43ec-9db7-5bd16bdc0ffc/8f7d6ab7160aa6704fbd22ed43f9a315/deep/0/elvis-lol-wut.png",
           "https://www.evernote.com/shard/s9/sh/f27bc4e3-f3e0-43ec-9db7-5bd16bdc0ffc/8f7d6ab7160aa6704fbd22ed43f9a315/deep/0/elvis-lol-wut.png",
           "https://www.evernote.com/shard/s9/sh/f27bc4e3-f3e0-43ec-9db7-5bd16bdc0ffc/8f7d6ab7160aa6704fbd22ed43f9a315/deep/0/elvis-lol-wut.png",
