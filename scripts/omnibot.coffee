@@ -38,9 +38,9 @@ module.exports = (robot) ->
     if trigger is null
       null
     else if matcher.test(trigger)
-      trigger
+      trigger.trim()
     else
-      "OBT-#{trigger}"
+      "OBT-#{trigger.trim()}"
 
   # read all triggers from DB on boot
   loadTriggers = ->
@@ -80,7 +80,8 @@ module.exports = (robot) ->
       return if alreadyLoaded and !initializing
 
       # this looks tricky cause it needs to be disabled later if the response is deleted
-      robot.hear trigger, (msg) ->
+      re = new RegExp(trigger, "i") # case insensitive
+      robot.hear re, (msg) ->
         (->
           response = robot.brain.get(maskTrigger(trigger))
           # don't bother if there's no response
