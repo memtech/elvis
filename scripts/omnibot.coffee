@@ -15,18 +15,22 @@ module.exports = (robot) ->
   # Trigger key management
   #########################
   
+ # return the trigger registry
   readTriggers = ->
     robot.brain.get("OMNIBOT_TRIGGERS")
 
+  # overwrite the trigger registry
   setTriggers = (triggers) ->
     robot.brain.set("OMNIBOT_TRIGGERS", triggers)
     readTriggers()
 
+  # drop a single trigger and its response from the registry
   removeTrigger = (trigger, callback) ->
     setTriggers [t for t in readTriggers if t is not trigger]
     robot.brain.remove trigger
     callback()
 
+  # read all triggers from DB on boot
   loadTriggers = ->
     console.log "initializing omnibot"
 
@@ -61,6 +65,7 @@ module.exports = (robot) ->
       robot.hear trigger, (msg) ->
         (->
           response = robot.brain.get(trigger)
+          # don't bother if there's no response
           if !!response
             msg.send response)()
 
@@ -70,7 +75,7 @@ module.exports = (robot) ->
     msg.send "Ok, no longer responding to #{trigger}"
 
   # listen for training instructions 
-  robot.respond /respond to ?([\w .\-_,'\?!]+) with ?([\w .\-_,'\?!]+)/i, (msg) ->
+  robot.respond /respond to ?([\w .\-_,'\?!\/:]+) with ?([\w .\-_,'\?!\/\:]+)/i, (msg) ->
     trigger  = msg.match[1]
     response = msg.match[2]
     
