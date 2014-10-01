@@ -26,10 +26,11 @@ module.exports = (robot) ->
 
   # drop a single trigger and its response from the registry
   removeTrigger = (trigger, callback) ->
-    trigger = maskTrigger(trigger)
-    setTriggers [t for t in readTriggers if t is not trigger]
+    masked = maskTrigger(trigger)
+    setTriggers [t for t in readTriggers if (t is not trigger and t is not masked)]
+    robot.brain.remove masked
     robot.brain.remove trigger
-    callback()
+    callback() if callback?
 
   # prepend OBT- to all triggers so they don't stomp on other db keys
   maskTrigger = (trigger) ->
@@ -51,7 +52,12 @@ module.exports = (robot) ->
     console.log "triggers: #{triggers}"
 
     for trigger in triggers
-      trainResponse trigger, robot.brain.get(trigger), true
+      if trigger? and trigger != ""
+        cleaned = trigger.replace(/^OBT-/, '')
+        trainResponse cleaned, robot.brain.get(trigger), true
+      else
+        console.log "purging bad trigger #{trigger}"
+        removeTrigger trigger
 
   # register new trigger with central list for next restart
   addNewTrigger = (trigger, response, callback) ->
@@ -79,7 +85,7 @@ module.exports = (robot) ->
           response = robot.brain.get(maskTrigger(trigger))
           # don't bother if there's no response
           if !!response
-            msg.send response)()
+            msg.send "#{response}")()
 
   # listen for training instructions 
   robot.respond /respond to ?([\w .\-_,'\?!\/:]+) with ?([\w .\-_,'\?!\/\:]+)/i, (msg) ->
