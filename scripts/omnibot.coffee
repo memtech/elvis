@@ -9,6 +9,7 @@
 module.exports = (robot) ->
   initialize = ->
     loadTriggers()
+    console.log "Omnibot loaded"
 
   #########################
   # Trigger key management
@@ -56,9 +57,12 @@ module.exports = (robot) ->
     addNewTrigger trigger, response, ->
       return if alreadyLoaded and !initializing
 
+      # this looks tricky cause it needs to be disabled later if the response is deleted
       robot.hear trigger, (msg) ->
-        response = -> (robot.brain.get trigger) or ""
-        msg.send (-> response())()
+        (->
+          response = robot.brain.get(trigger)
+          if !!response
+            msg.send response)()
 
   # remove a stored response
   purgeResponse = (trigger) ->
@@ -66,7 +70,7 @@ module.exports = (robot) ->
     msg.send "Ok, no longer responding to #{trigger}"
 
   # listen for training instructions 
-  robot.hear /^respond to ?([\w .\-_,'\?!]+) with ?([\w .\-_,'\?!]+)/, (msg) ->
+  robot.respond /respond to ?([\w .\-_,'\?!]+) with ?([\w .\-_,'\?!]+)/i, (msg) ->
     trigger  = msg.match[1]
     response = msg.match[2]
     
@@ -74,7 +78,8 @@ module.exports = (robot) ->
     msg.send "Ok, responding to #{trigger} with #{response}"
   
   # remove old training instructions 
-  robot.hear /^do not respond to ?([\w .\-_,'\?!]+)/, (msg) ->
+  robot.respond /do not respond to ?([\w .\-_,'\?!]+)/i, (msg) ->
+    console.log "not responding"
     trigger  = msg.match[1]
     
     removeTrigger trigger, ->
