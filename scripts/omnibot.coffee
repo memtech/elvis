@@ -28,8 +28,6 @@ module.exports = (robot) ->
   removeTrigger = (trigger, callback) ->
     masked = maskTrigger(trigger)
     setTriggers [t for t in readTriggers if (t is not trigger and t is not masked)]
-    robot.brain.remove masked
-    robot.brain.remove trigger
     callback() if callback?
 
   # prepend OBT- to all triggers so they don't stomp on other db keys
@@ -74,7 +72,8 @@ module.exports = (robot) ->
   
   # commit a desired challenge/response to memory
   trainResponse = (trigger, response, initializing) ->
-    alreadyLoaded = trigger in readTriggers()
+    masked        = maskTrigger(trigger)
+    alreadyLoaded = masked in readTriggers() or robot.brain.get(masked)?
 
     addNewTrigger trigger, response, ->
       return if alreadyLoaded and !initializing
@@ -83,7 +82,7 @@ module.exports = (robot) ->
       re = new RegExp(trigger, "i") # case insensitive
       robot.hear re, (msg) ->
         (->
-          response = robot.brain.get(maskTrigger(trigger))
+          response = robot.brain.get(masked)
           # don't bother if there's no response
           if !!response
             msg.send "#{response}")()
