@@ -26,9 +26,19 @@ module.exports = (robot) ->
 
   # drop a single trigger and its response from the registry
   removeTrigger = (trigger, callback) ->
+    trigger = maskTrigger(trigger)
     setTriggers [t for t in readTriggers if t is not trigger]
     robot.brain.remove trigger
     callback()
+
+  maskTrigger = (trigger) ->
+    matcher = /^OBT/
+    if trigger is null
+      null
+    else if matcher.test(trigger)
+      trigger
+    else
+      "OBT-#{trigger}"
 
   # read all triggers from DB on boot
   loadTriggers = ->
@@ -44,6 +54,7 @@ module.exports = (robot) ->
 
   # register new trigger with central list for next restart
   addNewTrigger = (trigger, response, callback) ->
+    trigger = maskTrigger(trigger)
     triggers = readTriggers()
     triggers.push(trigger) if trigger not in triggers
     setTriggers(triggers)
@@ -64,15 +75,10 @@ module.exports = (robot) ->
       # this looks tricky cause it needs to be disabled later if the response is deleted
       robot.hear trigger, (msg) ->
         (->
-          response = robot.brain.get(trigger)
+          response = robot.brain.get(maskTrigger(trigger))
           # don't bother if there's no response
           if !!response
             msg.send response)()
-
-  # remove a stored response
-  purgeResponse = (trigger) ->
-    robot.brain.remove trigger
-    msg.send "Ok, no longer responding to #{trigger}"
 
   # listen for training instructions 
   robot.respond /respond to ?([\w .\-_,'\?!\/:]+) with ?([\w .\-_,'\?!\/\:]+)/i, (msg) ->
