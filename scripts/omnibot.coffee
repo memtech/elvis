@@ -31,6 +31,7 @@ module.exports = (robot) ->
     robot.brain.remove trigger
     callback()
 
+  # prepend OBT- to all triggers so they don't stomp on other db keys
   maskTrigger = (trigger) ->
     matcher = /^OBT/
     if trigger is null
@@ -54,7 +55,7 @@ module.exports = (robot) ->
 
   # register new trigger with central list for next restart
   addNewTrigger = (trigger, response, callback) ->
-    trigger = maskTrigger(trigger)
+    trigger  = maskTrigger(trigger)
     triggers = readTriggers()
     triggers.push(trigger) if trigger not in triggers
     setTriggers(triggers)
