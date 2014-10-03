@@ -1,5 +1,5 @@
 # Description
-#   Blames Obama for everything that's bad in your life.
+#   Shakespeare will hurt your feelings
 #
 # Dependencies:
 #   "cheerio": "0.10.7",
