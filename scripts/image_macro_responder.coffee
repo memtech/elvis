@@ -97,6 +97,6 @@ module.exports = (robot) ->
     
   # no idea dog
   registerResponder
-    triggers: [/i have no idea/i]
+    triggers: [/have no idea/i, /has no idea/i]
     responses: ["http://littlefun.org/uploads/520be02ac856117033000007_736.jpg#.png"]
 
