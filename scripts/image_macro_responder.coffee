@@ -94,3 +94,9 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/objection!/i, /i object/i]
     responses: ["http://emotibot.net/pix/6186.gif"]
+    
+  # no idea dog
+  registerResponder
+    triggers: [/i have no idea/i]
+    responses: ["http://littlefun.org/uploads/520be02ac856117033000007_736.jpg#.png"]
+
