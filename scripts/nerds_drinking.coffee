@@ -30,3 +30,6 @@ module.exports = (robot) ->
       title = $(post).find("header h1 a")
 
       msg.send "#{title.text()} >> #{title.attr('href')}"
+
+  robot.respond /literally/i, (msg) ->
+    msg.send "http://nerdsdrinking.com/literal.mp3"
