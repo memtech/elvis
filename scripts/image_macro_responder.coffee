@@ -75,7 +75,7 @@ module.exports = (robot) ->
     note:     'RocketFuel!'
     triggers:  [
       /(rocket fuel|rocketfuel)/i,
-      /(RF | RF |RF [^A-Za-z])/]
+      /([^A-Za-z]RF[^A-Za-z])/]
     responses: [
       "https://pbs.twimg.com/media/Bt49KjPCUAABmjS.jpg",
       "https://pbs.twimg.com/media/Btp4KJAIAAA-QzT.jpg",
