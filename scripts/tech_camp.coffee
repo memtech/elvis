@@ -13,9 +13,9 @@
 
 request = require 'request'
 cheerio = require 'cheerio'
-url = "http://free.timeanddate.com/countdown/i4den1hg/n409/cf12/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw320/szh135/tatTime%20left%20to%20sumbit%20a%20TechCamp%20talk%20in/tac000/tptTime%20since%20Event%20started%20in/tpc000/mac000/mpc000/iso2014-10-15T23:59:59"
+url = "http://free.timeanddate.com/countdown/i4den1hg/n409/cf12/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw320/szh135/tatTime%20left%20to%20sumbit%20a%20TechCamp%20talk:/tac000/tptTime%20since%20Event%20started%20in/tpc000/mac000/mpc000/iso2014-10-15T23:59:59"
 
-tcUrl = "http://cfp.techcampmemphis.com"
+ctaLink = ">> http://cfp.techcampmemphis.com"
 
 module.exports = (robot) ->
 
@@ -23,7 +23,10 @@ module.exports = (robot) ->
     request url, (error, response, body)->
       throw error if error
       $ = cheerio.load(body)
-      contents = [$("#r1").text(), $("#r2").text(), $(".cr").text(), tcUrl]
-      output = (c.trim() for c in contents)
-      console.log output
+
+      cta      = $("#r1").text()
+      timeLeft = $(".cr").text()
+
+      output   = (c.trim() for c in [cta, timeLeft, ctaLink])
+
       msg.send output.join(' ')
