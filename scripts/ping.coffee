@@ -21,6 +21,21 @@ module.exports = (robot) ->
     msg.send "Server time is: #{new Date()}"
 
   robot.respond /DIE$/i, (msg) ->
-    msg.send "Goodbye, cruel world."
-    process.exit 0
+    # http://emojicons.com/table-flipping
+    table = msg.random [
+      "(╯°□°）╯︵ ┻━┻",
+      "┬─┬ ノ( ゜-゜ノ)",
+      "(╯°□°)╯︵ ┻━┻ ︵ ╯(°□° ╯)",
+      "┬─┬ ︵ /(.□. \）",
+      "(ﾉಥ益ಥ）ﾉ  ┻━┻",
+      "(/ .□.)\ ︵╰(゜Д゜)╯︵ /(.□. \)",
+      "(/¯◡ ‿ ◡)/¯ ~ ┻━┻",
+      "ʕノ•ᴥ•ʔノ ︵ ┻━┻",
+      "(._.) ~ ︵ ┻━┻",
+    ]
 
+    msg.send table
+
+    setTimeout () ->
+      process.exit(0)
+    , 1000
