@@ -23,7 +23,7 @@ module.exports = (robot) ->
     joiner = ', '
     name = msg.match[1].trim()
 
-    helptext = "An IRC bot!  Contribute at https://github.com/memtech/memtech-hubot"
+    helptext = "An IRC bot!  Contribute at https://github.com/memtech/elvis"
 
     if name is "you"
       msg.send helptext
