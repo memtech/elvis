@@ -100,3 +100,8 @@ module.exports = (robot) ->
     triggers: [/have no idea/i, /has no idea/i]
     responses: ["http://littlefun.org/uploads/520be02ac856117033000007_736.jpg#.png"]
 
+  # yeeaaahhhh
+  registerResponder
+    note: 'yeaaaaaaaaaaaggggggahhhhhh'
+    triggers: [/howard dean/i, /white house/i]
+    responses: ["http://objective.ytmnd.com/"]
