@@ -100,3 +100,20 @@ module.exports = (robot) ->
     triggers: [/have no idea/i, /has no idea/i]
     responses: ["http://littlefun.org/uploads/520be02ac856117033000007_736.jpg#.png"]
 
+  # yeeaaahhhh
+  registerResponder
+    note: 'yeaaaaaaaaaaaggggggahhhhhh http://stream1.gifsoup.com/view3/1369448/howard-dean-yeah-o.gif'
+    triggers: [/howard dean/i, /white house/i]
+    responses: ["http://objective.ytmnd.com/"]
+
+  # yeah.
+  registerResponder
+    note: 'yeah.'
+    triggers: [/goat/i, /lamb/i]
+    responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk"]
+
+  # yeah.
+  registerResponder
+    note: 'feeling a little peculiar'
+    triggers: [/blondes/i, /he-man/i, /he man/i]
+    responses: ["https://www.youtube.com/watch?v=eh7lp9umG2I"]
