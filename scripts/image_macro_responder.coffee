@@ -111,3 +111,9 @@ module.exports = (robot) ->
     note: 'yeah.'
     triggers: [/goat/i, /lamb/i]
     responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk"]
+
+  # yeah.
+  registerResponder
+    note: 'feeling a little peculiar'
+    triggers: [/blondes/i, /he-man/i, /he man/i]
+    responses: ["https://www.youtube.com/watch?v=eh7lp9umG2I"]
