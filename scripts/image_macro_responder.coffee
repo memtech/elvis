@@ -105,3 +105,9 @@ module.exports = (robot) ->
     note: 'yeaaaaaaaaaaaggggggahhhhhh http://stream1.gifsoup.com/view3/1369448/howard-dean-yeah-o.gif'
     triggers: [/howard dean/i, /white house/i]
     responses: ["http://objective.ytmnd.com/"]
+
+  # yeah.
+  registerResponder
+    note: 'yeah.'
+    triggers: [/goat/i, /lamb/i]
+    responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk"]
