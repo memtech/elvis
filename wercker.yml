@@ -18,7 +18,7 @@ build:
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) running"
 
-    - script: 
+    - script:
         name: smoke test to see if it'll at least load
         code: ./bin/smoke_test.rb
 
