@@ -22,7 +22,7 @@ url = "http://www.memphistechnology.org"
 
 module.exports = (robot) ->
 
-  robot.hear /memtech/i, (msg) ->
+  robot.respond /memtech/i, (msg) ->
     request "#{url}", (error, response, body)->
       throw error if error
       $ = cheerio.load(body)

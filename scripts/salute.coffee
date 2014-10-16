@@ -10,10 +10,10 @@
 module.exports = (robot) ->
 
   robot.hear /^general/i, (msg) ->
-    msg.send "/me salutes the General"
+    msg.emote "/salutes the General"
 
   robot.hear /^kernel/i, (msg) ->
-    msg.send "/me salutes the Colonel"
+    msg.emote "/salutes the Colonel"
 
   robot.hear /^major/i, (msg) ->
-    msg.send "/me salutes Major Tom"
+    msg.emote "salutes Major Tom"
