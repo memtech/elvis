@@ -37,5 +37,6 @@ module.exports = (robot) ->
     msg.send table
 
     setTimeout () ->
+      msg.emote "has left the building"
       process.exit(0)
     , 1000
