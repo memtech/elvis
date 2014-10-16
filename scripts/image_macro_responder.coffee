@@ -112,8 +112,14 @@ module.exports = (robot) ->
     triggers: [/goat/i, /lamb/i]
     responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk"]
 
-  # yeah.
+  # what's up?
   registerResponder
     note: 'feeling a little peculiar'
     triggers: [/blondes/i, /he-man/i, /he man/i]
     responses: ["https://www.youtube.com/watch?v=eh7lp9umG2I"]
+
+  # gandalf
+  registerResponder
+    note: 'fly, you fools!'
+    triggers: [/gandalf|hobbit|orc|lotr|tolkein/]
+    responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U"]
