@@ -9,11 +9,11 @@
 
 module.exports = (robot) ->
 
-  robot.hear /^general/i, (msg) ->
-    msg.emote "/salutes the General"
+  robot.hear /general/i, (msg) ->
+    msg.emote "salutes the General"
 
-  robot.hear /^kernel/i, (msg) ->
-    msg.emote "/salutes the Colonel"
+  robot.hear /kernel|colonel/i, (msg) ->
+    msg.emote "salutes the Colonel"
 
-  robot.hear /^major/i, (msg) ->
+  robot.hear /major/i, (msg) ->
     msg.emote "salutes Major Tom"
