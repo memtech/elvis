@@ -17,11 +17,11 @@
 #   bkmontgomery
 
 module.exports = (robot) ->
-  
+
   ###############################
   # Auto-response machinery
   ###############################
-  
+
   registerResponder = (args) ->
     respond = (msg) ->
       if args.note?
@@ -31,7 +31,7 @@ module.exports = (robot) ->
 
     for trigger in args.triggers
       robot.hear trigger, respond
-      
+
   ################################
   # Configuration of responses
   ################################
@@ -52,12 +52,12 @@ module.exports = (robot) ->
     note:     'Sick burn!'
     triggers:  [/sick burn/i, /oh burn/i]
     responses: ["http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg"]
-    
+
   # how to Elvis
   registerResponder
     note:     'How to write an elvis macro auto response:'
     triggers:  [/^elvis macros/i, /^elvis image macros/i]
-    responses: ['https://github.com/memtech/memtech-hubot/blob/master/scripts/image_macro_responder.coffee']
+    responses: ['https://github.com/memtech/elvis/blob/master/scripts/image_macro_responder.coffee']
 
   registerResponder
     triggers:  [/lolwut/i, /lol wut/i]
@@ -89,12 +89,12 @@ module.exports = (robot) ->
       "https://pbs.twimg.com/media/Bt9sYOKIYAAveEd.jpg",
       "http://i.imgur.com/S2qngvc.jpg",
       "http://i.imgur.com/DB0qC4d.jpg" ]
-      
+
   # Objection!
   registerResponder
     triggers: [/objection!/i, /i object/i]
     responses: ["http://emotibot.net/pix/6186.gif"]
-    
+
   # no idea dog
   registerResponder
     triggers: [/have no idea/i, /has no idea/i]
@@ -109,7 +109,7 @@ module.exports = (robot) ->
   # yeah.
   registerResponder
     note: 'yeah.'
-    triggers: [/goat/i, /lamb/i]
+    triggers: [/(goat|lamb)/i]
     responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk"]
 
   # what's up?
@@ -121,5 +121,5 @@ module.exports = (robot) ->
   # gandalf
   registerResponder
     note: 'fly, you fools!'
-    triggers: [/gandalf|hobbit|orc|lotr|tolkein/]
+    triggers: [/\b(gandalf|hobbit|orc|lotr|tolkein)\b/]
     responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U"]
