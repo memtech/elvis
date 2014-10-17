@@ -121,5 +121,5 @@ module.exports = (robot) ->
   # gandalf
   registerResponder
     note: 'fly, you fools!'
-    triggers: [/\b(gandalf|hobbit|orc|lotr|tolkein)\b/]
+    triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein)\b/]
     responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U"]
