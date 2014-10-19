@@ -13,7 +13,7 @@
 
 request = require 'request'
 cheerio = require 'cheerio'
-url = "http://free.timeanddate.com/countdown/i4den1hg/n409/cf12/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw320/szh135/tatDays%20until%20TechCamp:/tac000/tptTime%20since%20Event%20started%20in/tpc000/mac000/mpc000/iso2014-11-11T08:00:00"
+url = "http://free.timeanddate.com/countdown/i4den1hg/n409/cf12/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw320/szh135/tatDays%20until%20TechCamp:/tac000/tptTime%20since%20Event%20started%20in/tpc000/mac000/mpc000/iso2014-11-01T08:00:00"
 
 ctaLink = ">> http://techcampmemphis.com"
 
