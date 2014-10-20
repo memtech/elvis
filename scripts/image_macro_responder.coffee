@@ -115,11 +115,11 @@ module.exports = (robot) ->
   # what's up?
   registerResponder
     note: 'feeling a little peculiar'
-    triggers: [/blondes/i, /he-man/i, /he man/i]
+    triggers: [/\b(blondes|he-man|he man)\b/i]
     responses: ["https://www.youtube.com/watch?v=eh7lp9umG2I"]
 
   # gandalf
   registerResponder
     note: 'fly, you fools!'
-    triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein)\b/]
+    triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein)\b/i]
     responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U"]
