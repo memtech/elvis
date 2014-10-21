@@ -137,5 +137,6 @@ module.exports = (robot) ->
     responses: ["https://www.youtube.com/watch?v=ZWUcHKAj_tc",
                 "https://www.youtube.com/watch?v=-4m_9FFBHcg",
                 "http://media.giphy.com/media/dYgDRfc61SGtO/giphy.gif",
-                "http://strongerwrestler.com/wp-content/uploads/2014/01/ArnoldPullUp.jpg"
+                "http://strongerwrestler.com/wp-content/uploads/2014/01/ArnoldPullUp.jpg",
+                "http://i.imgur.com/8WZiyrc.jpg"
                 ]
