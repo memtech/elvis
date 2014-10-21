@@ -22,7 +22,7 @@ module.exports = (robot) ->
 
   robot.respond /doge (.*)$/i, (msg) ->
       phrase = msg.match[1].replace(/[\s]+/g, '/')
-      url = "http://dogesay.com/wow////" + phrase
+      url = "http://dogesay.com/wow////" + phrase + ".png"
 
       # prefetch URL to speed render
       request url, (error, response, body)->
