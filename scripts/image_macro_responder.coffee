@@ -129,3 +129,8 @@ module.exports = (robot) ->
     note: 'Hello, IT...'
     triggers: [/tried turning it off/i]
     responses: ["http://makeameme.org/media/created/Hello-IT-Have.jpg"]
+
+# deadlift
+  registerResponder
+    triggers: [/(deadlift|dead lift)/i]
+    responses: ["https://www.youtube.com/watch?v=ZWUcHKAj_tc"]
