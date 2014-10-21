@@ -23,14 +23,15 @@
   "dependencies": {
     "cheerio": "0.10.7",
     "cleverbot-node": "0.1.1",
+    "handlebars": "1.0.5beta",
     "hubot": ">= 2.6.0 < 3.0.0",
+    "hubot-doge": "0.0.1",
     "hubot-irc": "^0.2.7",
-    "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-mute": "alexhouse/hubot-mute",
+    "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "nodepie": "0.5.0",
     "request": "2.14.0",
-    "underscore": "1.3.3",
-    "handlebars": "1.0.5beta"
+    "underscore": "1.3.3"
   },
   "engines": {
     "node": ">= 0.8.x",
