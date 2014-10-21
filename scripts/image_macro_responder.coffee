@@ -122,7 +122,10 @@ module.exports = (robot) ->
   registerResponder
     note: 'fly, you fools!'
     triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein|webring)\b/i]
-    responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U"]
+    responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U",
+                "http://24.media.tumblr.com/tumblr_mbu6iap2uA1qc173ho4_250.gif", 
+                "http://img3.wikia.nocookie.net/__cb20130106225013/lotr/images/4/40/GandalfVSBalrog.jpg"
+    ]
 
   # IT Crowd
   registerResponder
