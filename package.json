@@ -25,7 +25,6 @@
     "cleverbot-node": "0.1.1",
     "handlebars": "1.0.5beta",
     "hubot": ">= 2.6.0 < 3.0.0",
-    "hubot-doge": "0.0.1",
     "hubot-irc": "^0.2.7",
     "hubot-mute": "alexhouse/hubot-mute",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
