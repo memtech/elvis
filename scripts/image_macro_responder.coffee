@@ -123,3 +123,9 @@ module.exports = (robot) ->
     note: 'fly, you fools!'
     triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein)\b/i]
     responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U"]
+
+  # IT Crowd
+  registerResponder
+    note: 'Hello, IT...'
+    triggers: [/tried turning it off/i]
+    responses: ["http://makeameme.org/media/created/Hello-IT-Have.jpg"]
