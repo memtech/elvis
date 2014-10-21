@@ -132,5 +132,8 @@ module.exports = (robot) ->
 
 # deadlift
   registerResponder
-    triggers: [/(deadlift|dead lift)/i]
-    responses: ["https://www.youtube.com/watch?v=ZWUcHKAj_tc"]
+    note: "Nothin' but a peanut!"
+    triggers: [/(deadlift|dead lift|squat)/i]
+    responses: ["https://www.youtube.com/watch?v=ZWUcHKAj_tc",
+                "https://www.youtube.com/watch?v=-4m_9FFBHcg",
+                "http://media.giphy.com/media/dYgDRfc61SGtO/giphy.gif"]
