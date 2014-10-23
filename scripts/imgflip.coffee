@@ -31,6 +31,9 @@
 #   hubot back in my day <text> - Grumpy old man
 #   hubot Do you want <text>? Because that's how you get <text> - Archer
 #   hubot say <text> one more goddamn time <text> - Jules Winnfield
+#   hubot <text> Fuck Me Right - superbad
+#   hubot <text> But that's none of my business - Kermit
+#   hubot <text> WTF jackie chan
 #
 # Author:
 #   dylanwenzlau
@@ -128,6 +131,18 @@ module.exports = (robot) ->
       {
         regex: /(say .* one more goddamn time)(.*)/i,
         template_id: 124212
+      },
+      {
+        regex: /(.*)(fuck me right)/i,
+        template_id: 2182291
+      },
+      {
+        regex: /(.*)(but that's none of my business)/i,
+        template_id: 16464531
+      },
+      {
+        regex: /(.*)(WTF)/i,
+        template_id: 412211
       }
     ]
 
