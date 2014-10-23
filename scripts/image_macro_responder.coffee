@@ -131,7 +131,7 @@ module.exports = (robot) ->
 
   # webring
   registerResponder
-    note: 'One ring to rule them all'
+    note: 'One ring to rule them all >> http://memtech.website/~dpritchett/webring_random.html'
     triggers: [/\b(web ring|webring)\b/i]
     responses: ["https://www.youtube.com/watch?v=fJlz6nEOT7w&t=0m44s",
                 "https://www.youtube.com/watch?v=-UsrkoweVa4&t=1m25s", 
