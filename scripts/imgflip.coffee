@@ -36,7 +36,7 @@
 #   hubot <text> WTF jackie chan
 #   hubot <text> that's what I call takin' care of business - The King
 #   hubot It look like a <text> to me everyone seen the <text> say yeah - Leprechaun guy
-#   hubot Your <text> is bad and you should feel bad - Zoidberg
+#   hubot Your <text> and you should feel <text> - Zoidberg
 #   hubot One <text> please - Zoidberg
 #   hubot Everyone's <text> And I'm just sitting here <text> - Spiderman
 #
@@ -158,7 +158,7 @@ module.exports = (robot) ->
         template_id: 18559958
       },
       {
-        regex: /(your .* is bad) (and you should feel bad)/i,
+        regex: /(your .*) (and you should feel .*)/i,
         template_id: 8353902
       },
       {
