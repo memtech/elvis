@@ -30,6 +30,7 @@
 #   hubot <text> nobody bats an eye <text> everyone loses their minds - Heath Ledger Joker
 #   hubot back in my day <text> - Grumpy old man
 #   hubot Do you want <text>? Because that's how you get <text> - Archer
+#   hubot say <text> one more goddamn time <text> - Jules Winnfield
 #
 # Author:
 #   dylanwenzlau
@@ -123,6 +124,10 @@ module.exports = (robot) ->
       {
         regex: /(do you want .*) (because that's how you get .*)/i,
         template_id: 10628640
+      },
+      {
+        regex: /(say .* one more goddamn time)(.*)/i,
+        template_id: 124212
       }
     ]
 
