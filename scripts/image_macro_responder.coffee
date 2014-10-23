@@ -121,11 +121,22 @@ module.exports = (robot) ->
   # gandalf
   registerResponder
     note: 'fly, you fools!'
-    triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein|webring)\b/i]
+    triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein)\b/i]
     responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U",
                 "http://24.media.tumblr.com/tumblr_mbu6iap2uA1qc173ho4_250.gif", 
                 "http://img3.wikia.nocookie.net/__cb20130106225013/lotr/images/4/40/GandalfVSBalrog.jpg",
+                "https://www.youtube.com/watch?v=AGF5ROpjRAU",
                 "https://www.youtube.com/watch?v=Nmn6Nl7YUa0"
+    ]
+
+  # webring
+  registerResponder
+    note: 'One ring to rule them all'
+    triggers: [/\b(web ring|webring)\b/i]
+    responses: ["https://www.youtube.com/watch?v=fJlz6nEOT7w&t=0m44s",
+                "https://www.youtube.com/watch?v=-UsrkoweVa4&t=1m25s", 
+                "https://33.media.tumblr.com/tumblr_lw6wmqA3Ov1qiy0obo1_500.gif",
+                "http://img1.wikia.nocookie.net/__cb20131010232524/lotr/images/3/3f/One_Ring_To_Rule_Them_All.gif"
     ]
 
   # IT Crowd
