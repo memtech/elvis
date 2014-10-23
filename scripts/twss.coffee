@@ -24,6 +24,10 @@ url = "https://raw.githubusercontent.com/jessamynsmith/talkbackbot/master/talkba
 module.exports = (robot) ->
   quotes = []
 
+  # mute the response N% of the time
+  randomMute = (pct_chance) ->
+    (Math.random() * 100) <= pct_chance
+
   # load quotes cache on boot
   request url, (error, response, body)->
     throw error if error
@@ -31,4 +35,4 @@ module.exports = (robot) ->
 
   robot.hear /twss|what she said/i, (msg) ->
     quote = quotes[Math.floor(Math.random()*quotes.length)]
-    msg.send quote
+    msg.send quote unless randomMute(70)
