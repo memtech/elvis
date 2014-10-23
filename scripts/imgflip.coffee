@@ -34,6 +34,7 @@
 #   hubot <text> Fuck Me Right - superbad
 #   hubot <text> But that's none of my business - Kermit
 #   hubot <text> WTF jackie chan
+#   hubot <text> that's what I call takin' care of business - The King
 #
 # Author:
 #   dylanwenzlau
@@ -143,6 +144,10 @@ module.exports = (robot) ->
       {
         regex: /(.*)(WTF)/i,
         template_id: 412211
+      },
+      {
+        regex: /(.*)(that's what I call takin' care of business)/i,
+        template_id: 15339516
       }
     ]
 
