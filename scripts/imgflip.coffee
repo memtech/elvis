@@ -36,6 +36,9 @@
 #   hubot <text> WTF jackie chan
 #   hubot <text> that's what I call takin' care of business - The King
 #   hubot It look like a <text> to me everyone seen the <text> say yeah - Leprechaun guy
+#   hubot Your <text> is bad and you should feel bad - Zoidberg
+#   hubot One <text> please - Zoidberg
+#   hubot Everyone's <text> And I'm just sitting here <text> - Spiderman
 #
 # Author:
 #   dylanwenzlau
@@ -151,9 +154,22 @@ module.exports = (robot) ->
         template_id: 15339516
       },
       {
-        regex: /(it look like a .* to me)(everybody seen the .* say yayuh)/i,
+        regex: /(it look like a .* to me) (everybody seen the .* say yeah)/i,
         template_id: 18559958
-      }
+      },
+      {
+        regex: /(your .* is bad) (and you should feel bad)/i,
+        template_id: 8353902
+      },
+      {
+        regex: /(.*) (one .* please)/i,
+        template_id: 14820661
+      },
+      {
+        regex: /(everybody's .*) (and i'm just sitting here .*)/i,
+        template_id: 1705097
+      },
+      
     ]
 
   for meme in robot.brain.data.imgflip_memes
