@@ -19,7 +19,7 @@
 
 request = require 'request'
 cheerio = require 'cheerio'
-url = "https://raw.githubusercontent.com/jessamynsmith/talkbackbot/master/talkback/quotes.txt"
+url = "https://raw.githubusercontent.com/sanseref/talkbackbot/master/talkback/quotes.txt"
 
 module.exports = (robot) ->
   quotes = []
