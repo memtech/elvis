@@ -35,4 +35,4 @@ module.exports = (robot) ->
 
   robot.hear /twss|what she said/i, (msg) ->
     quote = quotes[Math.floor(Math.random()*quotes.length)]
-    msg.send quote unless randomMute(70)
+    msg.send quote unless randomMute(80)
