@@ -155,8 +155,16 @@ module.exports = (robot) ->
                 "http://strongerwrestler.com/wp-content/uploads/2014/01/ArnoldPullUp.jpg",
                 "http://i.imgur.com/8WZiyrc.jpg"
                 ]
+                
+#                
 
 # snaaape
   registerResponder
     triggers: [/^(what\s?the\s?fuck|the\s?fuck|da\s?fuck|da\s?fuq)\??$/i]
     responses: ["http://img.pandawhale.com/41346-snape-dafuq-myUZ.jpeg"]
+
+
+# supa hot fire
+  registerResponder
+    triggers: [/^supa hot fire/i]
+    responses: ["http://www.reactiongifs.com/r/2013/06/supa-hot-fire.gif"]
