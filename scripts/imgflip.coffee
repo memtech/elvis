@@ -169,6 +169,10 @@ module.exports = (robot) ->
         regex: /(everybody's .*) (and i'm just sitting here .*)/i,
         template_id: 1705097
       },
+      {
+        regex: /(.* is the way to go) (call 683-7000)/i,
+        template_id: 22783973
+      }
       
     ]
 
