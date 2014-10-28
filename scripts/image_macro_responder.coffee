@@ -156,15 +156,17 @@ module.exports = (robot) ->
                 "http://i.imgur.com/8WZiyrc.jpg"
                 ]
                 
-#                
-
 # snaaape
   registerResponder
     triggers: [/^(what\s?the\s?fuck|the\s?fuck|da\s?fuck|da\s?fuq)\??$/i]
     responses: ["http://img.pandawhale.com/41346-snape-dafuq-myUZ.jpeg"]
-
-
+    
 # supa hot fire
   registerResponder
-    triggers: [/^supa hot fire/i]
+    triggers: [/^elvis supa hot fire/i]
     responses: ["http://www.reactiongifs.com/r/2013/06/supa-hot-fire.gif"]
+    
+# yes hell yes mongo
+  registerResponder
+    triggers: [/mongo/i]
+    responses: ["https://farm5.staticflickr.com/4107/5058343976_4a8166d349.jpg"]
