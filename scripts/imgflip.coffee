@@ -191,10 +191,6 @@ generateMeme = (msg, template_id, text0, text1) ->
     msg.reply 'To use your own Imgflip account, you need to specify username and password!'
     return
 
-  if not username
-    username = 'imgflip_hubot'
-    password = 'imgflip_hubot'
-
   msg.http('https://api.imgflip.com/caption_image')
   .query
       template_id: template_id,
