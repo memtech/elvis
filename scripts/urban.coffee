@@ -23,7 +23,7 @@
 module.exports = (robot) ->
 
   prune = (text) ->
-    text.replace(/\s+/g, ' ')
+    text.replace(/\s+/g, ' ').substr(0,400)
 
   robot.respond /(urban)( define)?( example)?( me)? (.*)/i, (msg) ->
     urbanDict msg, msg.match[5], (found, entry, sounds) ->
