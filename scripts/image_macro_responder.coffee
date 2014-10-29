@@ -170,3 +170,8 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/mongo/i]
     responses: ["https://farm5.staticflickr.com/4107/5058343976_4a8166d349.jpg"]
+
+# woo
+  registerResponder
+    triggers: [/^elvis kenny powers/i]
+    responses: ["http://mrwgifs.com/wp-content/uploads/2013/12/Kenny-Powers-Flipping-Off-The-Crowd-On-The-Baseball-Field-In-Eastbound-Down.gif"]
