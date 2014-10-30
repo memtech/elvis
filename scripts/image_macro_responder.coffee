@@ -180,3 +180,8 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/^elvis ryan nodding/i]
     responses: ["http://img.pandawhale.com/84186-Ryan-from-the-office-this-gif-chsv.gif"]
+
+# slash rocking
+  registerResponder
+    triggers: [/^(slash|weedly|air guitar|guitar)/i]
+    responses: ["http://i.kinja-img.com/gawker-media/image/upload/s--UyaIL8yf--/1934hcohpg7e0gif.gif"]
