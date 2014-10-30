@@ -2,7 +2,7 @@
 #   welcome back to kindergarten
 #
 # Commands:
-#   hubot say in #memtech i hate myself
+#   hubot say i hate myself in #memtech
 
 module.exports = (robot) ->
   homeBase = '#MemtechBot'
