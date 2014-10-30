@@ -175,3 +175,8 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/^elvis kenny powers/i]
     responses: ["http://mrwgifs.com/wp-content/uploads/2013/12/Kenny-Powers-Flipping-Off-The-Crowd-On-The-Baseball-Field-In-Eastbound-Down.gif"]
+
+# ryan nodding
+  registerResponder
+    triggers: [/^elvis ryan nodding/i]
+    responses: ["http://img.pandawhale.com/84186-Ryan-from-the-office-this-gif-chsv.gif"]
