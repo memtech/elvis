@@ -183,5 +183,5 @@ module.exports = (robot) ->
 
 # slash rocking
   registerResponder
-    triggers: [/^(slash|weedly|air guitar|guitar)/i]
+    triggers: [/^elvis (slash|weedly|air guitar|guitar)/i]
     responses: ["http://i.kinja-img.com/gawker-media/image/upload/s--UyaIL8yf--/1934hcohpg7e0gif.gif"]
