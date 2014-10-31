@@ -172,8 +172,11 @@ module.exports = (robot) ->
       {
         regex: /(.* is the way to go) (call 683-7000)/i,
         template_id: 22783973
+      },
+      {
+        regex: /boatcat ()(.*)/i,
+        template_id: 1367068
       }
-      
     ]
 
   for meme in robot.brain.data.imgflip_memes
