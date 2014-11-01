@@ -1,5 +1,5 @@
 # Description:
-#   Nerds Drinking Podcast links
+#   Movie database lookups
 #
 # Dependencies:
 #   "cheerio": "0.10.7",
