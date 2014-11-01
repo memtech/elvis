@@ -28,6 +28,8 @@ module.exports = (robot) ->
 
       if deets.Title
         output = "#{deets.Title}, #{deets.Year}. #{deets.Plot}"
+        if deets.imdbID?
+          output += " http://www.imdb.com/title/#{deets.imdbID}"
       else
         output = "Movie not found."
 
