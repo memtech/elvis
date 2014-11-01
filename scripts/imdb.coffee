@@ -17,7 +17,7 @@
 module.exports = (robot) ->
   robot.respond /(imdb|movie)( me)? (.*)/i, (msg) ->
     query = msg.match[3]
-    msg.http("http://mymovieapi.com/")
+    robot.http("http://mymovieapi.com/")
       .query({
         limit: 1
         type: 'json'
