@@ -20,7 +20,7 @@
 module.exports = (robot) ->
   robot.respond /(imdb|movie)( me)? (.*)/i, (msg) ->
     query = msg.match[3]
-    msg.http("http://imdbapi.org/?=hope+floats&type=json&plot=simple&episode=0&limit=1&yg=0&mt=none&lang=en-US&offset=&aka=simple&release=simple&business=0&tech=0")
+    robot.http("http://imdbapi.org/?=hope+floats&type=json&plot=simple&episode=0&limit=1&yg=0&mt=none&lang=en-US&offset=&aka=simple&release=simple&business=0&tech=0")
       .query({
         limit: 1
         type: 'json'
