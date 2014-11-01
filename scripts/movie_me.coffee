@@ -9,7 +9,7 @@
 #   None
 #
 # Commands:
-#   elvis movie me <title> - look up a movie on OMDB
+#   elvis movie me <title> - look up a movie on IMDB
 #
 # Author:
 #   gpspake
@@ -27,7 +27,7 @@ module.exports = (robot) ->
       deets = JSON.parse body
 
       if deets.Title
-        output = "#{deets.Title}, #{deets.Year}. #{deets.Plot}"
+        output = "#{deets.Title}, #{deets.Year}. #{deets.Plot}, #{deets.Poster}"
         if deets.imdbID?
           output += " http://www.imdb.com/title/#{deets.imdbID}"
       else
