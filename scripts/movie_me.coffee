@@ -21,7 +21,7 @@ url     = "http://www.omdbapi.com/?t="
 
 module.exports = (robot) ->
   
-  robot.respond /(movie|imdb) me (.*)/i, (msg) ->
+  robot.respond /movie me (.*)/i, (msg) ->
     title = msg.match[1]
     request "#{url + title}", (error, response, body)->
       deets = JSON.parse body
