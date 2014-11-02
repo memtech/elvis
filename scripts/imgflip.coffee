@@ -176,7 +176,11 @@ module.exports = (robot) ->
       {
         regex: /boatcat ()(.*)/i,
         template_id: 1367068
-      }
+      },
+      {
+        regex: /(you're tearing me apart)(.*)/i,
+        template_id: 23069326
+      },
     ]
 
   for meme in robot.brain.data.imgflip_memes
