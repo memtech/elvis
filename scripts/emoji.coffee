@@ -76,9 +76,9 @@ module.exports = (robot) ->
   # guessed.
   robot.brain.on "loaded", ->
     map = robot.brain.data.emoji_map ||= {}
-    dataSrc = "https://raw.githubusercontent.com/henrik/hipchat-emoticons/master/emoticons.json"
+    dataSrc = "https://gist.githubusercontent.com/joshwlewis/0985e909e211ad30295f/raw/00875867324b9a7e06d39005228f0f70d6b9c547/hipcat_emoticons.json"
+
     robot.http(dataSrc).get() (err, res, body) ->
       emojis = JSON.parse(body)
       for emoji in emojis
-        key = emoji.shortcut.replace(/[\(\)]/g,'')
-        map[key] ||= emoji.url
+        map[emoji.name] = emoji.url
