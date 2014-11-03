@@ -54,6 +54,7 @@ helpContents = (name, commands) ->
 
 module.exports = (robot) ->
   robot.respond /help\s*(.*)?$/i, (msg) ->
+
     cmds = robot.helpCommands()
     filter = msg.match[1]
 
@@ -71,9 +72,7 @@ module.exports = (robot) ->
 
     emit = cmds.join "\n"
 
-    msg.send process.env.LONG_TEXT_HINT
-    msg.sendPrivate ||= msg.send # only IRC has sendPrivate
-    msg.sendPrivate emit
+    robot.dpaste emit, msg
 
   robot.router.get "/#{robot.name}/help", (req, res) ->
     cmds = robot.helpCommands().map (cmd) ->

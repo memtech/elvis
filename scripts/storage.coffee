@@ -12,9 +12,7 @@ module.exports = (robot) ->
   robot.respond /show storage$/i, (msg) ->
     output = Util.inspect(robot.brain.data, false, 4)
 
-    msg.send process.env.LONG_TEXT_HINT
-    msg.sendPrivate ||= msg.send # only IRC has sendPrivate
-    msg.sendPrivate output
+    robot.dpaste output, msg
 
   robot.respond /show users$/i, (msg) ->
     response = ""
@@ -24,6 +22,4 @@ module.exports = (robot) ->
       response += " <#{user.email_address}>" if user.email_address
       response += "\n"
 
-    msg.send process.env.LONG_TEXT_HINT
-    msg.sendPrivate ||= msg.send # only IRC has sendPrivate
-    msg.sendPrivate response
+    robot.dpaste response, msg

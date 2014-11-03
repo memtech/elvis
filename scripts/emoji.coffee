@@ -41,11 +41,7 @@ module.exports = (robot) ->
       ":#{ name }: | (#{ name }) -- #{ value }"
 
     output = emojis.join("\n")
-    if msg.sendPrivate
-      msg.send process.env.LONG_TEXT_HINT
-      msg.sendPrivate output
-    else
-      msg.send output
+    robot.dpaste output, msg
 
   # If the url exists in the brain for the given name, send it. Otherwise
   # check and see if it's a campfire style emoticon.
