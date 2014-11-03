@@ -9,7 +9,7 @@
 #   None
 #
 # Commands:
-#   elvis give camp
+#   elvis give camp - Display a countdown til givecamp starts
 
 request = require 'request'
 cheerio = require 'cheerio'
