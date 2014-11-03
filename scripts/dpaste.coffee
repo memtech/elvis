@@ -2,7 +2,7 @@
 #   Dpaste is awesome
 #
 # Dependencies:
-#   "cheerio": "0.10.7",
+#   "request": "2.14.0",
 #
 # Configuration:
 #   None
