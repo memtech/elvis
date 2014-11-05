@@ -33,7 +33,6 @@ module.exports = (robot) ->
 
   robot.respond /literally/i, (msg) ->
     msg.send "http://nerdsdrinking.com/literal.mp3"
-
-  
-robot.respond /Wiseacre/i,(msg) -> 
+    
+  robot.respond /wiseacre/i,(msg) -> 
     msg.send "Wiseacre - The UnOfficial beer of the Nerds Drinking Podcast."
