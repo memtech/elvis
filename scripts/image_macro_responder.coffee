@@ -110,7 +110,18 @@ module.exports = (robot) ->
   registerResponder
     note: 'yeah.'
     triggers: [/(goat|lamb)/i]
-    responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk"]
+    responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk",
+                "http://fc09.deviantart.net/fs70/i/2010/010/1/d/Goat_roar_by_fbcota.jpg",
+                "http://cdni.wired.co.uk/620x413/s_v/sexy%20goat.jpg",
+                "http://www.peta.org/wp-content/uploads/2013/10/goat_2D00_list_2D00_4.jpg",
+                "http://cdn.frontpagemag.com/wp-content/uploads/2014/07/angry-goat.jpg",
+                "http://4.bp.blogspot.com/_Sh3smLghY2g/TNKxDb091WI/AAAAAAAABMA/4M5iluTvXgY/s320/scarey+goat.jpg",
+                "http://i.imgur.com/ExZGlKI.jpg",
+                "http://surlygoat.com/event_fliers/2012_7_12_goat.jpg",
+                "http://farm8.staticflickr.com/7452/11740562974_908faffa9f_n.jpg",
+                "http://crossfitrough.com/wp-content/blogs.dir/134/files/2014/04/goat.jpg",
+                "http://4.bp.blogspot.com/_Sh3smLghY2g/TNKxDb091WI/AAAAAAAABMA/4M5iluTvXgY/s320/scarey+goat.jpg"
+    ]
 
   # what's up?
   registerResponder
