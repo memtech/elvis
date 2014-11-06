@@ -13,7 +13,7 @@
 # Author:
 #   CommanderViral
 
-API_KEY = processs.env.ECHONEST_KEY
+API_KEY = process.env.ECHONEST_KEY
 echonest = require 'echonest'
 
 nest = new echonest.Echonest(api_key: API_KEY)
