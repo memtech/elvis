@@ -13,6 +13,9 @@
 # Commands:
 #   hubot tweet <phrase> - Post a tweet to the twitter account.
 #
+# Authors:
+#   joshwlewis
+#
 
 Twitter = require('twit')
 config = {}

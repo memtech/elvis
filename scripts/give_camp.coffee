@@ -27,6 +27,8 @@ module.exports = (robot) ->
       cta      = $("#r1").text()
       timeLeft = $(".cr").text()
 
-      output   = (c.trim() for c in [cta, timeLeft, ctaLink])
+      output   = (c.trim() for c in [cta, timeLeft, ctaLink]).join(' ')
 
-      msg.send output.join(' ')
+      msg.send output
+      robot.tweet output
+

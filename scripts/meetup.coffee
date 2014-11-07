@@ -18,7 +18,9 @@ base_url = "http://meetups.memphistechnology.org/"
 module.exports = (robot) ->
 
   robot.respond /link (event|meetup) (.*)/i, (msg) ->
-    msg.send base_url + msg.match[2]
+    link = base_url + msg.match[2]
+    msg.send link
+    robot.tweet link
 
   robot.respond /(event|meetup)(.*)/i, (msg) ->
     keyword = msg.match[2].trim()
@@ -43,5 +45,6 @@ module.exports = (robot) ->
             resp += "@#{meetup.venue.name} " if meetup.venue?
             resp += "(#{base_url}#{escape keyword})"
             msg.send resp
+            robot.tweet resp
           else
             msg.send "Sorry, I couldn't find a meetup matching #{keyword}."
