@@ -34,8 +34,8 @@ module.exports = (robot) ->
       else
         msg.send("OK I haz tweetz!")
 
-  robot.adapter.tweet = robot.tweet = (status) ->
+  robot.tweet = (status) ->
     status = deviralize(status)
-    twitter.post 'statuses/update', status: message, (err, data, resp) ->
+    twitter.post 'statuses/update', status: status, (err, data, resp) ->
       console.log(err, data) if err
 

@@ -10,6 +10,7 @@
 module.exports = (robot) ->
   robot.respond /PING$/i, (msg) ->
     msg.send "PONG"
+    robot.tweet "PONG"
 
   robot.respond /ADAPTER$/i, (msg) ->
     msg.send robot.adapterName
@@ -35,6 +36,7 @@ module.exports = (robot) ->
     ]
 
     msg.send table
+    robot.tweet table
 
     setTimeout () ->
       msg.emote "has left the building"
