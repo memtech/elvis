@@ -1,11 +1,10 @@
 Twitter = require('twit')
 
-twitter = new Twitter(
-  consumer_key:        process.env.HUBOT_TWITTER_CONSUMER_KEY
-  consumer_secret:     process.env.HUBOT_TWITTER_CONSUMER_SECRET
-  access_token:        process.env.HUBOT_TWITTER_ACCESS_TOKEN
-  access_token_secret: process.env.HUBOT_TWITTER_ACCESS_TOKEN_SECRET
-)
+config = {}
+for key in ['consumer_key', 'consumer_secret', 'access_token', 'access_token_secret']
+  config[key] = process.env["HUBOT_TWITTER_#{ key.toUpperCase() }"] || 'ABC123'
+
+twitter = new Twitter(config)
 
 module.exports = (robot) ->
   originalSend = robot.adapter.send
