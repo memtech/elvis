@@ -137,7 +137,12 @@ module.exports = (robot) ->
                 "http://24.media.tumblr.com/tumblr_mbu6iap2uA1qc173ho4_250.gif", 
                 "http://img3.wikia.nocookie.net/__cb20130106225013/lotr/images/4/40/GandalfVSBalrog.jpg",
                 "https://www.youtube.com/watch?v=AGF5ROpjRAU",
-                "https://www.youtube.com/watch?v=Nmn6Nl7YUa0"
+                "https://www.youtube.com/watch?v=Nmn6Nl7YUa0",
+                "http://i.imgur.com/lURXlc5.gif",
+                "http://i.imgur.com/yHoiYig.gif",
+                "http://i.imgur.com/tymo0Y3.gif",
+                "http://imgur.com/XTdRiY8",
+                "http://i.imgur.com/Pblxdu4.gif"
     ]
 
   # webring
