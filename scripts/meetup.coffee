@@ -41,7 +41,7 @@ module.exports = (robot) ->
           if meetups.length > 0
             meetup = meetups[0]
             time = new Date(meetup.time)
-            humanTime = moment(time).fromNow()
+            humanTime = moment(time).calendar()
             resp = "#{meetup.name}: #{humanTime} "
             resp += "@#{meetup.venue.name} " if meetup.venue?
             resp += "(#{base_url}#{escape keyword})"

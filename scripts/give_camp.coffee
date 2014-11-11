@@ -15,7 +15,7 @@ moment = require('moment')
 module.exports = (robot) ->
 
   robot.respond /give camp|givecamp/i, (msg) ->
-    humanDate = moment('2015-02-20').fromNow()
+    humanDate = moment('2015-02-20').calendar()
     ctaLink   = "http://givecampmemphis.org"
 
     console.log "GiveCamp Memphis #{humanDate} >> #{ctaLink}"
