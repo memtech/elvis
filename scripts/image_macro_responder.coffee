@@ -109,7 +109,7 @@ module.exports = (robot) ->
   # yeah.
   registerResponder
     note: 'yeah.'
-    triggers: [/(goat|lamb)/i]
+    triggers: [\bgoat\b/i]
     responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk",
                 "http://fc09.deviantart.net/fs70/i/2010/010/1/d/Goat_roar_by_fbcota.jpg",
                 "http://cdni.wired.co.uk/620x413/s_v/sexy%20goat.jpg",
