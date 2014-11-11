@@ -18,4 +18,4 @@ module.exports = (robot) ->
     humanDate = moment('2014-11-01').calendar()
     ctaLink   = "http://techcampmemphis.com"
 
-    console.log "TechCamp Memphis #{humanDate} >> #{ctaLink}"
+    msg.send "TechCamp Memphis #{humanDate} >> #{ctaLink}"
