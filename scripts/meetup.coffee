@@ -14,6 +14,7 @@
 
 
 base_url = "http://meetups.memphistechnology.org/"
+moment = require('moment')
 
 module.exports = (robot) ->
 
@@ -41,7 +42,7 @@ module.exports = (robot) ->
             meetup = meetups[0]
             time = new Date(meetup.time)
             resp = "#{meetup.name}: "
-            resp += "#{time.toLocaleDateString()} #{time.toLocaleTimeString()} "
+            resp += humanTime + ' '
             resp += "@#{meetup.venue.name} " if meetup.venue?
             resp += "(#{base_url}#{escape keyword})"
             msg.send resp
