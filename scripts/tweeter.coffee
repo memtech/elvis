@@ -35,7 +35,7 @@ module.exports = (robot) ->
         console.log(err, data, resp)
         msg.send("TWEETZOR Errorz!")
       else
-        msg.send("OK I haz tweetz!")
+        msg.send("OK I haz tweetz! https://twitter.com/elvis_the_bot")
 
   robot.tweet = (status) ->
     status = deviralize(status)
