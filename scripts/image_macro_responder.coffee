@@ -201,3 +201,8 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/^elvis (slash|weedly|air guitar|guitar)/i]
     responses: ["http://i.kinja-img.com/gawker-media/image/upload/s--UyaIL8yf--/1934hcohpg7e0gif.gif"]
+
+# memtech dicks
+  registerResponder
+    triggers: [/dick/i]
+    responses: ["Dicks are never not funny http://memtech.website/~unstablereality"]
