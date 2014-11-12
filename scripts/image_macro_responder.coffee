@@ -206,3 +206,8 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/dick/i]
     responses: ["Dicks are never not funny http://memtech.website/~unstablereality"]
+
+# bgswanson is heisenberg
+  registerResponder
+    triggers: [/^elvis (heisenberg|you're right)/i]
+    responses: ["http://i.imgur.com/Erj8ka3.jpg"]
