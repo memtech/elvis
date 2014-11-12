@@ -24,3 +24,7 @@ module.exports = (robot) ->
 
           resultUrl = response.body
           msg.send  title + resultUrl
+
+  robot.respond /imagerize (.*)/i, (msg) ->
+    words = msg.match[1]
+    robot.pngifyText words, '', msg
