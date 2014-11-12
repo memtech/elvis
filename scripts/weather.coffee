@@ -62,7 +62,7 @@ lookupForecast = (msg, coords, err) ->
       dayAfter = forecast[2]
     catch err
       return msg.send 'Unable to parse forecast data.'
-    text = "The weather for:\n"
+    text = ""
 
     appendText = (text, data) ->
       dateToday = new Date(data.time * 1000)
@@ -80,7 +80,7 @@ lookupForecast = (msg, coords, err) ->
     text = appendText text, today
     text = appendText text, tomorrow
     text = appendText text, dayAfter
-    msg.robot.dpaste text, msg
+    msg.robot.pngifyText text, 'Forecast: ', msg
 
 getTemp = (c) ->
   if env.HUBOT_WEATHER_CELSIUS
