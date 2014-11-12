@@ -80,7 +80,7 @@ lookupForecast = (msg, coords, err) ->
     text = appendText text, today
     text = appendText text, tomorrow
     text = appendText text, dayAfter
-    msg.send text
+    robot.dpaste text, msg
 
 getTemp = (c) ->
   if env.HUBOT_WEATHER_CELSIUS
