@@ -222,14 +222,17 @@ module.exports = (robot) ->
 # bgswanson is heisenberg
   registerResponder
     triggers: [/^elvis (heisenberg|you're right)/i]
-    responses: ["http://i.imgur.com/Erj8ka3.jpg"]
+    responses: ["http://i.imgur.com/Erj8ka3.jpg",
+                "http://i.imgur.com/4IHFbq5.jpg"
+                ]
 
 # swag
   registerResponder
     triggers:  [/swag/i]
     responses: ["http://i.imgur.com/5dXgWAp.gif",
                 "http://i.imgur.com/tCTdKNm.gif",
-                "http://i.imgur.com/l72ylSv.jpg"
+                "http://i.imgur.com/l72ylSv.jpg",
+                "http://i.imgur.com/o2hpEEb.gif"
                 ]
 
 # second breakfast
