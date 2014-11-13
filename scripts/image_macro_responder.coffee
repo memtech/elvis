@@ -229,6 +229,7 @@ module.exports = (robot) ->
 # swag
   registerResponder
     triggers:  [/swag/i]
+    damper: 50
     responses: ["http://i.imgur.com/5dXgWAp.gif",
                 "http://i.imgur.com/tCTdKNm.gif",
                 "http://i.imgur.com/l72ylSv.jpg",
