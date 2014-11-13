@@ -1,5 +1,5 @@
 # Description:
-#   A simple interaction with the built in HTTP Daemon
+#   Announces github commits for Elvis!
 #
 # Dependencies:
 #   None
