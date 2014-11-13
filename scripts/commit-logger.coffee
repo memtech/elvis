@@ -34,3 +34,5 @@ module.exports = (robot) ->
       for channel in channels
         console.log "Saying in #{channel}: #{parsed}"
         sayIn channel, parsed
+
+    res.end "Thanks bro."
