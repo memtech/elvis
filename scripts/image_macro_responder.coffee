@@ -223,3 +223,9 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/^elvis (heisenberg|you're right)/i]
     responses: ["http://i.imgur.com/Erj8ka3.jpg"]
+    
+# second breakfast
+  registerResponder
+    damper:   50
+    triggers: [/second breakfast/i, /elevensies/i]
+    responses: ["http://happycamperproject.files.wordpress.com/2013/08/tumblr_lzdbz2zhhg1qjpifao1_500.gif"]
