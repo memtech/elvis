@@ -13,7 +13,8 @@
 #   joshwlewis
 
 
-base_url = "http://meetups.memphistechnology.org/"
+base_url     = "http://meetups.memphistechnology.org/"
+
 moment   = require('moment')
 
 module.exports = (robot) ->
@@ -44,7 +45,13 @@ module.exports = (robot) ->
             humanTime = moment(time).calendar()
             resp = "#{meetup.name}: #{humanTime} "
             resp += "@#{meetup.venue.name} " if meetup.venue?
-            resp += "(#{base_url}#{escape keyword})"
+
+            # provide generic meetup link if no keywords were supplied
+            if !!keyword.length
+              resp += "(#{base_url}#{escape keyword})"
+            else
+              resp += "(#{meetup.event_url})"
+
             msg.send resp
             robot.tweet resp
           else
