@@ -17,7 +17,7 @@
 # - dpritchett
 
 module.exports = (robot) ->
-  channels = process.env.COMMIT_LOG_CHANNELS.split(",") || []
+  channels = (process.env.COMMIT_LOG_CHANNELS || '').split(",") || []
 
   sayIn = (channel, text) ->
     envelope = { room: channel }
