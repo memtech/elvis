@@ -6,14 +6,21 @@
 #
 # Author:
 #   svpernova09
+#   joshwlewis
 
 module.exports = (robot) ->
 
-  robot.hear /general/i, (msg) ->
-    msg.emote "salutes the General"
+  robot.hear /(major|general|colonel)\s*(.*)/i, (msg) ->
+    msg.emote salute(msg.match[1], msg.match[2])
 
-  robot.hear /kernel|colonel/i, (msg) ->
-    msg.emote "salutes the Colonel"
+  robot.hear /kernel\s*(.*)/i, (msg) ->
+    msg.emote salute("colonel", msg.match[1])
 
-  robot.hear /major/i, (msg) ->
-    msg.emote "salutes Major Tom"
+  capitalize = (string) ->
+    string.charAt(0).toUpperCase() + string.slice(1)
+
+  salute = (rank, name) ->
+    if name
+      "salutes #{ capitalize(rank) } #{ capitalize(name) }."
+    else
+      "salutes the #{ capitalize(rank) }."
