@@ -185,6 +185,10 @@ module.exports = (robot) ->
         regex: /rogers ()(.*)/i,
         template_id: 23577483
       },
+      {
+        regex: /correction (.*)()/i,
+        template_id: 23744546
+      },
     ]
 
   for meme in robot.brain.data.imgflip_memes
