@@ -32,8 +32,11 @@ module.exports = (robot) ->
 
     for commit in commits
       parsed = parseCommit(commit)
-      for channel in channels
-        console.log "Saying in #{channel}: #{parsed}"
-        sayIn channel, parsed
+
+      # silent commits can be fun!
+      unless parsed.match(/#quiet|#silent/)?
+        for channel in channels
+          console.log "Saying in #{channel}: #{parsed}"
+          sayIn channel, parsed
 
     res.end "Thanks bro."
