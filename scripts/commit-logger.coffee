@@ -25,7 +25,7 @@ module.exports = (robot) ->
     robot.send envelope, text
 
   parseCommit = (commit) ->
-    "New commit by [#{commit.author.username}]: #{commit.message} (#{commit.url}) Build log: at http://bit.ly/elvis-builds"
+    "New commit by [#{commit.author.username}]: #{commit.message} (#{commit.url}) Build logs: #{werckerLink}"
 
   robot.router.post "/hubot/commit-webhook", (req, res) ->
     commits = req.body.commits
