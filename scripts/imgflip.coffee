@@ -170,7 +170,8 @@ module.exports = (robot) ->
         template_id: 1705097
       },
       {
-        regex: /(.* is the way to go) (call 683-7000)/i,
+        regex: /(.* is the way to go)/i,
+        line2After: "call 683-7000"
         template_id: 22783973
       },
       {
@@ -196,7 +197,9 @@ module.exports = (robot) ->
 
 setupResponder = (robot, meme) ->
   robot.respond meme.regex, (msg) ->
-    generateMeme msg, meme.template_id, msg.match[1], msg.match[2]
+    generateMeme msg, meme.template_id,
+      [meme.line1Before, msg.match[1], meme.line1After].join(' ').trim(),
+      [meme.line2Before, msg.match[2], meme.line2After].join(' ').trim()
 
 generateMeme = (msg, template_id, text0, text1) ->
   username = process.env.IMGFLIP_API_USERNAME
