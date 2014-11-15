@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-docker build --tag="hubot-tester" .
-docker run -ti hubot-tester
