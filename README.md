@@ -17,6 +17,13 @@ Hubot> hubot rb 1*10
 Hubot> Shell: => 10
 ```
 
+# Help, I don't have all of the development dependencies on my machine but I want to contribute (Hi Windows users)!
+
+We've got a few avenues for you.
+1) You can just write new code directly in Github.  If you're lucky it might work.
+2) You can download this and run `vagrant up` to run Elvis in a vagrant virtual machine.  You'll need to install VirtualBox and Vagrant first but they run pretty much anywhere.
+3) You can install docker and fig and then run `fig build; fig run hubot bin/connect` and he'll log right into IRC.
+
 
 ## Where to find more scripts:
 * http://hubot-script-catalog.herokuapp.com/
@@ -55,10 +62,3 @@ Then you can interact with hubot by typing `hubot help`.
     convert me <expression> to <units> - Convert expression to given units.
     help - Displays all of the help commands that Hubot knows about.
     ...
-
-# Help, I don't have node/python/ruby/redis on my machine but I want to contribute!
-
-We've got a few avenues for you.
-1) You can just write new code directly in Github.  If you're lucky it might work.
-2) You can download this and run `vagrant up` to run Elvis in a vagrant virtual machine.  You'll need to install VirtualBox and Vagrant first but they run pretty much anywhere.
-3) You can install docker and fig and then run `fig build; fig run hubot bin/connect` and he'll log right into IRC.
