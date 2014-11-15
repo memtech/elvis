@@ -1,0 +1,13 @@
+redis:
+  image: redis
+  ports:
+    - "6379"
+hubot:
+  build: .
+  command: bin/hubot
+  volumes:
+    - .:/opt/memtech-hubot
+  ports:
+    - "3000:3000"
+  links:
+    - redis

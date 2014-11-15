@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+`mkdir -p ./log`
 LOGFILENAME = "./log/errors.log"
 
 def main
