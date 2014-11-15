@@ -1,6 +1,6 @@
 # Elvis is on the docker hub!
 # to run your own pre-built copy try
-# docker pull dpritchett/elvis
+# docker pull dpritchett/elvis:latest
 
 FROM node:0.10.28
 MAINTAINER Daniel Pritchett <dpritchett@gmail.com>
