@@ -243,3 +243,7 @@ module.exports = (robot) ->
     responses: ["http://happycamperproject.files.wordpress.com/2013/08/tumblr_lzdbz2zhhg1qjpifao1_500.gif",
                 "https://31.media.tumblr.com/d146fe65cfcf6f000c71f12f700aebe6/tumblr_n1vikwYCQO1rai2kio2_250.gif",
                 "http://www.tickld.com/cdn_image_content/362308.jpg"]
+  
+  registerResponder
+    triggers: [/elvis (regex|regular expression)/i]
+    responses: ["How to regex: http://www.regular-expressions.info/quickstart.html"]
