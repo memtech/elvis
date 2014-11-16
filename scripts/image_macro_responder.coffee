@@ -246,4 +246,4 @@ module.exports = (robot) ->
   
   registerResponder
     triggers: [/elvis (regex|regular expression)/i]
-    responses: ["How to regex: http://www.regular-expressions.info/quickstart.html"]
+    responses: ["How to regex: http://www.regular-expressions.info/quickstart.html << Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems. - jwz"]
