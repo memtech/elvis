@@ -175,6 +175,10 @@ module.exports = (robot) ->
         template_id: 22783973
       },
       {
+        regex: /(i should buy .*)/i,
+        template_id: 1367068
+      },
+      {
         regex: /boatcat ()(.*)/i,
         template_id: 1367068
       },
