@@ -30,6 +30,7 @@ module.exports = (robot) ->
     # 3:04 PM <dpritchett> burn centers
     # 3:05 PM <Elvis> http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States
     joke
+      chanceToSkip: 93 # this is the current default but still a useful example
       triggers:  [/burn centers/i]
       responses: [
         "http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States",
