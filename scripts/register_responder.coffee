@@ -68,4 +68,8 @@ module.exports = (robot) ->
       robot.respond trigger, respondAlways
       robot.hear    trigger, respondSometimes
 
+  robot.registerHelpfulResponder = (args) ->
+    args.chanceToSkip = 100
+    robot.registerResponder args
+
   robot.emit "register-responder-loaded"
