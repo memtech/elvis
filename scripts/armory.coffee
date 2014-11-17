@@ -1,0 +1,99 @@
+# Description:
+#   img4me is awesome
+#
+# Dependencies:
+#   "request": "2.14.0",
+#
+# Configuration:
+#   None
+#
+# Commands:
+#
+# Author:
+#   dpritchett
+
+request = require 'request'
+
+# evil rubyist here ( ͡° ͜ʖ ͡°)
+String.prototype.toTitleCase = (str) ->
+  this.charAt(0).toUpperCase() + this.substr(1)
+
+module.exports = (robot) ->
+
+  #################################################################
+  #
+  # Armory preloaders
+  #
+  #################################################################
+
+  baseApiUrl = "http://us.battle.net/api/wow/"
+
+  seedWoWRaces = () ->
+    return if robot.brain.data.wowRaces?
+
+    dataUrl = baseApiUrl + "data/character/races"
+    request.get dataUrl, (error, response, body) ->
+        throw error if error
+        robot.brain.data.wowRaces = JSON.parse(response.body).races
+        robot.emit "WoWRacesLoaded"
+
+  seedWoWClasses = () ->
+    return if robot.brain.data.wowClasses?
+
+    dataUrl = baseApiUrl + "data/character/classes"
+    request.get dataUrl, (error, response, body) ->
+        throw error if error
+        robot.brain.data.wowClasses = JSON.parse(response.body).classes
+        robot.emit "WoWClassesLoaded"
+
+  robot.brain.on "loaded", ->
+    seedWoWRaces()
+    seedWoWClasses()
+
+  #################################################################
+  #
+  # Armory lookups
+  #
+  #################################################################
+
+  getRaceById = (id) ->
+    name  = (el.name for el in robot.brain.data.wowRaces when el.id is id)[0]
+
+  getClassById = (id) ->
+    name  = (el.name for el in robot.brain.data.wowClasses when el.id is id)[0]
+
+  namePlate = (charData) ->
+    [charData.name, guildString(charData)].join(' ')
+
+  guildString = (charData) ->
+    if charData.guild?
+      "<#{charData.guild.name}>"
+
+  charSheet = (charData, characterUrl) ->
+    race  = getRaceById(charData.race)
+    klass = getClassById(charData.class)
+    "#{namePlate(charData)} Level #{charData.level} #{race} #{klass} >> #{characterUrl}"
+
+  armoryLookup = (character, realm, msg) ->
+      realm     = realm.toLowerCase()
+      character = character.toTitleCase()
+
+      apiUrl       = baseApiUrl + "character/#{realm}/#{character}?fields=guild+feed"
+      characterUrl = "http://us.battle.net/wow/en/character/#{realm}/#{character}/simple"
+
+      request.get apiUrl, (error, response, body) ->
+          throw error if error
+
+          if response.statusCode is 404
+            msg.send "Character not found."
+          else
+            charData =  JSON.parse(response.body)
+            msg.send charSheet(charData, characterUrl)
+
+  # Actual hubot trigger
+  robot.respond /armory (\w+) (\w+)/i, (msg) ->
+    [character, realm] = [msg.match[1], msg.match[2]]
+    armoryLookup character, realm, msg
+
+  robot.respond /armory (\w+)$/i, (msg) ->
+    msg.send "Try Elvis armory <character> <realm>"
