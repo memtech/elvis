@@ -18,6 +18,7 @@ module.exports = (robot) ->
       "ʕノ•ᴥ•ʔノ ︵ ┻━┻",
       "(._.) ~ ︵ ┻━┻",
       "♪┏(・o･)┛♪┗ ( ･o･) ┓♪",
+      "http://hotmeme.net/media/i/3/b/5ia-what-the-pot-plant-said-to-the-dea-agent.jpg",
     ]
 
     msg.send table
