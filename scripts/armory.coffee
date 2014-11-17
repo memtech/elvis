@@ -56,6 +56,16 @@ module.exports = (robot) ->
   #
   #################################################################
 
+  casualInsults = [
+    "http://memecrunch.com/meme/11ZS8/filthy-casual-1/image.png",
+    "http://weknowmemes.com/wp-content/uploads/2013/05/you-filthy-casual-meme.jpg",
+    "http://i1.kym-cdn.com/photos/images/original/000/656/057/20e.jpg",
+    "http://t3.gstatic.com/images?q=tbn:ANd9GcQAmZD4Lg7r_UXgr0aDy9uTfZuWreZokdf7DAt_Pj3Jwfn46iAO",
+    "http://www.quickmeme.com/img/1b/1b30c02bb03a40d20f7e435234033e2511cade2d3017bca06a8595a628bf6776.jpg",
+    "http://i0.kym-cdn.com/photos/images/original/000/681/031/d9c.png",
+    "http://i3.kym-cdn.com/photos/images/original/000/541/870/cd3.jpg#.png",
+  ]
+
   getRaceById = (id) ->
     name  = (el.name for el in robot.brain.data.wowRaces when el.id is id)[0]
 
@@ -94,7 +104,7 @@ module.exports = (robot) ->
           throw error if error
 
           if response.statusCode is 404
-            msg.send "Character not found. | http://i3.kym-cdn.com/photos/images/original/000/541/870/cd3.jpg#.png"
+            msg.send "Character not found. | #{msg.random(casualInsults)}"
           else
             charData =  JSON.parse(response.body)
             msg.send charSheet(charData, characterUrl)
