@@ -213,12 +213,6 @@ module.exports = (robot) ->
     triggers: [/^elvis (slash|weedly|air guitar|guitar)/i]
     responses: ["http://i.kinja-img.com/gawker-media/image/upload/s--UyaIL8yf--/1934hcohpg7e0gif.gif"]
 
-# memtech dicks
-  registerResponder
-    damper:    40
-    triggers:  [/dick/i]
-    responses: ["Dicks are never not funny http://memtech.website/~unstablereality"]
-
 # bgswanson is heisenberg
   registerResponder
     triggers: [/^elvis (heisenberg|you're right)/i]
