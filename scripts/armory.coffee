@@ -94,7 +94,7 @@ module.exports = (robot) ->
           throw error if error
 
           if response.statusCode is 404
-            msg.send "Character not found."
+            msg.send "Character not found. | http://i3.kym-cdn.com/photos/images/original/000/541/870/cd3.jpg#.png"
           else
             charData =  JSON.parse(response.body)
             msg.send charSheet(charData, characterUrl)
