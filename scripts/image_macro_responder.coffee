@@ -47,6 +47,7 @@ module.exports = (robot) ->
   # 3:04 PM <dpritchett> burn centers
   # 3:05 PM <Elvis> http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States
   registerResponder
+    chanceToSkip: 93
     triggers:  [/burn centers/i]
     responses: [
       "http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States",
@@ -54,6 +55,7 @@ module.exports = (robot) ->
 
   # this responder adds the concept of a descriptive note - flavor text for the response.
   registerResponder
+    chanceToSkip: 93
     note:     'Sick burn!'
     triggers:  [/sick burn/i, /oh burn/i]
     responses: ["http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg"]
@@ -65,7 +67,7 @@ module.exports = (robot) ->
     responses: ['https://github.com/memtech/elvis/blob/master/scripts/image_macro_responder.coffee']
 
   registerResponder
-    chanceToSkip:    40
+    chanceToSkip: 93
     triggers:  [/lolwut/i, /lol wut/i]
     responses: [  # lazily tripled the likelihood of the first image coming back O_o
           "https://www.evernote.com/shard/s9/sh/f27bc4e3-f3e0-43ec-9db7-5bd16bdc0ffc/8f7d6ab7160aa6704fbd22ed43f9a315/deep/0/elvis-lol-wut.png",
@@ -78,7 +80,7 @@ module.exports = (robot) ->
   # 3:01 PM <•dpritchett> RF
   # 3:01 PM <Elvis> RocketFuel! http://i.imgur.com/S2qngvc.jpg
   registerResponder
-    chanceToSkip:    33
+    chanceToSkip: 93
     note:     'RocketFuel!'
     triggers:  [
       /(rocket fuel|rocketfuel)/i,
@@ -99,25 +101,26 @@ module.exports = (robot) ->
 
   # Objection!
   registerResponder
+    chanceToSkip: 93
     triggers: [/objection!/i, /i object/i]
     responses: ["http://emotibot.net/pix/6186.gif"]
 
   # no idea dog
   registerResponder
-    chanceToSkip:    75
+    chanceToSkip: 93
     triggers: [/have no idea/i, /has no idea/i]
     responses: ["http://littlefun.org/uploads/520be02ac856117033000007_736.jpg#.png"]
 
   # yeeaaahhhh
   registerResponder
-    chanceToSkip:     30
+    chanceToSkip: 93
     note: 'yeaaaaaaaaaaaggggggahhhhhh http://stream1.gifsoup.com/view3/1369448/howard-dean-yeah-o.gif'
     triggers: [/howard dean/i, /white house/i]
     responses: ["http://objective.ytmnd.com/"]
 
   # yeah.
   registerResponder
-    chanceToSkip:     70
+    chanceToSkip: 93
     note: 'yeah.'
     triggers: [/\bgoat\b/i]
     responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk",
@@ -135,12 +138,14 @@ module.exports = (robot) ->
 
   # what's up?
   registerResponder
+    chanceToSkip: 93
     note: 'feeling a little peculiar'
     triggers: [/\b(blondes|he-man|he man)\b/i]
     responses: ["https://www.youtube.com/watch?v=eh7lp9umG2I"]
 
   # gandalf
   registerResponder
+    chanceToSkip: 93
     note: 'fly, you fools!'
     triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein)\b/i]
     responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U",
@@ -157,7 +162,7 @@ module.exports = (robot) ->
 
   # webring
   registerResponder
-    chanceToSkip:     70
+    chanceToSkip: 93
     note: 'One ring to rule them all >> http://memtech.website/~dpritchett/webring_random.html >>'
     triggers: [/\b(web ring|webring)\b/i]
     responses: ["https://www.youtube.com/watch?v=fJlz6nEOT7w&t=0m44s",
@@ -168,12 +173,14 @@ module.exports = (robot) ->
 
   # IT Crowd
   registerResponder
+    chanceToSkip: 93
     note: 'Hello, IT...'
     triggers: [/tried turning it off/i]
     responses: ["http://makeameme.org/media/created/Hello-IT-Have.jpg"]
 
 # deadlift
   registerResponder
+    chanceToSkip: 93
     note: "Nothin' but a peanut!"
     triggers: [/(deadlift|dead lift|squat)/i]
     responses: ["https://www.youtube.com/watch?v=ZWUcHKAj_tc",
@@ -185,36 +192,43 @@ module.exports = (robot) ->
 
 # snaaape
   registerResponder
+    chanceToSkip: 93
     triggers: [/^(what\s?the\s?fuck|the\s?fuck|da\s?fuck|da\s?fuq)\??$/i]
     responses: ["http://img.pandawhale.com/41346-snape-dafuq-myUZ.jpeg"]
 
 # supa hot fire
   registerResponder
+    chanceToSkip: 93
     triggers: [/^elvis supa hot fire/i]
     responses: ["http://www.reactiongifs.com/r/2013/06/supa-hot-fire.gif"]
     
 # yes hell yes mongo
   registerResponder
+    chanceToSkip: 93
     triggers: [/mongo/i]
     responses: ["https://farm5.staticflickr.com/4107/5058343976_4a8166d349.jpg"]
 
 # woo
   registerResponder
+    chanceToSkip: 93
     triggers: [/^elvis kenny powers/i]
     responses: ["http://mrwgifs.com/wp-content/uploads/2013/12/Kenny-Powers-Flipping-Off-The-Crowd-On-The-Baseball-Field-In-Eastbound-Down.gif"]
 
 # ryan nodding
   registerResponder
+    chanceToSkip: 93
     triggers: [/^elvis ryan nodding/i]
     responses: ["http://img.pandawhale.com/84186-Ryan-from-the-office-this-gif-chsv.gif"]
 
 # slash rocking
   registerResponder
+    chanceToSkip: 93
     triggers: [/^elvis (slash|weedly|air guitar|guitar)/i]
     responses: ["http://i.kinja-img.com/gawker-media/image/upload/s--UyaIL8yf--/1934hcohpg7e0gif.gif"]
 
 # bgswanson is heisenberg
   registerResponder
+    chanceToSkip: 93
     triggers: [/^elvis (heisenberg|you're right)/i]
     responses: ["http://i.imgur.com/Erj8ka3.jpg",
                 "http://i.imgur.com/4IHFbq5.jpg"
@@ -222,6 +236,7 @@ module.exports = (robot) ->
 
 # swag
   registerResponder
+    chanceToSkip: 93
     triggers:  [/swag/i]
     chanceToSkip: 50
     responses: ["http://i.imgur.com/5dXgWAp.gif",
@@ -232,12 +247,13 @@ module.exports = (robot) ->
 
 # second breakfast
   registerResponder
-    chanceToSkip:   50
+    chanceToSkip: 93
     triggers: [/second breakfast/i, /elevensies/i]
     responses: ["http://happycamperproject.files.wordpress.com/2013/08/tumblr_lzdbz2zhhg1qjpifao1_500.gif",
                 "https://31.media.tumblr.com/d146fe65cfcf6f000c71f12f700aebe6/tumblr_n1vikwYCQO1rai2kio2_250.gif",
                 "http://www.tickld.com/cdn_image_content/362308.jpg"]
   
   registerResponder
+    chanceToSkip: 93
     triggers: [/elvis (regex|regular expression)/i]
     responses: ["How to regex: http://www.regular-expressions.info/quickstart.html << Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems. - jwz"]
