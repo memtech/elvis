@@ -29,6 +29,6 @@ module.exports = (robot) ->
       (\b[A-Z]{5,}\b)
     ///, (msg) ->
         # chance to do nothing
-        return unless (Math.random() * 100) > 80
+        return unless (Math.random() * 100) > 93
 
         msg.send manatee() if isAllCaps(msg)
