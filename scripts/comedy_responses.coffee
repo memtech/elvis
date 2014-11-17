@@ -210,3 +210,21 @@ module.exports = (robot) ->
     joke
       triggers:  [/(dave hand|big hand|everlong|dave slap)/i]
       responses: ["http://stream1.gifsoup.com/view7/4374280/slap-with-big-hand-o.gif"]
+
+    joke
+      triggers: [/wazzup/i]
+      responses: [ # borrowed playlist from https://www.youtube.com/playlist?list=PL1MLb1QkPrlyTtNwIbYkZZSIEjjJCPaKB
+        "https://www.youtube.com/watch?v=W16qzZ7J5YQ",
+        "https://www.youtube.com/watch?v=9_wJkuK1PDQ",
+        "https://www.youtube.com/watch?v=CubL4T_x91k",
+        "https://www.youtube.com/watch?v=t4yYxy3mbAE",
+        "https://www.youtube.com/watch?v=AiFEz6e5LCU",
+        "https://www.youtube.com/watch?v=lpyhdambtfY",
+        "https://www.youtube.com/watch?v=IkevT6IOLTk",
+        "https://www.youtube.com/watch?v=-kgIu1Ua-eM",
+        "https://www.youtube.com/watch?v=iZcTAfrtkgE",
+        "https://www.youtube.com/watch?v=a5yzRSqvvyI",
+        "https://www.youtube.com/watch?v=FhVM77INnmw",
+        "https://www.youtube.com/watch?v=WKzU4D5bLvw",
+        "https://www.youtube.com/watch?v=dIPpSrdpt28",
+      ]
