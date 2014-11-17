@@ -17,25 +17,40 @@
 #   bkmontgomery
 
 module.exports = (robot) ->
-
   ###############################
   # Auto-response machinery
   ###############################
+  DEFAULT_CHANCE_TO_SKIP = 93
 
   registerResponder = (args) ->
-    respond = (msg) ->
+    dieRoll = (n) ->
+      n ||= 100
+      Math.random() * 100
+
+    # mostly ignore indirect triggers
+    respondSometimes = (msg) ->
+      # direct commands are already handled by respondAlways
+      return if msg.message.text.match(new RegExp(process.env.HUBOT_IRC_NICK, 'i'))
+
       # bail out if we don't roll high enough
-      if args.chanceToSkip?
-       dieroll = (Math.random() * 100)
-       return unless dieroll > +args.chanceToSkip
+      return unless dieRoll() > +(args.chanceToSkip || DEFAULT_CHANCE_TO_SKIP)
 
       if args.note?
         msg.send [args.note, msg.random(args.responses)].join(' ')
       else
         msg.send msg.random(args.responses)
 
+    # don't ignore direct requests
+    respondAlways = (msg) ->
+      # direct commands are already handled by respondAlways
+      if args.note?
+        msg.send [args.note, msg.random(args.responses)].join(' ')
+      else
+        msg.send msg.random(args.responses)
+
     for trigger in args.triggers
-      robot.hear trigger, respond
+      robot.respond trigger, respondAlways
+      robot.hear    trigger, respondSometimes
 
   ################################
   # Configuration of responses
@@ -47,7 +62,6 @@ module.exports = (robot) ->
   # 3:04 PM <dpritchett> burn centers
   # 3:05 PM <Elvis> http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States
   registerResponder
-    chanceToSkip: 93
     triggers:  [/burn centers/i]
     responses: [
       "http://en.wikipedia.org/wiki/List_of_burn_centers_in_the_United_States",
@@ -55,7 +69,6 @@ module.exports = (robot) ->
 
   # this responder adds the concept of a descriptive note - flavor text for the response.
   registerResponder
-    chanceToSkip: 93
     note:     'Sick burn!'
     triggers:  [/sick burn/i, /oh burn/i]
     responses: ["http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg"]
@@ -63,11 +76,10 @@ module.exports = (robot) ->
   # how to Elvis
   registerResponder
     note:     'How to write an elvis macro auto response:'
-    triggers:  [/^elvis macros/i, /^elvis image macros/i]
+    triggers:  [/macros/i, /image macros/i]
     responses: ['https://github.com/memtech/elvis/blob/master/scripts/image_macro_responder.coffee']
 
   registerResponder
-    chanceToSkip: 93
     triggers:  [/lolwut/i, /lol wut/i]
     responses: [  # lazily tripled the likelihood of the first image coming back O_o
           "https://www.evernote.com/shard/s9/sh/f27bc4e3-f3e0-43ec-9db7-5bd16bdc0ffc/8f7d6ab7160aa6704fbd22ed43f9a315/deep/0/elvis-lol-wut.png",
@@ -80,7 +92,6 @@ module.exports = (robot) ->
   # 3:01 PM <•dpritchett> RF
   # 3:01 PM <Elvis> RocketFuel! http://i.imgur.com/S2qngvc.jpg
   registerResponder
-    chanceToSkip: 93
     note:     'RocketFuel!'
     triggers:  [
       /(rocket fuel|rocketfuel)/i,
@@ -101,26 +112,22 @@ module.exports = (robot) ->
 
   # Objection!
   registerResponder
-    chanceToSkip: 93
     triggers: [/objection!/i, /i object/i]
     responses: ["http://emotibot.net/pix/6186.gif"]
 
   # no idea dog
   registerResponder
-    chanceToSkip: 93
-    triggers: [/have no idea/i, /has no idea/i]
+    triggers: [/i have no idea/i, /\w+ has no idea/i]
     responses: ["http://littlefun.org/uploads/520be02ac856117033000007_736.jpg#.png"]
 
   # yeeaaahhhh
   registerResponder
-    chanceToSkip: 93
     note: 'yeaaaaaaaaaaaggggggahhhhhh http://stream1.gifsoup.com/view3/1369448/howard-dean-yeah-o.gif'
     triggers: [/howard dean/i, /white house/i]
     responses: ["http://objective.ytmnd.com/"]
 
   # yeah.
   registerResponder
-    chanceToSkip: 93
     note: 'yeah.'
     triggers: [/\bgoat\b/i]
     responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk",
@@ -138,14 +145,12 @@ module.exports = (robot) ->
 
   # what's up?
   registerResponder
-    chanceToSkip: 93
     note: 'feeling a little peculiar'
     triggers: [/\b(blondes|he-man|he man)\b/i]
     responses: ["https://www.youtube.com/watch?v=eh7lp9umG2I"]
 
   # gandalf
   registerResponder
-    chanceToSkip: 93
     note: 'fly, you fools!'
     triggers: [/\b(gandalf|hobbit|hobbits|orc|orcs|lotr|tolkein)\b/i]
     responses: ["https://www.youtube.com/watch?v=Sagg08DrO5U",
@@ -162,7 +167,6 @@ module.exports = (robot) ->
 
   # webring
   registerResponder
-    chanceToSkip: 93
     note: 'One ring to rule them all >> http://memtech.website/~dpritchett/webring_random.html >>'
     triggers: [/\b(web ring|webring)\b/i]
     responses: ["https://www.youtube.com/watch?v=fJlz6nEOT7w&t=0m44s",
@@ -173,14 +177,12 @@ module.exports = (robot) ->
 
   # IT Crowd
   registerResponder
-    chanceToSkip: 93
     note: 'Hello, IT...'
     triggers: [/tried turning it off/i]
     responses: ["http://makeameme.org/media/created/Hello-IT-Have.jpg"]
 
 # deadlift
   registerResponder
-    chanceToSkip: 93
     note: "Nothin' but a peanut!"
     triggers: [/(deadlift|dead lift|squat)/i]
     responses: ["https://www.youtube.com/watch?v=ZWUcHKAj_tc",
@@ -192,46 +194,42 @@ module.exports = (robot) ->
 
 # snaaape
   registerResponder
-    chanceToSkip: 93
-    triggers: [/^(what\s?the\s?fuck|the\s?fuck|da\s?fuck|da\s?fuq)\??$/i]
+    triggers:  [/(what\s?the\s?fuck|the\s?fuck|da\s?fuck|da\s?fuq)\??$/i]
     responses: ["http://img.pandawhale.com/41346-snape-dafuq-myUZ.jpeg"]
 
 # supa hot fire
   registerResponder
-    triggers: [/^elvis supa hot fire/i]
+    triggers: [/supa hot fire/i]
     responses: ["http://www.reactiongifs.com/r/2013/06/supa-hot-fire.gif"]
     
 # yes hell yes mongo
   registerResponder
-    chanceToSkip: 93
     triggers: [/mongo/i]
     responses: ["https://farm5.staticflickr.com/4107/5058343976_4a8166d349.jpg"]
 
 # woo
   registerResponder
-    triggers: [/^elvis kenny powers/i]
+    triggers: [/kenny powers/i]
     responses: ["http://mrwgifs.com/wp-content/uploads/2013/12/Kenny-Powers-Flipping-Off-The-Crowd-On-The-Baseball-Field-In-Eastbound-Down.gif"]
 
 # ryan nodding
   registerResponder
-    triggers: [/^elvis ryan nodding/i]
+    triggers: [/ryan nodding/i]
     responses: ["http://img.pandawhale.com/84186-Ryan-from-the-office-this-gif-chsv.gif"]
 
 # slash rocking
   registerResponder
-    triggers: [/^elvis (slash|weedly|air guitar|guitar)/i]
+    triggers: [/(slash|weedly|air guitar|guitar)/i]
     responses: ["http://i.kinja-img.com/gawker-media/image/upload/s--UyaIL8yf--/1934hcohpg7e0gif.gif"]
 
 # bgswanson is heisenberg
   registerResponder
-    triggers: [/^elvis (heisenberg|you're right)/i]
+    triggers: [/(heisenberg|you're right)/i]
     responses: ["http://i.imgur.com/Erj8ka3.jpg"]
 
 # swag
   registerResponder
-    chanceToSkip: 93
     triggers:  [/swag/i]
-    chanceToSkip: 50
     responses: ["http://i.imgur.com/5dXgWAp.gif",
                 "http://i.imgur.com/tCTdKNm.gif",
                 "http://i.imgur.com/l72ylSv.jpg",
@@ -240,17 +238,16 @@ module.exports = (robot) ->
 
 # second breakfast
   registerResponder
-    chanceToSkip: 93
     triggers: [/second breakfast/i, /elevensies/i]
     responses: ["http://happycamperproject.files.wordpress.com/2013/08/tumblr_lzdbz2zhhg1qjpifao1_500.gif",
                 "https://31.media.tumblr.com/d146fe65cfcf6f000c71f12f700aebe6/tumblr_n1vikwYCQO1rai2kio2_250.gif",
                 "http://www.tickld.com/cdn_image_content/362308.jpg"]
-  
+
   registerResponder
-    triggers: [/elvis (regex|regular expression)/i]
+    triggers: [/(regex|regular expression)/i]
     responses: ["How to regex: http://www.regular-expressions.info/quickstart.html << Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems. - jwz"]
 
   # dave grohl big hand slaps
   registerResponder
-    triggers:  [/elvis (dave hand|big hand|everlong|dave slap)/i]
+    triggers:  [/(dave hand|big hand|everlong|dave slap)/i]
     responses: ["http://stream1.gifsoup.com/view7/4374280/slap-with-big-hand-o.gif"]
