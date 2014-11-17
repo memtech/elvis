@@ -26,4 +26,10 @@ module.exports = (robot) ->
 
       msg.send "http://www.beedogs.com/index_files/#{relativeUrl}"
 
-  robot.respond /(beedog|bee dog)( me)?/i, (msg) -> beedog(msg)
+  robot.respond /(beedog|bee dog)( me)?$/i, (msg) -> beedog(msg)
+
+  robot.respond /(beedog|bee dog) bomb/i, (msg) ->
+    beedog(msg)
+    beedog(msg)
+    beedog(msg)
+    beedog(msg)
