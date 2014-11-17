@@ -198,7 +198,6 @@ module.exports = (robot) ->
 
 # supa hot fire
   registerResponder
-    chanceToSkip: 93
     triggers: [/^elvis supa hot fire/i]
     responses: ["http://www.reactiongifs.com/r/2013/06/supa-hot-fire.gif"]
     
@@ -210,25 +209,21 @@ module.exports = (robot) ->
 
 # woo
   registerResponder
-    chanceToSkip: 93
     triggers: [/^elvis kenny powers/i]
     responses: ["http://mrwgifs.com/wp-content/uploads/2013/12/Kenny-Powers-Flipping-Off-The-Crowd-On-The-Baseball-Field-In-Eastbound-Down.gif"]
 
 # ryan nodding
   registerResponder
-    chanceToSkip: 93
     triggers: [/^elvis ryan nodding/i]
     responses: ["http://img.pandawhale.com/84186-Ryan-from-the-office-this-gif-chsv.gif"]
 
 # slash rocking
   registerResponder
-    chanceToSkip: 93
     triggers: [/^elvis (slash|weedly|air guitar|guitar)/i]
     responses: ["http://i.kinja-img.com/gawker-media/image/upload/s--UyaIL8yf--/1934hcohpg7e0gif.gif"]
 
 # bgswanson is heisenberg
   registerResponder
-    chanceToSkip: 93
     triggers: [/^elvis (heisenberg|you're right)/i]
     responses: ["http://i.imgur.com/Erj8ka3.jpg"]
 
@@ -252,6 +247,5 @@ module.exports = (robot) ->
                 "http://www.tickld.com/cdn_image_content/362308.jpg"]
   
   registerResponder
-    chanceToSkip: 93
     triggers: [/elvis (regex|regular expression)/i]
     responses: ["How to regex: http://www.regular-expressions.info/quickstart.html << Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems. - jwz"]
