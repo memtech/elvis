@@ -25,9 +25,9 @@ module.exports = (robot) ->
   registerResponder = (args) ->
     respond = (msg) ->
       # bail out if we don't roll high enough
-      if args.damper?
+      if args.chanceToSkip?
        dieroll = (Math.random() * 100)
-       return unless dieroll > +args.damper
+       return unless dieroll > +args.chanceToSkip
 
       if args.note?
         msg.send [args.note, msg.random(args.responses)].join(' ')
@@ -65,7 +65,7 @@ module.exports = (robot) ->
     responses: ['https://github.com/memtech/elvis/blob/master/scripts/image_macro_responder.coffee']
 
   registerResponder
-    damper:    40
+    chanceToSkip:    40
     triggers:  [/lolwut/i, /lol wut/i]
     responses: [  # lazily tripled the likelihood of the first image coming back O_o
           "https://www.evernote.com/shard/s9/sh/f27bc4e3-f3e0-43ec-9db7-5bd16bdc0ffc/8f7d6ab7160aa6704fbd22ed43f9a315/deep/0/elvis-lol-wut.png",
@@ -78,7 +78,7 @@ module.exports = (robot) ->
   # 3:01 PM <•dpritchett> RF
   # 3:01 PM <Elvis> RocketFuel! http://i.imgur.com/S2qngvc.jpg
   registerResponder
-    damper:    33
+    chanceToSkip:    33
     note:     'RocketFuel!'
     triggers:  [
       /(rocket fuel|rocketfuel)/i,
@@ -104,20 +104,20 @@ module.exports = (robot) ->
 
   # no idea dog
   registerResponder
-    damper:    75
+    chanceToSkip:    75
     triggers: [/have no idea/i, /has no idea/i]
     responses: ["http://littlefun.org/uploads/520be02ac856117033000007_736.jpg#.png"]
 
   # yeeaaahhhh
   registerResponder
-    damper:     30
+    chanceToSkip:     30
     note: 'yeaaaaaaaaaaaggggggahhhhhh http://stream1.gifsoup.com/view3/1369448/howard-dean-yeah-o.gif'
     triggers: [/howard dean/i, /white house/i]
     responses: ["http://objective.ytmnd.com/"]
 
   # yeah.
   registerResponder
-    damper:     70
+    chanceToSkip:     70
     note: 'yeah.'
     triggers: [/\bgoat\b/i]
     responses: ["https://www.youtube.com/watch?v=zS-tUxcnPUk",
@@ -157,7 +157,7 @@ module.exports = (robot) ->
 
   # webring
   registerResponder
-    damper:     70
+    chanceToSkip:     70
     note: 'One ring to rule them all >> http://memtech.website/~dpritchett/webring_random.html >>'
     triggers: [/\b(web ring|webring)\b/i]
     responses: ["https://www.youtube.com/watch?v=fJlz6nEOT7w&t=0m44s",
@@ -223,7 +223,7 @@ module.exports = (robot) ->
 # swag
   registerResponder
     triggers:  [/swag/i]
-    damper: 50
+    chanceToSkip: 50
     responses: ["http://i.imgur.com/5dXgWAp.gif",
                 "http://i.imgur.com/tCTdKNm.gif",
                 "http://i.imgur.com/l72ylSv.jpg",
@@ -232,7 +232,7 @@ module.exports = (robot) ->
 
 # second breakfast
   registerResponder
-    damper:   50
+    chanceToSkip:   50
     triggers: [/second breakfast/i, /elevensies/i]
     responses: ["http://happycamperproject.files.wordpress.com/2013/08/tumblr_lzdbz2zhhg1qjpifao1_500.gif",
                 "https://31.media.tumblr.com/d146fe65cfcf6f000c71f12f700aebe6/tumblr_n1vikwYCQO1rai2kio2_250.gif",
