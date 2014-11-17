@@ -249,3 +249,8 @@ module.exports = (robot) ->
   registerResponder
     triggers: [/elvis (regex|regular expression)/i]
     responses: ["How to regex: http://www.regular-expressions.info/quickstart.html << Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems. - jwz"]
+
+  # dave grohl big hand slaps
+  registerResponder
+    triggers:  [/elvis (dave hand|big hand|everlong|dave slap)/i]
+    responses: ["http://stream1.gifsoup.com/view7/4374280/slap-with-big-hand-o.gif"]
