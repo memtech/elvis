@@ -70,9 +70,18 @@ module.exports = (robot) ->
       "<#{charData.guild.name}>"
 
   charSheet = (charData, characterUrl) ->
-    race  = getRaceById(charData.race)
-    klass = getClassById(charData.class)
-    "#{namePlate(charData)} Level #{charData.level} #{race} #{klass} >> #{characterUrl}"
+    race     = getRaceById(charData.race)
+    klass    = getClassById(charData.class)
+    imageUrl = profileImageUrl(charData)
+    "#{namePlate(charData)} Level #{charData.level} #{race} #{klass} >> #{characterUrl} | #{imageUrl}"
+
+  avatarImageUrl = (charData) ->
+    relativeUrl = charData.thumbnail
+    staticsBaseUrl = "http://us.battle.net/static-render/us/"
+    staticsBaseUrl + relativeUrl
+
+  profileImageUrl = (charData) ->
+    relativeUrl = avatarImageUrl(charData).replace("-avatar.jpg", "-profilemain.jpg")
 
   armoryLookup = (character, realm, msg) ->
       realm     = realm.toLowerCase()
