@@ -16,4 +16,4 @@
 module.exports = (robot) ->
 
   robot.respond /(bug|issue|pull request|patch|feature)/i, (msg) ->
-    msg.send "Bug reports and pull requests welcome at https://github.com/memtech/memtech-hubot/issues"
+    msg.send "Bug reports and pull requests welcome at https://github.com/memtech/elvis/issues"

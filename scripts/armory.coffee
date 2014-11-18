@@ -13,12 +13,18 @@
 #   dpritchett
 
 request = require 'request'
+crypto  = require 'crypto'
 
 # evil rubyist here ( ͡° ͜ʖ ͡°)
 String.prototype.toTitleCase = (str) ->
   this.charAt(0).toUpperCase() + this.substr(1)
 
 module.exports = (robot) ->
+  randomMd5 = ->
+    n = Math.random() * 10000000000
+    md5 = crypto.createHash('md5')
+    md5.update n.toString()
+    md5.digest 'hex'
 
   #################################################################
   #
@@ -88,7 +94,7 @@ module.exports = (robot) ->
   avatarImageUrl = (charData) ->
     relativeUrl = charData.thumbnail
     staticsBaseUrl = "http://us.battle.net/static-render/us/"
-    staticsBaseUrl + relativeUrl
+    staticsBaseUrl + relativeUrl + "?#{randomMd5()}"
 
   profileImageUrl = (charData) ->
     relativeUrl = avatarImageUrl(charData).replace("-avatar.jpg", "-profilemain.jpg")
