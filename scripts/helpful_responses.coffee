@@ -1,5 +1,5 @@
 # Description:
-#   Image Macro Responder
+#   Helpful Responses from the bot.
 #
 # Dependencies:
 #   None
@@ -35,3 +35,8 @@ module.exports = (robot) ->
     help
       triggers: [/build logs|build history|builds|wercker/i]
       responses: ["http://bit.ly/elvis-builds"]
+
+    # Link to IRC stats
+    help
+      triggers: [/stats$|irc stats$/i]
+      responses: ["http://www.joeferguson.me/ircstats/memtech.htm"]
