@@ -22,6 +22,10 @@ build:
         name: smoke test to see if it'll at least load
         code: ./bin/smoke_test.rb
 
+    - script:
+        name: now with real tests!
+        code: npm test
+
 deploy:
   steps:
     - heroku-deploy:
