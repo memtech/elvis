@@ -16,6 +16,8 @@ request = require 'request'
 
 module.exports = (robot) ->
   robot.pngifyText = (longText, title, msg) ->
+    
+      # customize the requests at http://img4me.com/developer
       apiUrl = "http://api.img4me.com/?"
 
       request.get {url: apiUrl, qs: {text: longText}},
