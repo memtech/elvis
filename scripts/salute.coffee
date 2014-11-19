@@ -13,7 +13,7 @@ module.exports = (robot) ->
   robot.hear /(major|general|colonel)\s*(\w+)/i, (msg) ->
     msg.emote salute(msg.match[1], msg.match[2])
 
-  robot.hear /kernel\s*(.*)/i, (msg) ->
+  robot.hear /kernel\s*(\w+)/i, (msg) ->
     msg.emote salute("colonel", msg.match[1])
 
   capitalize = (string) ->
