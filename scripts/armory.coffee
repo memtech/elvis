@@ -116,7 +116,7 @@ module.exports = (robot) ->
             msg.send charSheet(charData, characterUrl)
 
   # Actual hubot trigger
-  robot.respond /armory (\w+) (\w+)/i, (msg) ->
+  robot.respond /armory (\w+) (.*)/i, (msg) ->
     [character, realm] = [msg.match[1], msg.match[2]]
     armoryLookup character, realm, msg
 
