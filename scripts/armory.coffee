@@ -1,5 +1,5 @@
 # Description:
-#   img4me is awesome
+#   wow is awesome
 #
 # Dependencies:
 #   "request": "2.14.0",
@@ -8,6 +8,7 @@
 #   None
 #
 # Commands:
+#  elvis armory meltheous doomhammer - looks up meltheous on the armory
 #
 # Author:
 #   dpritchett
@@ -100,7 +101,8 @@ module.exports = (robot) ->
     relativeUrl = avatarImageUrl(charData).replace("-avatar.jpg", "-profilemain.jpg")
 
   armoryLookup = (character, realm, msg) ->
-      realm     = realm.toLowerCase()
+      realm     = realm.toLowerCase().split(/\s+/).join('-')
+
       character = character.toTitleCase()
 
       apiUrl       = baseApiUrl + "character/#{realm}/#{character}?fields=guild+feed"
