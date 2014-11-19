@@ -24,11 +24,14 @@ module.exports = (robot) ->
   timeUntil = (dateStamp) ->
     moment(dateStamp).fromNow()
 
+  daysUntil = (dateStamp) ->
+    moment(dateStamp).diff(moment(), 'days')
+
   countdownTo = (args) ->
     robot.respond args.trigger, (msg) ->
       msg.send [
         args.title,
-        "happens #{timeUntil(args.date)}",
+        "happens in #{daysUntil(args.date)} days",
         "(#{humanDate(args.date)})",
         args.link
       ].join(' ')
