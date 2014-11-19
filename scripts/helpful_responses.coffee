@@ -1,5 +1,5 @@
 # Description:
-#   Image Macro Responder
+#   Helpful Responses from the bot.
 #
 # Dependencies:
 #   None
