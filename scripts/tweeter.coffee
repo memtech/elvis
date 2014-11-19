@@ -37,6 +37,17 @@ module.exports = (robot) ->
       else
         msg.send("OK I haz tweetz! https://twitter.com/elvis_the_bot")
 
+  robot.respond /yo (@\w+)/i, (msg) ->
+    recipient = msg.match[1]
+    user = msg.user.name
+    status = ".#{recipient} Yo! from #{user}"
+    twitter.post 'status/update', status: status, (err, data, resp) ->
+      if err
+        console.log(err, data, resp)
+        msg.send("TWEETZOR ERROR!")
+      else
+        msg.send("Sent a Yo! to #{recipient} https:/twitter.com/elvis_the_bot")
+
   robot.tweet = (status) ->
     status = deviralize(status)
     twitter.post 'statuses/update', status: status, (err, data, resp) ->
