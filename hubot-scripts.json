@@ -1,22 +1,9 @@
 [
   "achievement_unlocked.coffee",
-  "alot.coffee",
-  "ackbar.coffee",
-  "adult.coffee",
-  "applause.coffee",
-  "bang-bang.coffee",
-  "bees.coffee",
-  "cleverbot.coffee",
   "dice.coffee",
   "eight-ball.coffee",
-  "facepalm.coffee",
-  "history.coffee",
   "lmgtfy.coffee",
-  "octospy.coffee",
   "redis-brain.coffee",
   "ruby.coffee",
-  "shipit.coffee",
-  "thanks-obama.coffee",
   "xkcd.coffee",
-  "zombies.coffee"
 ]
