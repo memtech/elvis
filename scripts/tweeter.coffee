@@ -12,9 +12,9 @@
 #
 # Commands:
 #   hubot tweet <phrase> - Post a tweet to the twitter account.
-#   hubot yo me at <twitter handle> - opt in to Yos
-#   hubot don't yo me - opt out of Yos
-#   hubot yo <username> - Yo opted in users via twitter
+#   hubot tyo me at <twitter handle> - opt in to Yos
+#   hubot don't tyo me - opt out of Yos
+#   hubot tyo <username> - Yo opted in users via twitter
 #
 # Authors:
 #   joshwlewis
@@ -56,7 +56,7 @@ module.exports = (robot) ->
   ###########################
 
   # opt in to get Yo!s
-  robot.respond /yo me at (@\w+)/i, (msg) ->
+  robot.respond /tyo me at (@\w+)/i, (msg) ->
     robot.brain.data.twitterNames ||= {}
 
     yourTwitterHandle = msg.match[1]
@@ -67,7 +67,7 @@ module.exports = (robot) ->
     msg.reply "Ok, I can now Yo! you at #{yourTwitterHandle}."
 
   # opt out of getting Yo!s
-  robot.respond /don't yo me/i, (msg) ->
+  robot.respond /don't tyo me/i, (msg) ->
     robot.brain.data.twitternames ||= {}
     yourIrcNick       = msg.message.user.name
 
@@ -75,7 +75,7 @@ module.exports = (robot) ->
     msg.reply "Ok, no more Yo! to you."
 
   # Yo! someone using the name on file.
-  robot.respond /yo (\w+)$/i, (msg) ->
+  robot.respond /tyo (\w+)$/i, (msg) ->
     recipient = msg.match[1]
     user      = msg.message.user.name
 
