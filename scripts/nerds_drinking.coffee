@@ -22,7 +22,7 @@ url = "http://nerdsdrinking.com"
 module.exports = (robot) ->
 
   robot.respond /nerds drinking/i, (msg) ->
-    return robot.askJeeves(msg)
+    return if robot.askJeeves(msg)
     request "#{url}", (error, response, body)->
       throw error if error
       $ = cheerio.load(body)

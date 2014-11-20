@@ -9,4 +9,8 @@
 
 module.exports = (robot) ->
   robot.askJeeves = (msg) ->
-    msg.send("Not me, try asking Jeeves.")
+    if msg.envelope.room.match(/memtech$/i)
+      msg.send("Not me, try asking Jeeves.")
+      return true
+    else
+      return false
