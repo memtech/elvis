@@ -15,7 +15,7 @@
 #   joshwlewis
 
 module.exports = (robot) ->
-  robot.hear /disassemble/i, (msg) ->
+  robot.respond /disassemble/i, (msg) ->
     response = 'NO DISASSEMBLE!'
     msg.send response
     robot.tweet response

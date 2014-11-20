@@ -16,7 +16,7 @@ module.exports = (robot) ->
 
   robot.respond /manatee|calm( me)?/i, (msg) -> msg.send manatee()
 
-  robot.hear /calm down|simmer down|that escalated quickly/i, (msg) ->
+  robot.respond /calm down|simmer down|that escalated quickly/i, (msg) ->
     msg.send manatee()
 
   isAllCaps = (msg) ->
@@ -24,7 +24,7 @@ module.exports = (robot) ->
     text.toUpperCase() == text
 
   unless process.env.HUBOT_LESS_MANATEES
-    robot.hear ///
+    robot.respond ///
       (\b([A-Z]{2,}\s+)([A-Z]{2,})\b)|
       (\b[A-Z]{5,}\b)
     ///, (msg) ->

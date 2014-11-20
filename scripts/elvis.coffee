@@ -12,7 +12,7 @@ module.exports = (robot) ->
   isActuallyElvis = ->
     !!(robot.name.match /elvis/i)
 
-  robot.hear /^(memtechbot|hubot)/i, (msg) ->
+  robot.respond /^(memtechbot|hubot)/i, (msg) ->
     if isActuallyElvis()
       response = "Call me #{robot.name}, baby!"
       msg.reply response

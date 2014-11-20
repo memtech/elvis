@@ -6,7 +6,7 @@
 #   u jelly
 
 module.exports = (robot) ->
-  robot.hear /(u|me|he|him|she|her|it|them|they|we)( so)? (mad|jelly|jealous)(?![\w])/i, (msg) ->
+  robot.respond /(u|me|he|him|she|her|it|them|they|we)( so)? (mad|jelly|jealous)(?![\w])/i, (msg) ->
     imageMe msg, "#{msg.match[0]} meme", (url) ->
       msg.send url
 

@@ -22,7 +22,6 @@ url = "http://nerdsdrinking.com"
 module.exports = (robot) ->
 
   robot.respond /nerds drinking/i, (msg) ->
-    return if robot.askJeeves(msg)
     request "#{url}", (error, response, body)->
       throw error if error
       $ = cheerio.load(body)
@@ -34,6 +33,6 @@ module.exports = (robot) ->
 
   robot.respond /literally/i, (msg) ->
     msg.send "http://nerdsdrinking.com/literal.mp3"
-    
-  robot.hear /wiseacre/i,(msg) -> 
+
+  robot.respond /wiseacre/i,(msg) -> 
     msg.send "Wiseacre - The Unofficial beer of the Nerds Drinking Podcast. http://www.nerdsdrinking.com"

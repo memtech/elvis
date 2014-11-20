@@ -21,7 +21,7 @@ url = "http://whatsbradeating.tumblr.com/"
 
 module.exports = (robot) ->
 
-  robot.hear /.*brad.*(eat|ate)/i, (msg) ->
+  robot.respond /.*brad.*(eat|ate)/i, (msg) ->
     request "#{url}", (error, response, body)->
       throw error if error
       $ = cheerio.load(body)

@@ -91,11 +91,9 @@ getTemp = (c) ->
 module.exports = (robot) ->
 
   robot.respond /weather(?: me|for|in)?\s(.*)/i, (msg) ->
-    return if robot.askJeeves(msg)
     location = msg.match[1]
     lookupAddress(msg, location, lookupWeather)
 
   robot.respond /forecast(?: me|for|in)?\s(.*)/i, (msg) ->
-    return if robot.askJeeves(msg)
     location = msg.match[1]
     lookupAddress(msg, location, lookupForecast)

@@ -25,7 +25,6 @@ module.exports = (robot) ->
     robot.tweet link
 
   robot.respond /(event|meetup)(.*)/i, (msg) ->
-    return if robot.askJeeves(msg)
     keyword = msg.match[2].trim()
 
     msg.http("#{base_url}/calendar.json")

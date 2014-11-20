@@ -7,7 +7,6 @@
 module.exports = (robot) ->
 
   robot.respond /(?:(satellite|terrain|hybrid)[- ])?map me (.+)/i, (msg) ->
-    return if robot.askJeeves(msg)
     mapType  = msg.match[1] or "roadmap"
     location = msg.match[2]
     mapUrl   = "http://maps.google.com/maps/api/staticmap?markers=" +

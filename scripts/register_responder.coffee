@@ -66,10 +66,9 @@ module.exports = (robot) ->
 
     for trigger in args.triggers
       robot.respond trigger, respondAlways
-      robot.hear    trigger, respondSometimes
+      robot.respond    trigger, respondSometimes
 
   robot.registerHelpfulResponder = (args) ->
-    args.responses = ["Not me, try asking Jeeves."]
     args.chanceToSkip = 100
     robot.registerResponder args
 

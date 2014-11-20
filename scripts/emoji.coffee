@@ -26,12 +26,12 @@
 module.exports = (robot) ->
 
   # Respond to emoticons/emoji in parentheses.
-  robot.hear /\(\w+\)/ig, (msg) ->
+  robot.respond /\(\w+\)/ig, (msg) ->
     for name in msg.match
       sendEmojiUrl(msg, name.replace(/[\(\)]/g,''))
 
   # Respond to emoticons/emoji in colons.
-  robot.hear /\:\w+\:/ig, (msg) ->
+  robot.respond /\:\w+\:/ig, (msg) ->
     for name in msg.match
       sendEmojiUrl(msg, name.replace(/\:/g,''))
 

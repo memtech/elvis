@@ -80,7 +80,7 @@ module.exports = (robot) ->
 
       # this looks tricky cause it needs to be disabled later if the response is deleted
       re = new RegExp(trigger, "i") # case insensitive
-      robot.hear re, (msg) ->
+      robot.respond re, (msg) ->
         (->
           response = robot.brain.get(masked)
           # don't bother if there's no response

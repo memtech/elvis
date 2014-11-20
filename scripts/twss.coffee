@@ -33,6 +33,6 @@ module.exports = (robot) ->
     throw error if error
     quotes = body.split("\n")
 
-  robot.hear /twss|what she said/i, (msg) ->
+  robot.respond /twss|what she said/i, (msg) ->
     quote = quotes[Math.floor(Math.random()*quotes.length)]
     msg.send quote unless randomMute(50)
