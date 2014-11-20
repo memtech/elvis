@@ -39,9 +39,9 @@ module.exports = (robot) ->
 
   robot.respond /yo (@\w+)/i, (msg) ->
     recipient = msg.match[1]
-    user = msg.user.name
+    user = msg.message.user.name
     status = ".#{recipient} Yo! from #{user}"
-    twitter.post 'status/update', status: status, (err, data, resp) ->
+    twitter.post 'statuses/update', status: status, (err, data, resp) ->
       if err
         console.log(err, data, resp)
         msg.send("TWEETZOR ERROR!")
