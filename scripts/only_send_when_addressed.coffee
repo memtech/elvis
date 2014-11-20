@@ -1,21 +1,28 @@
 # Description:
-#   Bee dogs are good for you
+#   Refuse to respond to .hear
 #
 # Configuration:
 #   none
 #
 # Commands:
-#   hubot beedogs
+#   none
+#
+# Authors:
+#   dpritchett
 
 module.exports = (robot) ->
   robotNameRegex = new RegExp(robot.name, 'i')
 
+  # whine in the log instead of .send()-ing when not directly addressed
+  # Intended to break .hear() calls from library imports.
+  #
   onlySendWhenAddressed = (envelope, strings...) ->
     if this.message.text.match robotNameRegex
       this.oldSend arguments...
     else
       console.log "No auto responders! Try '#{robot.name} #{this.message.text}'"
 
+  # replace the msg.send method with msg.onlySendWhenAddressed
   patchSend = (msgPrototype, oldSend) ->
     msgPrototype.isDirect = () ->
       this.message.text.match(robot.name) isnt null
@@ -24,11 +31,9 @@ module.exports = (robot) ->
     msgPrototype.send    = onlySendWhenAddressed
     msgPrototype.sendsWell   = true
 
+  # Register this at runtime upon the very first overheard bit of chat
   robot.hear /(.*)/, (msg) ->
     msgProto = Object.getPrototypeOf(msg)
     return if msgProto.sendsWell
 
     patchSend msgProto
-
-  robot.hear /qwe/i, (msg) ->
-    msg.send "rtyuiop"
