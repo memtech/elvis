@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 def main
-  results = `grep -R "robot\.hear" ./scripts`
+  results = `grep -R "robot\.hear" ./scripts | grep -v only_send`
   errors = results.scan(/hear/i)
 
   if errors.any?

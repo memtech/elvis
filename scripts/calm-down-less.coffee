@@ -16,7 +16,7 @@ module.exports = (robot) ->
 
   robot.respond /manatee|calm( me)?/i, (msg) -> msg.send manatee()
 
-  robot.hear /calm down|simmer down|that escalated quickly/i, (msg) ->
+  robot.respond /calm down|simmer down|that escalated quickly/i, (msg) ->
     msg.send manatee()
 
   isAllCaps = (msg) ->
