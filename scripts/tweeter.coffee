@@ -12,9 +12,14 @@
 #
 # Commands:
 #   hubot tweet <phrase> - Post a tweet to the twitter account.
+#   hubot yo me at <twitter handle> - opt in to Yos
+#   hubot don't yo me - opt out of Yos
+#   hubot yo <username> - Yo opted in users via twitter
 #
 # Authors:
 #   joshwlewis
+#   meltheous
+#   dpritchett
 #
 
 Twitter = require('twit')
@@ -24,6 +29,10 @@ for key in ['consumer_key', 'consumer_secret', 'access_token', 'access_token_sec
 twitter = new Twitter(config)
 
 module.exports = (robot) ->
+
+  ##################
+  # Tweets
+  ##################
 
   deviralize = (text) ->
     text.replace /(^|\s)(@|#)/g, '$1'
@@ -37,19 +46,46 @@ module.exports = (robot) ->
       else
         msg.send("OK I haz tweetz! https://twitter.com/elvis_the_bot")
 
-  robot.respond /yo (@\w+)/i, (msg) ->
-    recipient = msg.match[1]
-    user = msg.message.user.name
-    status = ".#{recipient} Yo! from #{user}"
-    twitter.post 'statuses/update', status: status, (err, data, resp) ->
-      if err
-        console.log(err, data, resp)
-        msg.send("TWEETZOR ERROR!")
-      else
-        msg.send("Sent a Yo! to #{recipient} https://twitter.com/elvis_the_bot")
-
   robot.tweet = (status) ->
     status = deviralize(status)
     twitter.post 'statuses/update', status: status, (err, data, resp) ->
       console.log(err, data) if err
 
+  ###########################
+  # Yo!
+  ###########################
+
+  # opt in to get Yo!s
+  robot.respond /yo me at (@\w+)/i, (msg) ->
+    robot.brain.data.twitterNames ||= {}
+
+    yourTwitterHandle = msg.match[1]
+    yourIrcNick       = msg.message.user.name
+
+    robot.brain.data.twitterNames[yourIrcNick] = yourTwitterHandle
+
+    msg.reply "Ok, I can now Yo! you at #{yourTwitterHandle}."
+
+  # opt out of getting Yo!s
+  robot.respond /don't yo me/i, (msg) ->
+    robot.brain.data.twitternames ||= {}
+    yourIrcNick       = msg.message.user.name
+
+    robot.brain.data.twitterNames[yourIrcNick] = null
+    msg.reply "Ok, no more Yo! to you."
+
+  # Yo! someone using the name on file.
+  robot.respond /yo (\w+)$/i, (msg) ->
+    recipient = msg.match[1]
+    user      = msg.message.user.name
+
+    if twitterHandle = robot.brain.data.twitterNames[recipient]
+      status = ".#{twitterHandle} Yo! from #{user}"
+      twitter.post 'statuses/update', status: status, (err, data, resp) ->
+        if err
+          console.log(err, data, resp)
+          msg.send("TWEETZOR ERROR!")
+        else
+          msg.send("Sent a Yo! to #{recipient} https://twitter.com/elvis_the_bot")
+    else
+      msg.send "Sorry, I don't have a Twitter handle on file for #{recipient}.  Have them register in IRC via 'Elvis yo me at <twitterHandle>'"
