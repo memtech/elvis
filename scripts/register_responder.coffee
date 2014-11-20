@@ -69,6 +69,7 @@ module.exports = (robot) ->
       robot.hear    trigger, respondSometimes
 
   robot.registerHelpfulResponder = (args) ->
+    args.responses = ["Not me, try asking Jeeves."]
     args.chanceToSkip = 100
     robot.registerResponder args
 

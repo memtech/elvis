@@ -22,6 +22,8 @@ url = "https://www.youtube.com/user/GeekBlogTV/videos"
 module.exports = (robot) ->
 
   robot.respond /geekblog|basedgeek/i, (msg) ->
+    return robot.askJeeves(msg)
+
     request "#{url}", (error, response, body)->
       throw error if error
       $ = cheerio.load(body)

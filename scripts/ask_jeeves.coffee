@@ -8,5 +8,5 @@
 #   none
 
 module.exports = (robot) ->
-  robot.askJeeves = () ->
+  robot.askJeeves = (msg) ->
     msg.send("Not me, try asking Jeeves.")
