@@ -23,10 +23,6 @@ build:
         code: npm test
 
     - script:
-        name: Refuse to deploy autoresponders
-        code: ./bin/no_autoresponders.rb
-
-    - script:
         name: smoke test to see if it'll at least load
         code: ./bin/smoke_test.rb
 
