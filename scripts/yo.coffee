@@ -32,6 +32,6 @@ module.exports = (robot) ->
         else
           msg.send results.result
 
-  robot.respond /yo (.*)/i, (msg) ->
-    username = msg.match[1]
+  robot.respond /yo (\w+)/i, (msg) ->
+    username = (msg.match[1] + ' ').trim().toLowerCase()
     yo username, msg
