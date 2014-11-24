@@ -228,3 +228,8 @@ module.exports = (robot) ->
         "https://www.youtube.com/watch?v=WKzU4D5bLvw",
         "https://www.youtube.com/watch?v=dIPpSrdpt28",
       ]
+
+    # que?
+    joke
+      triggers: [/(que|que\?)/i]
+      responses: ["http://i.imgur.com/hBB3y.png"]
