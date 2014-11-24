@@ -232,4 +232,4 @@ module.exports = (robot) ->
     # que?
     joke
       triggers: [/(que|que\?)/i]
-      responses: ["http://i.imgur.com/hBB3y.png"]
+      responses: ["http://i.imgur.com/7qNTrHN.jpg"]
