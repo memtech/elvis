@@ -233,3 +233,8 @@ module.exports = (robot) ->
     joke
       triggers: [/(que|que\?)/i]
       responses: ["http://i.imgur.com/7qNTrHN.jpg"]
+
+    # yip yip
+    joke
+      triggers: [/(yip|yip yip)/i]
+      responses: ["https://i.imgur.com/3TIWj.gif"]
