@@ -141,8 +141,9 @@ module.exports = (robot) ->
     # IT Crowd
     joke
       note: 'Hello, IT...'
-      triggers: [/tried turning it off/i]
-      responses: ["http://makeameme.org/media/created/Hello-IT-Have.jpg"]
+      triggers: [/(tried turning it off|hello it|have you tried turning it off and on again\?)/i]
+      responses: ["http://makeameme.org/media/created/Hello-IT-Have.jpg",
+                  "http://youtu.be/p85xwZ_OLX0?t=2s"]
 
     # deadlift
     joke
