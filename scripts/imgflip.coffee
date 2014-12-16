@@ -39,6 +39,7 @@
 #   hubot Your <text> and you should feel <text> - Zoidberg
 #   hubot One <text> please - Zoidberg
 #   hubot Everyone's <text> And I'm just sitting here <text> - Spiderman
+#   hubot confusedgandalf <text> Confused Gandalf
 #
 # Author:
 #   dylanwenzlau
@@ -193,6 +194,10 @@ module.exports = (robot) ->
       {
         regex: /correction (.*)()/i,
         template_id: 23744546
+      },
+      {
+        regex: /confusedgandalf ()(.*)/i,
+        template_id: 25857549
       },
     ]
 
