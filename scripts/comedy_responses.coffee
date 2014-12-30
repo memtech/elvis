@@ -89,6 +89,14 @@ module.exports = (robot) ->
       triggers: [/howard dean/i, /white house/i]
       responses: ["http://objective.ytmnd.com/"]
 
+    # don't hate
+    joke
+      triggers: [/don't hate/i, /dont hate/i]
+      responses: ["http://bukk.it/maybe.jpg",
+                  "http://i.imgur.com/lLulX85.jpg",
+                  "http://stream1.gifsoup.com/view6/3253470/spiderman-haters-gonna-hate-o.gif"
+      ]
+
     # yeah.
     joke
       note: 'yeah.'
