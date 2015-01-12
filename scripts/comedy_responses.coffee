@@ -247,3 +247,8 @@ module.exports = (robot) ->
     joke
       triggers: [/(yip|yip yip)/i]
       responses: ["https://i.imgur.com/3TIWj.gif"]
+
+    # D:
+    joke
+      triggers: [/(drugs|drug war)/i]
+      responses: ["http://i.imgur.com/IagvuDy.gif"]
