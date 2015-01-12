@@ -48,12 +48,10 @@ result = [
 ]
 
 doTrick = -> "/me attempts " + 
-           description[random(0,description.length-1)] + " " + 
-           trick[random(0,trick.length-1)] + " and " + 
-           result[random(0,result.length-1)]
+             description[random(0,description.length-1)] + " " + 
+             trick[random(0,trick.length-1)] + " and " + 
+             result[random(0,result.length-1)]
 
-alert doTrick()
-      
 module.exports = (robot) ->
 
   robot.respond /do a trick/i, (msg) ->
