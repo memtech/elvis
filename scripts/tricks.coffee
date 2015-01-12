@@ -55,4 +55,4 @@ doTrick = -> "/me attempts " +
 module.exports = (robot) ->
 
   robot.respond /do a trick/i, (msg) ->
-    msg.send doTrick
+    msg.send doTrick()
