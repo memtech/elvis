@@ -51,7 +51,7 @@ result = [
   "dies.",
   "does a pretty good job.",
   "fails miserably.",
-  "it's perfect."
+  "it's perfect.",
   "does such a terrible job that he leaves his family out of shame."
 ]
 
