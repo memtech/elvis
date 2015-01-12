@@ -36,15 +36,23 @@ trick = [
   "motorcycle bus jump",
   "webinar",
   "yo yo trick",
-  "fireball",
-  "barehanded brick smash"
+  "fireball throw",
+  "barehanded brick smash",
+  "first try USB insertion",
+  "untested deployment straight to production",
+  "naked skydive",
+  "lightning talk",
+  "presentation at a PHP conference",
+  "presentation at a NodeJS conference"
 ]
 
 result = [
-  "nails it",
-  "dies",
-  "fails miserably",
-  "it's perfect"
+  "nails it.",
+  "dies.",
+  "does a pretty good job.",
+  "fails miserably.",
+  "it's perfect."
+  "does such a terrible job that he leaves his family out of shame."
 ]
 
 doTrick = -> "attempts " + 
@@ -53,6 +61,5 @@ doTrick = -> "attempts " +
              result[random(0,result.length-1)]
 
 module.exports = (robot) ->
-
   robot.respond /do a (trick|barrel roll)/i, (msg) ->
     msg.emote doTrick()
