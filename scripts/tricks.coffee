@@ -47,12 +47,12 @@ result = [
   "it's perfect"
 ]
 
-doTrick = -> "/me attempts " + 
+doTrick = -> "attempts " + 
              description[random(0,description.length-1)] + " " + 
              trick[random(0,trick.length-1)] + " and " + 
              result[random(0,result.length-1)]
 
 module.exports = (robot) ->
 
-  robot.respond /do a trick/i, (msg) ->
-    msg.send doTrick()
+  robot.respond /do a (trick|barrel roll)/i, (msg) ->
+    msg.emote doTrick()
