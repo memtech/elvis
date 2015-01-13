@@ -58,7 +58,7 @@ result = [
   "it's perfect.",
   "does such a terrible job that he leaves his family out of shame.",
   "does such a great job he writes a song about it.",
-  "does so poorly that he get's slapped by the colonel",
+  "does so poorly that he get's slapped by the colonel"
 ]
 
 doTrick = -> "attempts " + 
