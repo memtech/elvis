@@ -24,7 +24,8 @@ description = [
   "a dangerous",
   "a mediocre",
   "a kind of lame",
-  "an extreme"
+  "an extreme",
+  "a one of a kind"
 ]
 
 trick = [
@@ -43,7 +44,10 @@ trick = [
   "naked skydive",
   "lightning talk",
   "presentation at a PHP conference",
-  "presentation at a NodeJS conference"
+  "presentation at a NodeJS conference",
+  "flying Karate kick at Kenpo master Ed Parker's dojo",
+  "flying peanut butter and banana sandwich move",
+  "pelvic thrust"
 ]
 
 result = [
@@ -52,7 +56,9 @@ result = [
   "does a pretty good job.",
   "fails miserably.",
   "it's perfect.",
-  "does such a terrible job that he leaves his family out of shame."
+  "does such a terrible job that he leaves his family out of shame.",
+  "does such a great job he writes a song about it.",
+  "does so poorly that he get's slapped by the colonel",
 ]
 
 doTrick = -> "attempts " + 
