@@ -251,4 +251,18 @@ module.exports = (robot) ->
     # D:
     joke
       triggers: [/(drugs|drug war)/i]
-      responses: ["http://i.imgur.com/IagvuDy.gif"]
+      responses: ["http://i.imgur.com/IagvuDy.gif"]\
+      
+    # the more you know
+    joke
+      triggers: [/(tmyk)/i]
+      responses: ["http://i.imgur.com/5dlGZFe.gif"]
+      
+    # tgif
+    joke
+      triggers: [/(tgif)/i]
+      responses: ["https://davidkanigan.files.wordpress.com/2012/06/cow-bell-wake-up-call1.gif",
+                  "https://stupendoustidbits.files.wordpress.com/2012/06/katy-perry.gif",
+                  "http://25.media.tumblr.com/tumblr_ma0gf1d66q1radqrco1_500.gif",
+                  "http://i1159.photobucket.com/albums/p634/electricpickles12/tumblr_m3s1sbRxe61rs9ie3o1_500.gif"]
+      
