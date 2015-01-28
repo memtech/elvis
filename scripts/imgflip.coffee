@@ -40,6 +40,7 @@
 #   hubot One <text> please - Zoidberg
 #   hubot Everyone's <text> And I'm just sitting here <text> - Spiderman
 #   hubot confusedgandalf <text> Confused Gandalf
+#   hubot eagle <text> Patriotic Eagle
 #
 # Author:
 #   dylanwenzlau
@@ -198,6 +199,10 @@ module.exports = (robot) ->
       {
         regex: /confusedgandalf ()(.*)/i,
         template_id: 25857549
+      },
+      {
+        regex: /eagle(.*)/i,
+        template_id: 126770
       },
     ]
 
