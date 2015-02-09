@@ -265,3 +265,8 @@ module.exports = (robot) ->
                   "https://stupendoustidbits.files.wordpress.com/2012/06/katy-perry.gif",
                   "http://25.media.tumblr.com/tumblr_ma0gf1d66q1radqrco1_500.gif",
                   "http://i1159.photobucket.com/albums/p634/electricpickles12/tumblr_m3s1sbRxe61rs9ie3o1_500.gif"]
+
+    # drama llama
+    joke
+      triggers: [/(drama counter|days since last drama)/i]
+      responses: ["Days since last #memtech drama incident: 0"]
