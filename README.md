@@ -1,5 +1,5 @@
 ### Click here to see recent Elvis build history
-[![wercker status](https://app.wercker.com/status/c7d82813f21d79049b027779bd4781e4/m "wercker status")](https://app.wercker.com/project/bykey/c7d82813f21d79049b027779bd4781e4)
+[![Build Status](https://travis-ci.org/memtech/elvis.svg?branch=master)](https://travis-ci.org/memtech/elvis)
 
 ## Get started contributing
 * Install [NodeJS](http://nodejs.org/)

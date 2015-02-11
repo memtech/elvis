@@ -28,7 +28,7 @@ build:
 
 deploy:
   steps:
-    - heroku-deploy:
-        version: 2.0.0
-        # configurable on wercker under the settings tab
-        key-name: HEROKU_DEPLOY_KEY_PAIR
+    #- heroku-deploy:
+        #version: 2.0.0
+        ## configurable on wercker under the settings tab
+        #key-name: HEROKU_DEPLOY_KEY_PAIR
