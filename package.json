@@ -47,6 +47,6 @@
       "sinon": "~1.9.0"
     },
     "scripts": {
-      "test": "mocha ./spec --compilers coffee:coffee-script"
+      "test": "mocha -t 4000 ./spec --compilers coffee:coffee-script"
     }
 }
