@@ -18,14 +18,14 @@
 
 module.exports = (robot) ->
   channels = (process.env.COMMIT_LOG_CHANNELS || '').split(",") || []
-  werckerLink = "http://bit.ly/elvis-builds"
+  ciServiceLink = "https://travis-ci.org/memtech/elvis"
 
   sayIn = (channel, text) ->
     envelope = { room: channel }
     robot.send envelope, text
 
   parseCommit = (commit) ->
-    "New commit by [#{commit.author.username}]: #{commit.message} (#{commit.url}) Build logs: #{werckerLink}"
+    "New commit by [#{commit.author.username}]: #{commit.message} (#{commit.url}) Build logs: #{ciServiceLink}"
 
   robot.router.post "/hubot/commit-webhook", (req, res) ->
     commits = req.body.commits

@@ -31,10 +31,10 @@ module.exports = (robot) ->
       triggers: [/(regex|regular expression)/i]
       responses: ["How to regex: http://www.regular-expressions.info/quickstart.html << Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems. - jwz"]
 
-    # check elvis wercker logs
+    # check elvis build logs
     help
-      triggers: [/build logs|build history|builds|wercker/i]
-      responses: ["http://bit.ly/elvis-builds"]
+      triggers: [/build logs|build history|builds|travis/i]
+      responses: ["https://travis-ci.org/memtech/elvis"]
 
     # Link to IRC stats
     help
