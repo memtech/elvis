@@ -3,14 +3,23 @@
 `mkdir -p ./log`
 LOGFILENAME = "./log/errors.log"
 
+def acceptable_errors
+  %w[ECONNREFUSED]
+end
+
 def main
-  start_headless_bot!
+  run_headless_bot!
 
-  sleep 5
-
+  # load up error log
   results = open(LOGFILENAME).readlines.join
-  errors = results.scan(/error/i)
+  errors  = results.scan(/error.*/i)
 
+  # prune uninteresting errors
+  acceptable_errors.each do |err|
+    errors.reject! { |e| e =~ Regexp.new(err, 'i') }
+  end
+
+  # bail on interesting errors
   if errors.any?
     puts "** FATAL! **"
     puts "Error count: #{errors.count}\n\n"
@@ -20,9 +29,17 @@ def main
   end
 end
 
-def start_headless_bot!
+def run_headless_bot!
+  # start
   puts "Starting headless bot..."
-  IO::popen("./bin/hubot > #{LOGFILENAME}")
+  process = IO::popen("./bin/hubot > #{LOGFILENAME}", 'r+')
+
+  # wait to see if anything breaks
+  sleep 5
+
+  # die
+  process.write("exit")
+  process.close_write
 end
 
 main
