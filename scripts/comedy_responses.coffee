@@ -270,3 +270,8 @@ module.exports = (robot) ->
     joke
       triggers: [/(drama counter|days since last drama)/i]
       responses: ["Days since last #memtech drama incident: 0"]
+
+    # zorro
+    joke
+      triggers: [/(zorro|gay blade)/i]
+      responses: ["Meltheous is the gay blade! http://i.imgur.com/L3wS3SO.png"]
