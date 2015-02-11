@@ -40,7 +40,8 @@ module.exports = (robot) ->
     joke
       note:     'Sick burn!'
       triggers:  [/sick burn/i, /oh burn/i]
-      responses: ["http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg"]
+      responses: ["http://zerowoes.com/wp-content/uploads/2014/01/hqdefault.jpg",
+        "http://i.imgur.com/qf91FrW.jpg"]
 
     joke
       triggers:  [/lolwut/i, /lol wut/i]
