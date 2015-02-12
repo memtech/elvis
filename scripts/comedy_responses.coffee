@@ -280,4 +280,4 @@ module.exports = (robot) ->
     # php famous  
     joke
       triggers: [/php famous/i]
-      responses: ["http://i.imgur.com/917zAnf.jpg"]
+      responses: ["http://i.imgur.com/917zAnf.jpg words and music by gpspake"]
