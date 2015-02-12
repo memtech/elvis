@@ -276,3 +276,8 @@ module.exports = (robot) ->
     joke
       triggers: [/(zorro|gay blade)/i]
       responses: ["Meltheous is the gay blade! http://i.imgur.com/L3wS3SO.png"]
+     
+    # php famous  
+    joke
+      triggers: [/php famous/i]
+      responses: ["http://i.imgur.com/917zAnf.jpg"]
