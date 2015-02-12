@@ -197,7 +197,7 @@ module.exports = (robot) ->
 
     # bgswanson is heisenberg
     joke
-      triggers: [/(heisenberg|you're right)/i]
+      triggers: [/(heisenberg|you're right|you're goddamn right)/i]
       responses: ["http://i.imgur.com/Erj8ka3.jpg"]
 
     # swag
