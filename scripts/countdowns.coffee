@@ -40,6 +40,7 @@ module.exports = (robot) ->
   ###########################
   # Countdowns!
   ###########################
+  # timestamp docs: http://momentjs.com/docs/
 
   countdownTo
     title:    "GiveCamp Memphis"
