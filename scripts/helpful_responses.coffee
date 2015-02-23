@@ -40,3 +40,8 @@ module.exports = (robot) ->
     help
       triggers: [/stats$|irc stats$/i]
       responses: ["http://www.joeferguson.me/ircstats/memtech.htm"]
+
+    # unofficial community standards
+    help
+      triggers: [/CoC|community standards|code of conduct|guidelines/i]
+      responses: ["https://github.com/memtech/community-guidelines/issues/1"]
