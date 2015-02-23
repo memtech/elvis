@@ -20,24 +20,20 @@
 # Contributors:
 #   Benjamin Eidelman (@beneidel)
 
-bartleby = "I would prefer not to."
-
 module.exports = (robot) ->
 
   prune = (text) ->
     text.replace(/\s+/g, ' ').substr(0,400)
 
   robot.respond /(urban)( define)?( example)?( me)? (.*)/i, (msg) ->
-    urbanDict msg, msg.match[5], (found, entry, sounds) ->
-      if !found
-        msg.send bartleby
+    robot.noCanDo(msg)
+    #urbanDict msg, msg.match[5], (found, entry, sounds) ->
+      #if !found
         #msg.send "\"#{msg.match[5]}\" not found"
-        return
-      if msg.match[3]
-        msg.send bartleby
+        #return
+      #if msg.match[3]
         #msg.send "#{prune entry.example}"
-      else
-        msg.send bartleby
+      #else
         #msg.send "#{prune entry.definition}"
 
 urbanDict = (msg, query, callback) ->
