@@ -7,13 +7,17 @@
 #   hubot mustache me <url> - Adds a mustache to the specified URL.
 #   hubot mustache me <query> - Searches Google Images for the specified query and mustaches it.
 
+bartleby = "I would prefer not to."
+
 module.exports = (robot) ->
   robot.respond /(image|img)( me)? (.*)/i, (msg) ->
     imageMe msg, msg.match[3], (url) ->
+      msg.send bartleby
       #msg.send url
 
   robot.respond /animate( me)? (.*)/i, (msg) ->
     imageMe msg, msg.match[2], true, (url) ->
+      msg.send bartleby
       #msg.send url
 
   robot.respond /(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)/i, (msg) ->
@@ -22,9 +26,11 @@ module.exports = (robot) ->
     imagery = msg.match[1]
 
     if imagery.match /^https?:\/\//i
+        msg.send bartleby
       #msg.send "#{mustachify}#{imagery}"
     else
       imageMe msg, imagery, false, true, (url) ->
+        msg.send bartleby
         #msg.send "#{mustachify}#{url}"
 
 imageMe = (msg, query, animated, faces, cb) ->
