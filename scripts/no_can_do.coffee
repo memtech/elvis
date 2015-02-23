@@ -22,6 +22,7 @@ module.exports = (robot) ->
          "I would prefer not to.",
          "I'm sorry #{userName}, I'm afraid I can't do that.",
          "Cake, and grief counseling, will be available at the conclusion of the test.",
+         "Did you know you can donate one or all of your vital organs to the Aperture Science Self Esteem Fund for Girls? It's true!",
         ]
 
       msg.send msg.random(responses)
