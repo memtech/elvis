@@ -5,3 +5,4 @@ node_modules/*
 .DS_Store
 .vagrant
 npm-debut.log
+.hubot_history

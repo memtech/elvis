@@ -30,6 +30,9 @@ RedisStorage = require './redis-storage'
 
 module.exports = (robot) ->
 
+  markovEnabled =
+    process.env.ALLOW_MARKOV? and process.env.ALLOW_MARKOV.toLowerCase().trim() is "true"
+
   # Configure redis the same way that redis-brain does.
   info = Url.parse process.env.REDISTOGO_URL or
     process.env.REDISCLOUD_URL or
@@ -59,6 +62,8 @@ module.exports = (robot) ->
 
   # Generate markov chains on demand, optionally seeded by some initial state.
   robot.respond /markov(\s+(.+))?$/i, (msg) ->
-    robot.noCanDo(msg)
-    #model.generate msg.match[2] or '', max, (text) =>
-      #msg.send text
+    unless markovEnabled is true
+      return robot.noCanDo(msg)
+    else
+      model.generate msg.match[2] or '', max, (text) =>
+        msg.send text
