@@ -4,7 +4,7 @@
 LOGFILENAME = "./log/errors.log"
 
 def acceptable_errors
-  ["ECONNREFUSED", "RedisClient.on_error"]
+  []
 end
 
 def main
@@ -23,6 +23,7 @@ def main
   if errors.any?
     puts "** FATAL! **"
     puts "Error count: #{errors.count}\n\n"
+    puts "Error count:\n\t #{errors.join("\t\n")}\n\n"
     puts results
 
     exit 1
