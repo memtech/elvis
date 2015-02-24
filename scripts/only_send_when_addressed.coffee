@@ -34,7 +34,7 @@ module.exports = (robot) ->
     msgPrototype.sendsWell   = true
 
   # Register this at runtime upon the very first overheard bit of chat
-  robot.hear /(.*)/, (msg) ->
+  robot.respond /(.*)/, (msg) ->
     msgProto = Object.getPrototypeOf(msg)
     return if msgProto.sendsWell
 

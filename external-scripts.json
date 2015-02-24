@@ -1,1 +1,4 @@
-["hubot-brain-redis-hash"]
+[
+  "hubot-brain-redis-hash",
+  "hubot-markov"
+]
