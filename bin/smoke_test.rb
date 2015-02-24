@@ -4,7 +4,7 @@
 LOGFILENAME = "./log/errors.log"
 
 def acceptable_errors
-  %w[ECONNREFUSED]
+  ["ECONNREFUSED", "RedisClient.on_error"]
 end
 
 def main
