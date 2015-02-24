@@ -15,7 +15,6 @@
 module.exports = (robot) ->
   robot.noCanDo = (msg) ->
       userName = msg.message.user.name
-      console.log msg.user
 
       responses =
         [
