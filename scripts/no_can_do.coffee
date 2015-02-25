@@ -23,4 +23,4 @@ module.exports = (robot) ->
          "Cake, and grief counseling, will be available at the conclusion of the test.",
         ]
 
-      msg.send msg.random(responses)
+      msg.send "#{msg.random(responses)} ( ͡° ͜ʖ ͡°)"
