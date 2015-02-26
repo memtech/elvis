@@ -60,8 +60,30 @@ module.exports = (robot) ->
 
     model.learn msg.message.text
 
+  usernames = ->
+    users = Object.keys(robot.brain.data.users)
+    (robot.slugify(name) for name in users)
+
+  isUser = (token) ->
+    token = robot.slugify(token)
+    usernames().indexOf(token) isnt -1
+
+  stripUserNames = (text) ->
+    safeWords = (word for word in text.split() when isUser(word) is false)
+    safeWords.join(' ')
+
+  debug = (msg) ->
+    console.log "debug()"
+    console.log msg.random(usernames())
+    console.log stripUserNames("dpritchett is a jerk")
+
   # Generate markov chains on demand, optionally seeded by some initial state.
+  # omits usernames because that would get annoying
   robot.respond /markov(\s+(.+))?$/i, (msg) ->
+    debug msg
+
     model.generate msg.match[2] or '', max, (text) =>
       robot.safify msg, ->
+        text = stripUserNames(text)
+        text = "Nah." if (text.length is 0)
         msg.send text

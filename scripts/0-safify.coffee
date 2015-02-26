@@ -3,14 +3,11 @@
 #   to certain channels/rooms
 
 module.exports = (robot) ->
-  slugify = (str) ->
-    str.toLowerCase().replace(/\W+/g, " ")
-
   explicitRoomsRaw = ("#{process.env.EXPLICIT_ROOMS || ''}").split ','
-  explicitRooms = (slugify(room) for room in explicitRoomsRaw when room.length isnt 0)
+  explicitRooms = (robot.slugify(room) for room in explicitRoomsRaw when room.length isnt 0)
 
   roomIsNaughty = (msg) ->
-    room = slugify(msg.message.room || '')
+    room = robot.slugify(msg.message.room || '')
     explicitRooms.indexOf(room) isnt -1
 
   thisIsntIrc = (msg) ->
