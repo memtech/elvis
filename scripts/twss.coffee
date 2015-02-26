@@ -36,4 +36,4 @@ module.exports = (robot) ->
   robot.respond /twss|what she said/i, (msg) ->
     robot.safify msg, ->
       quote = quotes[Math.floor(Math.random()*quotes.length)]
-      msg.reply quote unless randomMute(0)
+      msg.send quote unless randomMute(0)

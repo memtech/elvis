@@ -36,4 +36,4 @@ module.exports = (robot) ->
          "Cake, and grief counseling, will be available at the conclusion of the test.",
         ]
 
-      msg.reply "#{msg.random(responses)} ( ͡° ͜ʖ ͡°)"
+      msg.reply "#{msg.random(responses)} [This command works in #memtechafterdark though]"

@@ -19,10 +19,10 @@ module.exports = (robot) ->
           videos = videos.feed.entry
 
           unless videos?
-            msg.reply "No video results for \"#{query}\""
+            msg.send "No video results for \"#{query}\""
             return
 
           video  = msg.random videos
           video.link.forEach (link) ->
             if link.rel is "alternate" and link.type is "text/html"
-              msg.reply link.href
+              msg.send link.href
