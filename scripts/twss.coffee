@@ -34,6 +34,6 @@ module.exports = (robot) ->
     quotes = body.split("\n")
 
   robot.respond /twss|what she said/i, (msg) ->
-    robot.noCanDo(msg)
-    #quote = quotes[Math.floor(Math.random()*quotes.length)]
-    #msg.send quote unless randomMute(0)
+    robot.safify msg, ->
+      quote = quotes[Math.floor(Math.random()*quotes.length)]
+      msg.send quote unless randomMute(0)

@@ -26,15 +26,15 @@ module.exports = (robot) ->
     text.replace(/\s+/g, ' ').substr(0,400)
 
   robot.respond /(urban)( define)?( example)?( me)? (.*)/i, (msg) ->
-    robot.noCanDo(msg)
-    #urbanDict msg, msg.match[5], (found, entry, sounds) ->
-      #if !found
-        #msg.send "\"#{msg.match[5]}\" not found"
-        #return
-      #if msg.match[3]
-        #msg.send "#{prune entry.example}"
-      #else
-        #msg.send "#{prune entry.definition}"
+    robot.safify msg, ->
+      urbanDict msg, msg.match[5], (found, entry, sounds) ->
+        if !found
+          msg.send "\"#{msg.match[5]}\" not found"
+          return
+        if msg.match[3]
+          msg.send "#{prune entry.example}"
+        else
+          msg.send "#{prune entry.definition}"
 
 urbanDict = (msg, query, callback) ->
   msg.http("http://api.urbandictionary.com/v0/define?term=#{escape(query)}")
