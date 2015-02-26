@@ -14,7 +14,7 @@ module.exports = (robot) ->
     explicitRooms.indexOf(room) isnt -1
 
   thisIsntIrc = (msg) ->
-    room = slugify(msg.message.room || '')
+    room = (msg.message.room || '')
     room.indexOf('#') is -1
 
   debug = (msg) ->
