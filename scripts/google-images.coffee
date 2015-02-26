@@ -9,26 +9,26 @@
 
 module.exports = (robot) ->
   robot.respond /(image|img)( me)? (.*)/i, (msg) ->
-    robot.noCanDo(msg)
-    #imageMe msg, msg.match[3], (url) ->
-      #msg.send url
+    robot.safify msg, ->
+      imageMe msg, msg.match[3], (url) ->
+        msg.send url
 
   robot.respond /animate( me)? (.*)/i, (msg) ->
-    robot.noCanDo(msg)
-    #imageMe msg, msg.match[2], true, (url) ->
-      #msg.send url
+    robot.safify msg, ->
+      imageMe msg, msg.match[2], true, (url) ->
+        msg.send url
 
   robot.respond /(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)/i, (msg) ->
-    robot.noCanDo(msg)
-    #type = Math.floor(Math.random() * 6)
-    #mustachify = "http://mustachify.me/#{type}?src="
-    #imagery = msg.match[1]
-
-    #if imagery.match /^https?:\/\//i
-      #msg.send "#{mustachify}#{imagery}"
-    #else
-      #imageMe msg, imagery, false, true, (url) ->
-        #msg.send "#{mustachify}#{url}"
+    robot.safify msg, ->
+      type = Math.floor(Math.random() * 6)
+      mustachify = "http://mustachify.me/#{type}?src="
+      imagery = msg.match[1]
+  
+      if imagery.match /^https?:\/\//i
+        msg.send "#{mustachify}#{imagery}"
+      else
+        imageMe msg, imagery, false, true, (url) ->
+          msg.send "#{mustachify}#{url}"
 
 imageMe = (msg, query, animated, faces, cb) ->
   cb = animated if typeof animated == 'function'
