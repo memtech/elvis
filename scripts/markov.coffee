@@ -64,4 +64,4 @@ module.exports = (robot) ->
   robot.respond /markov(\s+(.+))?$/i, (msg) ->
     model.generate msg.match[2] or '', max, (text) =>
       robot.safify msg, ->
-        msg.send text
+        msg.reply text

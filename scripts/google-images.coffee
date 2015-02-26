@@ -11,12 +11,12 @@ module.exports = (robot) ->
   robot.respond /(image|img)( me)? (.*)/i, (msg) ->
     robot.safify msg, ->
       imageMe msg, msg.match[3], (url) ->
-        msg.send url
+        msg.reply url
 
   robot.respond /animate( me)? (.*)/i, (msg) ->
     robot.safify msg, ->
       imageMe msg, msg.match[2], true, (url) ->
-        msg.send url
+        msg.reply url
 
   robot.respond /(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)/i, (msg) ->
     robot.safify msg, ->
@@ -25,10 +25,10 @@ module.exports = (robot) ->
       imagery = msg.match[1]
   
       if imagery.match /^https?:\/\//i
-        msg.send "#{mustachify}#{imagery}"
+        msg.reply "#{mustachify}#{imagery}"
       else
         imageMe msg, imagery, false, true, (url) ->
-          msg.send "#{mustachify}#{url}"
+          msg.reply "#{mustachify}#{url}"
 
 imageMe = (msg, query, animated, faces, cb) ->
   cb = animated if typeof animated == 'function'
