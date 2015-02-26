@@ -63,8 +63,5 @@ module.exports = (robot) ->
   # Generate markov chains on demand, optionally seeded by some initial state.
   robot.respond /markov(\s+(.+))?$/i, (msg) ->
     model.generate msg.match[2] or '', max, (text) =>
-      unless markovEnabled is true
-        console.log text
-        return robot.noCanDo(msg)
-      else
+      robot.safify msg, ->
         msg.send text

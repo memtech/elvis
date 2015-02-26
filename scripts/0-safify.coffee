@@ -6,16 +6,21 @@ module.exports = (robot) ->
   slugify = (str) ->
     str.toLowerCase().replace(/\W+/g, " ")
 
-  explicitRoomsRaw = ("#{process.env.EXPLICIT_ROOMS}," || ",").split ','
+  explicitRoomsRaw = ("#{process.env.EXPLICIT_ROOMS || ''}").split ','
   explicitRooms = (slugify(room) for room in explicitRoomsRaw when room.length isnt 0)
 
   roomIsNaughty = (msg) ->
     explicitRooms.indexOf(slugify(msg.message.room)) isnt -1
 
-  robot.safify = (msg, fn)->
-    console.log "Whitelisted rooms: #{explicitRooms}"
+  thisIsntIrc = ->
+    canary = robot.sendPrivate is undefined
+    console.log("This isn't IRC!") if canary
+    canary
 
-    if roomIsNaughty(msg)
+  robot.safify = (msg, fn)->
+    console.log "Whitelisted rooms: #{explicitRooms.join(', ')}"
+
+    if roomIsNaughty(msg) or thisIsntIrc()
         fn()
     else
         userName = msg.message.user.name
