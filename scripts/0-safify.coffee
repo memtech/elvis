@@ -2,20 +2,23 @@
 #   Add a shared function to wrap NSFW functions to limit output
 #   to certain channels/rooms
 
+require "./slugify"
+
 module.exports = (robot) ->
-  explicitRoomsRaw = ("#{process.env.EXPLICIT_ROOMS || ''}").split ','
-  explicitRooms = (robot.slugify(room) for room in explicitRoomsRaw when room.length isnt 0)
+  explicitRooms = ->
+    explicitRoomsRaw = ("#{process.env.EXPLICIT_ROOMS || ''}").split ','
+    (robot.slugify(room) for room in explicitRoomsRaw when room.length isnt 0)
 
   roomIsNaughty = (msg) ->
     room = robot.slugify(msg.message.room || '')
-    explicitRooms.indexOf(room) isnt -1
+    explicitRooms().indexOf(room) isnt -1
 
   thisIsntIrc = (msg) ->
     room = (msg.message.room || '')
     room.indexOf('#') is -1
 
   debug = (msg) ->
-    console.log "Whitelisted rooms:\t#{explicitRooms.join(', ')}"
+    console.log "Whitelisted rooms:\t#{explicitRooms().join(', ')}"
     console.log "Is this a naughty room?:\t#{roomIsNaughty(msg)}"
     console.log "Is this a non-IRC session?:\t#{thisIsntIrc(msg)}"
 
