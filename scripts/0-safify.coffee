@@ -10,17 +10,21 @@ module.exports = (robot) ->
   explicitRooms = (slugify(room) for room in explicitRoomsRaw when room.length isnt 0)
 
   roomIsNaughty = (msg) ->
-    explicitRooms.indexOf(slugify(msg.message.room)) isnt -1
+    (explicitRooms.indexOf(slugify(msg.message.room)) isnt -1)
 
-  thisIsntIrc = ->
-    canary = robot.sendPrivate is undefined
-    console.log("This isn't IRC!") if canary
-    canary
+  thisIsntIrc = (msg) ->
+    msg.message.room.indexOf('#') is -1
+
+  debug = (msg) ->
+    console.log "Is this a naughty room?:\t#{roomIsNaughty(msg)}"
+    console.log "Is this a non-IRC session?:\t#{thisIsntIrc(msg)}"
 
   robot.safify = (msg, fn)->
     console.log "Whitelisted rooms: #{explicitRooms.join(', ')}"
 
-    if roomIsNaughty(msg) or thisIsntIrc()
+    debug msg
+
+    if roomIsNaughty(msg) or thisIsntIrc(msg)
         fn()
     else
         userName = msg.message.user.name
