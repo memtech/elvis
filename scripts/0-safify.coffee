@@ -16,12 +16,11 @@ module.exports = (robot) ->
     msg.message.room.indexOf('#') is -1
 
   debug = (msg) ->
+    console.log "Whitelisted rooms:\t#{explicitRooms.join(', ')}"
     console.log "Is this a naughty room?:\t#{roomIsNaughty(msg)}"
     console.log "Is this a non-IRC session?:\t#{thisIsntIrc(msg)}"
 
   robot.safify = (msg, fn)->
-    console.log "Whitelisted rooms: #{explicitRooms.join(', ')}"
-
     debug msg
 
     if roomIsNaughty(msg) or thisIsntIrc(msg)
