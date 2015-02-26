@@ -21,7 +21,7 @@ module.exports = (robot) ->
   # convenience machinery
   ###############################
 
-  DEFAULT_CHANCE_TO_SKIP = 93 # hi joe
+  DEFAULT_CHANCE_TO_SKIP = 50
 
   messageIsDirect = (msg) ->
     msg.message.text.match(new RegExp(robot.name, 'i'))
@@ -66,7 +66,7 @@ module.exports = (robot) ->
 
     for trigger in args.triggers
       robot.respond trigger, respondAlways
-      robot.respond    trigger, respondSometimes
+      robot.hear    trigger, respondSometimes
 
   robot.registerHelpfulResponder = (args) ->
     args.chanceToSkip = 100
