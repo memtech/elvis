@@ -17,7 +17,7 @@ module.exports = (robot) ->
   noisyRooms = (slugify(room) for room in noisyRoomsRaw when room.length isnt 0)
 
   roomIsNoisy = (room) ->
-    slugify(room) in noisyRooms
+    (room is undefined) || (slugify(room) in noisyRooms)
 
   filterNoise = (originalFn) ->
     (envelope, strings...) ->
