@@ -281,3 +281,8 @@ module.exports = (robot) ->
     joke
       triggers: [/php famous/i]
       responses: ["http://i.imgur.com/917zAnf.jpg"]
+      
+    # what is best in life?
+    joke
+      triggers: [/what is best in life(\?|\!)*/i]
+      responses: ["To crush your enemies, to see them driven before you, and to hear the lamentations of their women!"]
