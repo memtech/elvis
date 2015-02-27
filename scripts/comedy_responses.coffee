@@ -241,7 +241,7 @@ module.exports = (robot) ->
 
     # que?
     joke
-      triggers: [/(que|que\?)/i]
+      triggers: [/\b(que|que\?)\b/i]
       responses: ["http://i.imgur.com/7qNTrHN.jpg"]
 
     # yip yip
