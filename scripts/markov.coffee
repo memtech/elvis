@@ -87,3 +87,8 @@ module.exports = (robot) ->
         text = stripUserNames(text)
         text = "Nah." if (text.length is 0)
         msg.send text
+
+  robot.respond /tech support/i, (msg) ->
+    seeds = ["server", "windows", "programming", "computer"]
+    model.generate msg.random(seeds), max, (text) =>
+      msg.send text
