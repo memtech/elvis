@@ -28,7 +28,7 @@ module.exports = (robot) ->
     headers:
       "User-Agent": 'memtech-Elvis'   # cheezburger hates the default UA string
 
-  robot.respond /meme (.*)/i, (msg) ->
+  memeLookup = (msg) ->
     terms     = msg.match[1]
     lookupUrl = "#{rootUrl}/search?q=#{terms}"
     opts      = lookupOpts(lookupUrl)
@@ -47,3 +47,7 @@ module.exports = (robot) ->
         description = $(".bodycopy p").text()
 
         msg.send prune(detailUrl + " " + description)
+
+  robot.respond /meme (.*)/i, (msg) ->
+    robot.safify msg, ->
+      memeLookup(msg)
