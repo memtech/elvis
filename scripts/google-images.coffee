@@ -20,7 +20,7 @@ module.exports = (robot) ->
         
   robot.respond /(beard me|whois r_kelly_clarkson)(.*)/i, (msg) ->
     robot.safify msg, ->
-      imageMe msg, "beard", true, (url) ->
+      imageMe msg, "beard", false, (url) ->
         msg.send url
 
   robot.respond /(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)/i, (msg) ->
