@@ -214,6 +214,10 @@ setupResponder = (robot, meme) ->
     generateMeme msg, meme.template_id,
       [meme.line1Before, msg.match[1], meme.line1After].join(' ').trim(),
       [meme.line2Before, msg.match[2], meme.line2After].join(' ').trim()
+  robot.hear meme.regex, (msg) ->
+    generateMeme msg, meme.template_id,
+      [meme.line1Before, msg.match[1], meme.line1After].join(' ').trim(),
+      [meme.line2Before, msg.match[2], meme.line2After].join(' ').trim()
 
 generateMeme = (msg, template_id, text0, text1) ->
   username = process.env.IMGFLIP_API_USERNAME
