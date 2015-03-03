@@ -17,6 +17,11 @@ module.exports = (robot) ->
     robot.safify msg, ->
       imageMe msg, msg.match[2], true, (url) ->
         msg.send url
+        
+  robot.respond /(beard me|whois r_kelly_clarkson)(.*)/i, (msg) ->
+    robot.safify msg, ->
+      imageMe msg, "beard", true, (url) ->
+        msg.send url
 
   robot.respond /(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)/i, (msg) ->
     robot.safify msg, ->
