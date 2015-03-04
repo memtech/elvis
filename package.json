@@ -24,7 +24,6 @@
     "cheerio": "0.10.7",
     "cleverbot-node": "0.1.1",
     "echonest": "0.0.3",
-    "handlebars": "1.0.5beta",
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-brain-redis-hash": "^0.1.1",
     "hubot-irc": "^0.2.7",
