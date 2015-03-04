@@ -210,10 +210,6 @@ module.exports = (robot) ->
     setupResponder robot, meme
 
 setupResponder = (robot, meme) ->
-  robot.respond meme.regex, (msg) ->
-    generateMeme msg, meme.template_id,
-      [meme.line1Before, msg.match[1], meme.line1After].join(' ').trim(),
-      [meme.line2Before, msg.match[2], meme.line2After].join(' ').trim()
   robot.hear meme.regex, (msg) ->
     generateMeme msg, meme.template_id,
       [meme.line1Before, msg.match[1], meme.line1After].join(' ').trim(),
