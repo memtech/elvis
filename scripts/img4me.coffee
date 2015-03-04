@@ -16,11 +16,16 @@ request = require 'request'
 
 module.exports = (robot) ->
   robot.pngifyText = (longText, title, msg) ->
-    
-      # customize the requests at http://img4me.com/developer
-      apiUrl = "http://api.img4me.com/?bcolor=FFFFFF&font=comic&"
 
-      request.get {url: apiUrl, qs: {text: longText}},
+      # customize the requests at http://img4me.com/developer
+      apiUrl = "http://api.img4me.com/"
+      query =
+        bcolor: 'FFFFFF'
+        font:   'comic'
+        size:   '10'
+        text:   longText.trim()
+
+      request.get {url: apiUrl, qs: query},
         (error, response, body) ->
           throw error if error
 

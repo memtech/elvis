@@ -74,7 +74,7 @@ lookupForecast = (msg, coords, err) ->
       minTemp = getTemp data.temperatureMin
 
       text += "#{weekday} #{month}/#{day} - High of #{maxTemp}, low of: #{minTemp} "
-      text += "#{data.summary} #{humidity}% humidity\n"
+      text += "#{data.summary} #{humidity}% humidity\r\n"
       text
 
     text = appendText text, today
