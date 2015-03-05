@@ -4,6 +4,7 @@
   "achievement_unlocked.coffee",
   "dice.coffee",
   "eight-ball.coffee",
+  "giphy.coffee",
   "lmgtfy.coffee",
   "redis-brain.coffee",
   "ruby.coffee"
