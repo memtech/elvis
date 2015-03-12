@@ -58,3 +58,9 @@ module.exports = (robot) ->
     title:    "Christmas"
     date:     '2014-12-25'
     trigger:  /days until christmas|christmas/i
+    
+  countdownTo
+    title:    "MidsouthCon"
+    date:     "2015-3-20 17:00"
+    link:     "http://www.midsouthcon.org"
+    trigger:  /days until midsouthcon|midsouthcon/i
