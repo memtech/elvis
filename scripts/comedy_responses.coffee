@@ -286,3 +286,8 @@ module.exports = (robot) ->
     joke
       triggers: [/what is best in life(\?|\!)*/i]
       responses: ["To crush your enemies, to see them driven before you, and to hear the lamentations of their women!"]
+
+    # raptor golang
+    joke
+      triggers: [/(golang|gopher)/i]
+      responses: ["Goper Lunch! http://i.imgur.com/CyQYinp.gif"]
