@@ -291,3 +291,8 @@ module.exports = (robot) ->
     joke
       triggers: [/(golang|gopher)/i]
       responses: ["Goper Lunch! http://i.imgur.com/CyQYinp.gif"]
+
+    # unix covenant
+    joke
+      triggers: [/unix/i]
+      responses: ["http://media3.giphy.com/media/qIues2j3gHHGw/giphy.gif"]
