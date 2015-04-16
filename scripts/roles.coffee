@@ -25,25 +25,25 @@ module.exports = (robot) ->
 
     helptext = "An IRC bot!  Contribute at https://github.com/memtech/elvis"
 
-    if name is "you"
-      msg.send helptext
-    else if name.toLowerCase() is robot.name.toLowerCase()
-      msg.send helptext
-    else
-      users = robot.brain.usersForFuzzyName(name)
-      if users.length is 1
-        user = users[0]
-        user.roles = user.roles or [ ]
-        if user.roles.length > 0
-          if user.roles.join('').search(',') > -1
-            joiner = '; '
-          msg.send "#{name} is #{user.roles.join(joiner)}."
-        else
-          msg.send "#{name} is nothing to me."
-      else if users.length > 1
-        msg.send getAmbiguousUserText users
+    #if name is "you"
+      #msg.send helptext
+    #else if name.toLowerCase() is robot.name.toLowerCase()
+      #msg.send helptext
+    #else
+    users = robot.brain.usersForFuzzyName(name)
+    if users.length is 1
+      user = users[0]
+      user.roles = user.roles or [ ]
+      if user.roles.length > 0
+        if user.roles.join('').search(',') > -1
+          joiner = '; '
+        msg.send "#{name} is #{user.roles.join(joiner)}."
       else
-        msg.send "#{name}? Never heard of 'em"
+        msg.send "#{name} is nothing to me."
+    else if users.length > 1
+      msg.send getAmbiguousUserText users
+    else
+      msg.send "#{name}? Never heard of 'em"
 
   robot.respond /@?([\w. \-_]+) is (["'\w: \-_]+)[.!]*$/i, (msg) ->
     name    = msg.match[1].trim()
