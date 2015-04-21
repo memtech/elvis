@@ -296,3 +296,8 @@ module.exports = (robot) ->
     joke
       triggers: [/unix/i]
       responses: ["http://media3.giphy.com/media/qIues2j3gHHGw/giphy.gif"]
+
+    # party hard  party hard  party hard  party hard 
+    joke
+      triggers: [/party hard/i]
+      responses: ["https://www.youtube.com/watch?v=5ztTZ_7wtVo"]
