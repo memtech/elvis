@@ -81,7 +81,7 @@ module.exports = (robot) ->
 
     # :| Ostrich!
     joke
-      triggers: [/:|/i, /ostrich/i]
+      triggers: [/ostrich/i]
       responses: ["http://i.imgur.com/I7h5AA6.jpg"]
       
     # Disappointed lance
