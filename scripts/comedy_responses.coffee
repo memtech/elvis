@@ -86,8 +86,13 @@ module.exports = (robot) ->
       
     # Disappointed lance
     joke
-      triggers: [/disappointed/i, /disappointed lance/i]
+      triggers: [/disappointed/i, /facepalm/i, /disappointed lance/i]
       responses: ["http://i.imgur.com/GhWPSSR.jpg"]
+
+    # more lance
+    joke
+      triggers: [/more lance/i]
+      responses: ["http://i.imgur.com/jQogub9.jpg"]
 
     # Objection!
     joke
