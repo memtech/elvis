@@ -74,6 +74,21 @@ module.exports = (robot) ->
         "http://i.imgur.com/S2qngvc.jpg",
         "http://i.imgur.com/DB0qC4d.jpg" ]
 
+    # Why
+    joke
+      triggers: [/why/i]
+      responses: ["https://vine.co/v/OEZ6mg32MQt"]
+
+    # :| Ostrich!
+    joke
+      triggers: [/:|/i, /ostrich/i]
+      responses: ["http://i.imgur.com/I7h5AA6.jpg"]
+      
+    # Disappointed lance
+    joke
+      triggers: [/disappointed/i, /disappointed lance/i]
+      responses: ["http://i.imgur.com/GhWPSSR.jpg"]
+
     # Objection!
     joke
       triggers: [/objection!/i, /i object/i]
