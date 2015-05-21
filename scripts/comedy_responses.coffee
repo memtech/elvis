@@ -74,6 +74,11 @@ module.exports = (robot) ->
         "http://i.imgur.com/S2qngvc.jpg",
         "http://i.imgur.com/DB0qC4d.jpg" ]
 
+    # Deal with it
+    joke
+      triggers: [/deal with it/i]
+      responses: ["http://www.gsandf.com/img/people/jeff_boshers-607e3816.gif"]
+
     # Why
     joke
       triggers: [/why/i]
