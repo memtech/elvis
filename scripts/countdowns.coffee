@@ -67,6 +67,6 @@ module.exports = (robot) ->
     
   countdownTo
     title:    "SuperLunch"
-    date:     "2015-5-29 11:30"
+    date:     "2015-11-25 11:30"
     link:     "http://www.meetup.com/memphis-technology-user-groups/events/221552581/"
     trigger:  /days until superlunch|superlunch/i
