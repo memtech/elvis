@@ -326,3 +326,8 @@ module.exports = (robot) ->
     joke
       triggers: [/party hard/i]
       responses: ["https://www.youtube.com/watch?v=5ztTZ_7wtVo"]
+    
+    # jelly
+    joke
+      triggers: [/jelly/i]
+      responses: ["https://s-media-cache-ak0.pinimg.com/736x/90/43/46/904346164bd4a464073c4d1a68a9abe3.jpg"]
