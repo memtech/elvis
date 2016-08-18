@@ -12,7 +12,7 @@
 
 #Collect a random number of balls
 #50% chance of getting all 7!
-collectBalls = () ->
+collectBalls = ->
   checkEm = Math.floor(Math.random() * 2) + 1, #rando between 1 and 2
   balls = 0;
 
@@ -63,7 +63,7 @@ fusRoDah = (count) ->
 
   response
 
-grantWish = () ->
+grantWish = ->
   balls = collectBalls        #how many balls are we working with here?
   ballSack = sackBalls(balls) #emoji string
   response = fusRoDah(balls)  #what does the dragon say? (ring ding ding...)
