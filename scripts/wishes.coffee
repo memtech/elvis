@@ -1,30 +1,16 @@
-# Description:
-#   A handy little hubot script that grants wishes to anyone who can collect all 7 Dragon Balls
-#
-# Dependencies:
-#   None
-#
-# Configuration:
-#   None
-#
-# Commands:
-#   hubot I wish ? - The dragon will grant your wish if you've collected all the dragon balls
-
-#Collect a random number of balls
-#50% chance of getting all 7!
 collectBalls = ->
-  checkEm = Math.floor(Math.random() * 2) + 1, #rando between 1 and 2
-  balls = 0;
+  checkEm = Math.floor(Math.random() * 2) + 1 #rando between 1 and 2
+  balls = 0
 
   #here's that 50% chance to win part
   if (checkEm == 2)
-    balls = 7;
+    balls = 7
   else
-    balls = Math.floor(Math.random() * 6) + 1; #losers get a rando between 1 and 6
+    balls = Math.floor(Math.random() * 6) + 1 #losers get a rando between 1 and 6
 
   balls
-
-#Place Dragon Ball emojis in a container of some sort
+  
+  #Place Dragon Ball emojis in a container of some sort
 #Give me your number and I'll give you a string
 sackBalls = (count) ->
   ballsEmojis = ""
